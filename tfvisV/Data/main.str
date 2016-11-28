@@ -1,0 +1,14 @@
+100,221,#args,##  public static void main(String[] args){#
+10,###    Ary ary=new Ary (7);#
+250,###    ary.setValue(3);#
+250,###    ary.setValue(0);#
+250,###    ary.setValue(4);#
+250,###    ary.setValue(7);#
+250,###    ary.setValue(2);#
+200,250,#min,##    int min=ary.getMin();#
+999,##min,#    System.out.println("Å¬’l>>"+min);#
+200,250,#max,##    int max=ary.getMax();#
+999,##max,#    System.out.println("Å‘å’l>>"+max);#
+200,250,#ave,##    int ave=ary.getAve();#
+999,##ave,#    System.out.println("•½‹Ï’l>>"+ave);#
+101,###    }#

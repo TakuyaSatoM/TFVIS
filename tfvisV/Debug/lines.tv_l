@@ -1,0 +1,22 @@
+21#
+0  #4 #0 #               #               #               # public class main {#
+1  #7 #1 #               #               #               # public static void main ( String [ ] args ) {#
+2  #9 #2 #data/95/1      #data/          #               # int [ ] ^*U = { 4 , 7 , 10 , 2 , 5 } ;#
+3  #2 #3 #i/95/0         #i/             #i/             # for ( int ^*U = 0 ; i < data . length - 1 ; ^*I ++ )#
+4  #0 #3 #               #               #               # {#
+5  #2 #5 #j/95/0         #j/             #j/             # for ( int ^*U = 0 ; j < data . length - i - 1 ; ^*I ++ )#
+6  #0 #5 #               #               #               # {#
+7  #1 #6 #               #               #               # if ( data [ j ] > data [ j + 1 ] )#
+8  #0 #7 #               #               #               # {#
+9  #0 #8 #asc/95/0       #asc/           #data[j]/       # int ^*U = ^*I ;#
+10 #0 #8 #               #data[j]/       #data[j+1]/     # ^*U = ^*I ;#
+11 #0 #8 #               #data[j+1]/     #asc/           # ^*U = ^*I ;#
+12 #0 #7 #               #               #               # }#
+13 #0 #5 #               #               #               # }#
+14 #0 #3 #               #               #               # }#
+15 #2 #3 #i/95/0         #i/             #i/             # for ( int ^*U = 0 ; i < data . length ; ^*I ++ )#
+16 #0 #3 #               #               #               # {#
+17 #0 #4 #               #               #               # System . out . print ( data [ i ] + "," ) ;#
+18 #0 #3 #               #               #               # }#
+19 #8 #1 #               #               #               # }#
+20 #10#0 #               #               #               # }#

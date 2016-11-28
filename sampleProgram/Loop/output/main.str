@@ -1,0 +1,9 @@
+100,221,#args,##  public static void main(String[] args){#
+200,#kki,##    int kki=0;#
+300,200,#x,#x,#    for(int x=0;x<3;x++){#
+300,200,#y,#y,#      for(int y=0;y<3;y++){#
+200,#kki,#x,y,#        kki=x+y;#
+302,###      }#
+302,###    }#
+999,##kki,#    System.out.println(kki);#
+101,###  }#

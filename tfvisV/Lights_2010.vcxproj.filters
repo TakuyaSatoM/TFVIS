@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Vis">
+      <UniqueIdentifier>{49ec6a5b-3a70-4c60-ab89-5719a83c43cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\Scene">
+      <UniqueIdentifier>{ed26382e-1eb4-4bec-ad52-ee96b4dde560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\Main">
+      <UniqueIdentifier>{2bc1b183-d1c7-40d7-93a4-edee4eb355ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\Strs">
+      <UniqueIdentifier>{49d15ee0-2adb-468c-a405-08443dda06be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\DataBase">
+      <UniqueIdentifier>{bd4bd7e0-53a5-4e3e-9e8d-3ed7b37ad59a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\FileReader">
+      <UniqueIdentifier>{367dfb1b-aca2-4651-80a8-15fdc189f0ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\DataTransitionsDiagram">
+      <UniqueIdentifier>{99ed6608-0196-44a8-b3a0-4e29feadf6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\DataTransitionsDiagram\fun">
+      <UniqueIdentifier>{f9de6ada-573f-4113-a4ff-0bb14a363241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\ExecutionDiagram">
+      <UniqueIdentifier>{11411624-0c2b-432c-a958-46a6951d0f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\ExecutionDiagram\fun">
+      <UniqueIdentifier>{edea4681-9b2d-4f7a-8722-7e3f2c79cb79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\Strs\Exe">
+      <UniqueIdentifier>{299a5f69-702d-4482-83a0-addf2e35cd68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\Strs\Event">
+      <UniqueIdentifier>{91b701e2-5d56-4fad-987f-5389c4409fcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vis\draw">
+      <UniqueIdentifier>{e75ba882-1c98-458e-88fb-b5d26f6d47fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib">
+      <UniqueIdentifier>{590b99de-51ad-4166-9a93-b26cbe441736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\LibCore">
+      <UniqueIdentifier>{bf00a7bf-40f8-4fb3-bda3-a53fd7f254fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Window">
+      <UniqueIdentifier>{efde065f-f18d-4ea8-9043-7490e22c8ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Renderer">
+      <UniqueIdentifier>{f5e46cb5-e8c0-4d74-abfd-9360dd5afb34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Word">
+      <UniqueIdentifier>{45bbb989-bd6b-4aa9-b45c-f8fc9aba8575}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\ResourceNest">
+      <UniqueIdentifier>{f09ecb9b-58e5-4962-9eb7-c0c9ce65f1c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\RenderingTexture">
+      <UniqueIdentifier>{1446b24b-15cf-4584-9676-9930a05640ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Screen">
+      <UniqueIdentifier>{2bb474ba-98df-4717-a23f-f19c8458188d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Screen\Data">
+      <UniqueIdentifier>{81fba0aa-275e-483a-98ba-0c3e0ea27cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Input">
+      <UniqueIdentifier>{38f25e75-958c-490d-a287-346c7b1ad3c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Support">
+      <UniqueIdentifier>{610cdd2a-644d-4c3e-bbcb-e58391871472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\List">
+      <UniqueIdentifier>{9b91ef00-9a81-4283-acca-d404bf44c6a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\List\List">
+      <UniqueIdentifier>{44bb2169-229b-4dc9-bacf-1359a278daf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\List\ResourceList">
+      <UniqueIdentifier>{04272f31-95b4-46a9-b7a9-59ad4597da21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Math">
+      <UniqueIdentifier>{fdc07d10-1ae2-405a-a7a2-232e6741d0c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Math\Vector">
+      <UniqueIdentifier>{c37cb730-dba2-4f22-84da-e8bbf484f890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Figure">
+      <UniqueIdentifier>{2e377071-ce1b-48d5-a879-4f8cb1c32670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Figure\Figure">
+      <UniqueIdentifier>{04d7415f-53d6-499a-b9d8-9f52a8091c72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Figure\Figure\DownSampling">
+      <UniqueIdentifier>{2d95f972-38c7-47f7-a2d2-7ab9235c4460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Figure\Figure\2DPorigon">
+      <UniqueIdentifier>{6750dee8-f0bd-4767-9b4b-46dc4bea4acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Texture">
+      <UniqueIdentifier>{4f76c23d-8374-4fe1-9eab-bdde71c3bf9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\File">
+      <UniqueIdentifier>{7ba70807-c5fb-4b39-94ce-8e4630122a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\File\Read">
+      <UniqueIdentifier>{badfaa07-210c-4367-884e-9d46c144207d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NHLib\Set">
+      <UniqueIdentifier>{a4f51131-6944-4e52-afce-431dcb3c64fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="R_LibCore.h">
+      <Filter>NHLib\LibCore</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Window.h">
+      <Filter>NHLib\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Renderer.h">
+      <Filter>NHLib\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="ORStr_Window.h">
+      <Filter>NHLib\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="R_ResourceNest.h">
+      <Filter>NHLib\ResourceNest</Filter>
+    </ClInclude>
+    <ClInclude Include="R_RenderingTextureNest.h">
+      <Filter>NHLib\RenderingTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Screen.h">
+      <Filter>NHLib\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Input.h">
+      <Filter>NHLib\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Strings.h">
+      <Filter>NHLib\Support</Filter>
+    </ClInclude>
+    <ClInclude Include="R_ResourceList.h">
+      <Filter>NHLib\List\ResourceList</Filter>
+    </ClInclude>
+    <ClInclude Include="R_MathVector.h">
+      <Filter>NHLib\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="R_DXWord.h">
+      <Filter>NHLib\Word</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Math.h">
+      <Filter>NHLib\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="R_List.h">
+      <Filter>NHLib\List\List</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDefine.h">
+      <Filter>Vis</Filter>
+    </ClInclude>
+    <ClInclude Include="DXCommon.h">
+      <Filter>NHLib</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_FigureLib.h">
+      <Filter>NHLib\Figure</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_Texture.h">
+      <Filter>NHLib\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_TextureNest.h">
+      <Filter>NHLib\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_TextureLib.h">
+      <Filter>NHLib\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_Reader.h">
+      <Filter>NHLib\File\Read</Filter>
+    </ClInclude>
+    <ClInclude Include="R_RenderingTexture.h">
+      <Filter>NHLib\RenderingTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_FigureNest.h">
+      <Filter>NHLib\Figure</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_2DPorigon.h">
+      <Filter>NHLib\Figure\Figure\2DPorigon</Filter>
+    </ClInclude>
+    <ClInclude Include="RL_DownSampling.h">
+      <Filter>NHLib\Figure\Figure\DownSampling</Filter>
+    </ClInclude>
+    <ClInclude Include="R_ScreenData.h">
+      <Filter>NHLib\Screen\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Class.h">
+      <Filter>Vis\Strs</Filter>
+    </ClInclude>
+    <ClInclude Include="R_Set.h">
+      <Filter>NHLib\Set</Filter>
+    </ClInclude>
+    <ClInclude Include="Method.h">
+      <Filter>Vis\Strs</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Vis\Strs</Filter>
+    </ClInclude>
+    <ClInclude Include="DTCom.h">
+      <Filter>Vis\Strs</Filter>
+    </ClInclude>
+    <ClInclude Include="S_Base.h">
+      <Filter>Vis\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Vis\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBase.h">
+      <Filter>Vis\DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="ExeReader.h">
+      <Filter>Vis\FileReader</Filter>
+    </ClInclude>
+    <ClInclude Include="LineReader.h">
+      <Filter>Vis\FileReader</Filter>
+    </ClInclude>
+    <ClInclude Include="StrReader.h">
+      <Filter>Vis\FileReader</Filter>
+    </ClInclude>
+    <ClInclude Include="ExecutionDiagram.h">
+      <Filter>Vis\ExecutionDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTransitions.h">
+      <Filter>Vis\DataTransitionsDiagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Exe.h">
+      <Filter>Vis\Strs\Exe</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Vis\Strs\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Draw.h">
+      <Filter>Vis\draw</Filter>
+    </ClInclude>
+    <ClInclude Include="NHLib.h">
+      <Filter>NHLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="R_LibCore.cpp">
+      <Filter>NHLib\LibCore</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Window.cpp">
+      <Filter>NHLib\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="R_WindowPro.cpp">
+      <Filter>NHLib\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Renderer.cpp">
+      <Filter>NHLib\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="ORFun_LibCore.cpp">
+      <Filter>NHLib\LibCore</Filter>
+    </ClCompile>
+    <ClCompile Include="ORFun_Window.cpp">
+      <Filter>NHLib\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="R_DXWord.cpp">
+      <Filter>NHLib\Word</Filter>
+    </ClCompile>
+    <ClCompile Include="ORFun_DXWord.cpp">
+      <Filter>NHLib\Word</Filter>
+    </ClCompile>
+    <ClCompile Include="R_ResourceNest.cpp">
+      <Filter>NHLib\ResourceNest</Filter>
+    </ClCompile>
+    <ClCompile Include="R_RenderingTexture.cpp">
+      <Filter>NHLib\RenderingTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="ORFun_RenderingTexture.cpp">
+      <Filter>NHLib\RenderingTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="R_RenderingTextureNest.cpp">
+      <Filter>NHLib\RenderingTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Screen.cpp">
+      <Filter>NHLib\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Input.cpp">
+      <Filter>NHLib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ORFun_Iuput.cpp">
+      <Filter>NHLib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Vis\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Strings.cpp">
+      <Filter>NHLib\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="R_List.cpp">
+      <Filter>NHLib\List\List</Filter>
+    </ClCompile>
+    <ClCompile Include="R_ResourceList.cpp">
+      <Filter>NHLib\List\ResourceList</Filter>
+    </ClCompile>
+    <ClCompile Include="R_MathVector.cpp">
+      <Filter>NHLib\Math\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Math.cpp">
+      <Filter>NHLib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="R_MathWord.cpp">
+      <Filter>NHLib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_FigureLib.cpp">
+      <Filter>NHLib\Figure</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_Texture.cpp">
+      <Filter>NHLib\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_TextureNest.cpp">
+      <Filter>NHLib\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_TextureLib.cpp">
+      <Filter>NHLib\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="R_MathAngle.cpp">
+      <Filter>NHLib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_Reader.cpp">
+      <Filter>NHLib\File\Read</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDefine.cpp">
+      <Filter>Vis</Filter>
+    </ClCompile>
+    <ClCompile Include="DXCommon.cpp">
+      <Filter>NHLib</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_FigureNest.cpp">
+      <Filter>NHLib\Figure</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_DownSampling.cpp">
+      <Filter>NHLib\Figure\Figure\DownSampling</Filter>
+    </ClCompile>
+    <ClCompile Include="RL_2DPorigon.cpp">
+      <Filter>NHLib\Figure\Figure\2DPorigon</Filter>
+    </ClCompile>
+    <ClCompile Include="R_ScreenData.cpp">
+      <Filter>NHLib\Screen\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="R_StringVector.cpp">
+      <Filter>NHLib\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="R_AdVector.cpp">
+      <Filter>NHLib\Support</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Set.cpp">
+      <Filter>NHLib\Set</Filter>
+    </ClCompile>
+    <ClCompile Include="R_File.cpp">
+      <Filter>NHLib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="R_Text.cpp">
+      <Filter>NHLib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="DTCom.cpp">
+      <Filter>Vis\Strs</Filter>
+    </ClCompile>
+    <ClCompile Include="Others.cpp">
+      <Filter>Vis\Strs</Filter>
+    </ClCompile>
+    <ClCompile Include="DataBase.cpp">
+      <Filter>Vis\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DB_SetRelation_MethodExe.cpp">
+      <Filter>Vis\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DB_Load.cpp">
+      <Filter>Vis\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="DB_CreateDTTable.cpp">
+      <Filter>Vis\DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectList.cpp">
+      <Filter>Vis\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ConP.cpp">
+      <Filter>Vis\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Vis\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Output.cpp">
+      <Filter>Vis\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="S_Base.cpp">
+      <Filter>Vis\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Vis\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ExeReader.cpp">
+      <Filter>Vis\FileReader</Filter>
+    </ClCompile>
+    <ClCompile Include="LineReader.cpp">
+      <Filter>Vis\FileReader</Filter>
+    </ClCompile>
+    <ClCompile Include="StrReader.cpp">
+      <Filter>Vis\FileReader</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Condition.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Loop.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Method.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Others.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_VariableUpdate.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="ExecutionDiagram.cpp">
+      <Filter>Vis\ExecutionDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="ED_Other.cpp">
+      <Filter>Vis\ExecutionDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Table.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Code.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTransitions.cpp">
+      <Filter>Vis\DataTransitionsDiagram</Filter>
+    </ClCompile>
+    <ClCompile Include="ED_Methods.cpp">
+      <Filter>Vis\ExecutionDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="ED_Figures.cpp">
+      <Filter>Vis\ExecutionDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="Method.cpp">
+      <Filter>Vis\Strs</Filter>
+    </ClCompile>
+    <ClCompile Include="Exe.cpp">
+      <Filter>Vis\Strs\Exe</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Vis\Strs\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Draw.cpp">
+      <Filter>Vis\draw</Filter>
+    </ClCompile>
+    <ClCompile Include="DTSearch.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_TryCatch.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+    <ClCompile Include="DT_Switch.cpp">
+      <Filter>Vis\DataTransitionsDiagram\fun</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="light_diffuse.fx" />
+    <None Include="DownSampling.fx">
+      <Filter>NHLib\Figure\Figure\DownSampling</Filter>
+    </None>
+    <None Include="Square2D.fx">
+      <Filter>NHLib\Figure\Figure\2DPorigon</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Lights.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

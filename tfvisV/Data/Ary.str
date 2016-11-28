@@ -1,0 +1,5 @@
+100,200,#isize,##  public Ary(int isize){#
+200,#num,##    num=0;#
+200,#maxSize,#isize,#    maxSize=isize;#
+201,#values,#maxSize,#    values=new int[maxSize];#
+101,###    }#
