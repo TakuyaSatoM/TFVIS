@@ -13,16 +13,16 @@ public class Program implements tfvisConstants{
 	public ArrayList<Vars> m_Vars;
 	public ArrayList<FileData> m_Files;
 	
-	public int getMethodID(String methodName){
+	public int getMethodID(String methodName, String className){
 		
 		for(FileData file:m_Files){
 			for(StrClass index:file.getClassData()){
 				int out;
-				if( (out=index.getMethodID(methodName)) >= 0){
+				if( (out=index.getMethodID(methodName)) >= 0 && index.getName().equals(className)){
 					return out; 
 				}
-				for(StrClass subClass:index.getSubClass()){
-					if( (out=subClass.getMethodID(methodName)) >= 0){
+				for(StrClass subClass:index.getSubClass() ){
+					if( (out=subClass.getMethodID(methodName) ) >= 0 && subClass.getName().equals(className)){
 						return out; 
 					}
 				}
@@ -234,6 +234,7 @@ public class Program implements tfvisConstants{
 	void splitByClass(AnalysisData data){
 		AnalysisData splitData = new AnalysisData();
 		AnalysisData subSplitData = new AnalysisData();
+		ArrayList<StrClass> subClassList = new ArrayList<StrClass>();
 		FileData file = new FileData();
 		int classCount=0;
 		
@@ -244,13 +245,20 @@ public class Program implements tfvisConstants{
 			}else{
 				splitData.add(data.getId(i), data.getState(i));
 			}
+			
+			if(data.getId(i) == Ev_ClassEnd && classCount > 1){
+				subClassList.add(new StrClass(subSplitData));
+				subSplitData.clear();
+			}
+			
 			if(data.getId(i) == Ev_ClassEnd && classCount == 1){
 				file.add(new StrClass(splitData));
-				if(!subSplitData.isEmpty()){
-					file.setSubClassData(new StrClass(subSplitData));
+				if(!subClassList.isEmpty()){
+					for(int j=0; j<subClassList.size(); j++){
+					file.setSubClassData(subClassList.get(j));
+					}
 				}
 				splitData.clear();
-				subSplitData.clear();
 			}
 			if(data.getId(i) == Ev_ClassEnd){classCount--;}
 		}

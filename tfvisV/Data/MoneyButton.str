@@ -1,0 +1,9 @@
+100,###  public MoneyButton(){#
+450,###    super("‹àí–‡”ŒvZ");#
+10,###    GridBagLayout gbl=new GridBagLayout ();#
+10,###    GridBagConstraints gbc=new GridBagConstraints ();#
+10,##.,#    this.setFont(new Font ("‚l‚r@ƒSƒVƒbƒN",Font.PLAIN,25));#
+999,##.,#    gbc.gridwidth=3;#
+999,##.,#    gbl.setConstraints(this,gbc);#
+999,##.,#    this.addActionListener(this);#
+101,###    }#

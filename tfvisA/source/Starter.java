@@ -1,4 +1,3 @@
-package Dentaku;
 
 public class Starter {
 

@@ -1,0 +1,9 @@
+100,220,#c,##    public void appendResult(String c){#
+170,###      if(!afterCalc){#
+999,##.,c,#        result.setText(result.getText()+c);#
+172,###        }#
+999,###else{#
+999,##.,c,#          result.setText(c);#
+999,###          afterCalc=false;#
+999,###          }#
+101,###          }#

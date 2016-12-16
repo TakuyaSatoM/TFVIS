@@ -22,6 +22,8 @@ public class LineAnalysis implements tfvisConstants{
 		boolean varRefer=false;
 		ArrayList<String> referVars=new ArrayList<String>();
 		int m_NowMethodID=-1;
+		String className = "";
+		
 		
 		for(int k=0;k<m_Token.size();k++) {
 			
@@ -30,9 +32,13 @@ public class LineAnalysis implements tfvisConstants{
 			
 			int nowID=m_Token.get(k).m_ID;
 			String state=m_Token.get(k).m_State;
-						
+			
+			if(nowID == CoiDec){
+				className = m_Token.get(k+1).m_State;
+			}
+
 			if(nowID == Method + Identifier || nowID == Constructor + Identifier){
-				m_NowMethodID=pro.getMethodID(state);
+				m_NowMethodID=pro.getMethodID(state, className);
 				nowLine.addEvent(Ev_MethodStart);
 			}
 			
@@ -86,7 +92,10 @@ public class LineAnalysis implements tfvisConstants{
 			if(nowID == Do + End){m_Line.get(m_Line.size()-1).addEvent(Ev_DoEnd);}
 			if(nowID == Do_While + End){m_Line.get(m_Line.size()-1).addEvent(Ev_DoWhileEnd);continue;}
 
+			if(nowID == ExplicitCons+Super){nowLine.addEvent(Ev_Super);}
+			
 			if(state.equals("readLine")){nowLine.addEventTop(Ev_Input);}
+			
 			
 			//=を用いた更新
 			if(nowLine.hasUpdateEvent() == false){
@@ -269,11 +278,11 @@ public class LineAnalysis implements tfvisConstants{
 							if(m_Token.get(j).m_State.equals("]")){
 								break;
 							}
-						}						
+						}
 					}nowLine.addUse(use);
-				}		
+				}
 			}
-						
+			
 			
 			//行の切替
 			if(changeLine){
@@ -308,8 +317,16 @@ public class LineAnalysis implements tfvisConstants{
 		for(FileData file:pro.m_Files){
 			for(StrClass indexClass:file.getClassData()){
 		
-				if(indexClass.hasMethod(token.m_State))
-				{line.addEvent(Ev_CallMethod);return;}
+				if(indexClass.hasMethod(token.m_State)){
+					line.addEvent(Ev_CallMethod);
+					return;
+					}
+				for(StrClass subClass:indexClass.getSubClass()){
+					if(subClass.hasMethod(token.m_State)){
+						line.addEvent(Ev_CallMethod);
+						return;
+					}
+				}
 			}
 		}
 	

@@ -115,10 +115,12 @@ public class Method implements tfvisConstants{
 		int lineID=0;
 		int InstanceID=0;
 		boolean isLoop = false;
+		int count=0;
 		
 		Line beforeLine=lineList.get(0);
 		ArrayList<Integer> loopStart=new ArrayList<Integer>();
 		for(Line line:lineList){
+			count++;
 			
 			if(line.getMethodID()!=m_ID){continue;}
 			
@@ -139,8 +141,8 @@ public class Method implements tfvisConstants{
 				}
 				
 				if(event==Object){
-					fout.println(indent+"TProbe.Input_Object("+InstanceID+",TP_METHODID,TP_METHODEXE,"+lineID+"  );");
-					insertedProbe=true;
+					//fout.println(indent+"TProbe.Input_Object("+InstanceID+",TP_METHODID,TP_METHODEXE,"+lineID+"  );");
+					//insertedProbe=true;
 					InstanceID++;
 				}
 				
@@ -159,7 +161,7 @@ public class Method implements tfvisConstants{
 					fout.println(indent+"TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,"+lineID+"  );");
 					insertedProbe=true;
 				}
-				else if(event == Ev_CallMethod){//メソッド呼び出しプローブ		
+				else if(event == Ev_CallMethod){//メソッド呼び出しプローブ
 					fout.println(indent+"TProbe.Input_MethodCall(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,"+lineID+ ");");
 					insertedProbe=true;					
 				}	
@@ -200,12 +202,15 @@ public class Method implements tfvisConstants{
 			}
 			
 				
-			if(cancelCodeIn==false){
+			if(cancelCodeIn==false && !lineList.get(count-1).checkHasEvent(Ev_Super)){
 				fout.println(line.getIndentText()+line.getCode());
 			}
 		
 			if(first==false){
 				first=true;
+				if(lineList.get(count).checkHasEvent(Ev_Super)){
+					fout.println(lineList.get(count).getIndentText()+lineList.get(count).getCode());
+				}
 				fout.println(indent+"final int TP_METHODID = " + m_ID+";");
 				fout.println(indent+"int TP_METHODEXE=TProbe.GetExe();	");
 				
@@ -218,6 +223,8 @@ public class Method implements tfvisConstants{
 			}
 			
 			//afterプローブ
+			
+			
 			for(Integer event: line.getEventList()){
 			
 				//変数更新系プローブ

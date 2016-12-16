@@ -1,0 +1,16 @@
+100,###    public void actionPerformed(ActionEvent evt){#
+201,#MoneyType,##      int[] MoneyType={10000,5000,1000,500,100,50,10,5,1};#
+199,#MoneyCount[],#MoneyType,.,#      int MoneyCount[] =new int[MoneyType.length];#
+300,200,#i,#i,#      for(int i=0;i<MoneyType.length;i++){#
+350,##MoneyType[i],i,#        while(stackedValue>=MoneyType[i]){#
+999,##MoneyType[i],i,#          stackedValue-=MoneyType[i];#
+999,##MoneyCount[i],i,#          MoneyCount[i]++;#
+352,###          }#
+302,###          }#
+300,200,#x,#x,#          for(int x=0;x<MoneyType.length;x++){#
+999,##x,.,MoneyCount[x],#            label[x].setText("~"+MoneyCount[x]);#
+302,###            }#
+250,##.,#            DentakuFrame.this.pack();#
+999,###            afterCalc=false;#
+999,###            isStacked=false;#
+101,###            }#

@@ -537,6 +537,32 @@ public interface tfvisConstants {
 	 
 	 int Object=10;
 	 
+	int Ev_MethodStart=100; 	
+	int Ev_MethodEnd=101; 	
+	int Ev_Return=150; 		
+	
+	int Ev_ClassStart = 120;
+	int Ev_ClassEnd = 122;	
+	
+	int Ev_Switch=160;
+	int Ev_SwitchEnd=161;
+	int Ev_Case=162;
+	int Ev_CaseEnd=163;
+	int Ev_DefaultEnd=164;
+	
+	int Ev_Route=170;
+	int Ev_IfEnd=172;
+	
+	int Ev_IntUpdate=200; 		 
+	int Ev_DoubleUpdate=210; 	
+	int Ev_StringUpdate=220;
+	int Ev_Input = 230;
+	
+	int Ev_UpdateRangeL=200;
+	int Ev_UpdateRangeH=249;
+	
+	int Ev_CallMethod=250; 	
+	
 	int Ev_For=300; 
 	int Ev_ForEnd=302; 
 	
@@ -555,33 +581,7 @@ public interface tfvisConstants {
 	int Ev_Finally=400;
 	int Ev_FinallyEnd=402;
 	
-	int Ev_MethodStart=100; 	
-	int Ev_MethodEnd=101; 	
-	int Ev_Return=150; 		
-	
-	int Ev_ClassStart = 120;
-	int Ev_ClassEnd = 122;
-	
-	int Ev_IntUpdate=200; 		 
-	int Ev_DoubleUpdate=210; 	
-	int Ev_StringUpdate=220;
-	int Ev_Input = 230;
-	
-	int Ev_UpdateRangeL=200;
-	int Ev_UpdateRangeH=249;
-	
-	int Ev_CallMethod=250; 	
-	
-	int Ev_Route=170;
-	int Ev_IfEnd=172;
-	
-	int Ev_Switch=160;
-	int Ev_SwitchEnd=161;
-	int Ev_Case=162;
-	int Ev_CaseEnd=163;
-	int Ev_DefaultEnd=164;
-	
-	
+	int Ev_Super = 450;
 	int Ev_Other=999;
 	
 	int ArrayMode=1;

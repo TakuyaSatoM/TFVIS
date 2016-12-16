@@ -1,0 +1,52 @@
+100,###  public DentakuFrame(){#
+999,##.,#    contentPane.setLayout(borderLayout1);#
+999,##.,#    this.setTitle("ìdéqéÆëÏè„åvéZã@");#
+999,##.,#    this.setContentPane(contentPane);#
+999,##.,#    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);#
+10,##.,#    result.setPreferredSize(new Dimension (200,100));#
+10,##.,#    result.setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,50));#
+999,##.,#    result.setEditable(false);#
+999,##.,#    result.setBackground(Color.WHITE);#
+999,##.,#    contentPane.add(result,BorderLayout.NORTH);#
+10,###    JPanel keyPanel=new JPanel (gbl);#
+999,##.,#    contentPane.add(keyPanel,BorderLayout.CENTER);#
+250,###    setMoneyLabel();#
+200,#x,##    int x=0;#
+200,#y,##    int y=0;#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇV"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇW"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇX"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new ClearButton (),x++,y,2,1);#
+250,10,##x,y,#    addConponent(keyPanel,new MoneyButton (),++x,y,3,1);#
+200,#x,##    x=0;#
+200,#y,#y,#    y++;#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇS"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇT"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇU"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("ÅÄ"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("Å~"),x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[2],x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[1],x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[0],x++,y,1,1);#
+200,#x,##    x=0;#
+200,#y,#y,#    y++;#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇP"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇQ"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇR"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("Å{"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("Å|"),x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[5],x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[4],x++,y,1,1);#
+250,200,#x,#x,y,#    addConponent(keyPanel,label[3],x++,y,1,1);#
+200,#x,##    x=0;#
+200,#y,#y,#    y++;#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("ÇO"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new NumberButton ("00"),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("."),x++,y,1,1);#
+250,10,200,#x,#x,y,#    addConponent(keyPanel,new CalcButton ("ÅÅ"),x++,y,2,1);#
+250,##x,y,#    addConponent(keyPanel,label[8],++x,y,1,1);#
+250,##x,y,#    addConponent(keyPanel,label[7],++x,y,1,1);#
+250,##x,y,#    addConponent(keyPanel,label[6],++x,y,1,1);#
+999,##.,#    this.pack();#
+999,##.,#    this.setVisible(true);#
+101,###    }#
