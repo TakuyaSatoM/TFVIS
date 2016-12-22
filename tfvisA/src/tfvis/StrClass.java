@@ -86,7 +86,7 @@ public class StrClass implements tfvisConstants{
 		LineAnalysis.exe(pro, m_Token, m_Line);
 				
 		for(Method index: m_Methods){
-			index.outputLineFile(m_Line);
+			index.outputLineFile(m_Line, m_Name);
 		}
 	}
 	

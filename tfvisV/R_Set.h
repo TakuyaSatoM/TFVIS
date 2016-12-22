@@ -28,8 +28,9 @@ class  C_Set
 
  virtual C_Set* CHECK()
  {
-	 if(f_Top==f_Next){return NULL;}
-	 return f_Next;
+	 if(f_Next == NULL){return NULL;}
+	if(f_Top==f_Next){return NULL;}
+	return f_Next;
  }
  virtual C_Set* CHECK_BACK()
  {

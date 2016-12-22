@@ -1,0 +1,27 @@
+100,###    public void actionPerformed(ActionEvent e){#
+170,###      if(isStacked){#
+210,#resultValue,##        double resultValue=(Double.valueOf(result.getText())).doubleValue();#
+170,##currentOp,#        if(currentOp.equals("Å{")){#
+210,#stackedValue,#stackedValue,resultValue,#          stackedValue+=resultValue;#
+172,###          }#
+170,##currentOp,#          else if(currentOp.equals("Å|")){#
+210,#stackedValue,#stackedValue,resultValue,#            stackedValue-=resultValue;#
+172,###            }#
+170,##currentOp,#            else if(currentOp.equals("Å~")){#
+210,#stackedValue,#stackedValue,resultValue,#              stackedValue*=resultValue;#
+172,###              }#
+170,##currentOp,#              else if(currentOp.equals("ÅÄ")){#
+210,#stackedValue,#stackedValue,resultValue,#                stackedValue/=resultValue;#
+172,###                }#
+999,##.,stackedValue,#                result.setText(String.valueOf(stackedValue));#
+172,###                }#
+220,#currentOp,#.,#                currentOp=this.getText();#
+210,#stackedValue,#.,#                stackedValue=(Double.valueOf(result.getText())).doubleValue();#
+999,###                afterCalc=true;#
+170,##currentOp,.,#                if(currentOp.equals("ÅÅ")){#
+999,###                  isStacked=false;#
+172,###                  }#
+999,###else{#
+999,###                    isStacked=true;#
+999,###                    }#
+101,###                    }#

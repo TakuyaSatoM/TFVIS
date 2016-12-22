@@ -73,10 +73,10 @@ public class Method implements tfvisConstants{
 	
 	
 	
-	public void outputLineFile(ArrayList<Line> lineList){
+	public void outputLineFile(ArrayList<Line> lineList, String className){
 		
 
-		    File ssfile = new File(outDir+m_FullName+Exten_Lines);
+		    File ssfile = new File(outDir+className+"$"+m_FullName+Exten_Lines);
 		    //ファイルを初期化  
 		    if (ssfile.exists()){ ssfile.delete();}	      		
 		    try{
@@ -133,7 +133,7 @@ public class Method implements tfvisConstants{
 			//beforeプローブ
 			for(Integer event: line.getEventList()){
 			
-				if(event==Ev_Route){
+				if(event==Ev_Route && !beforeLine.checkHasEvent(Ev_IfEnd)){
 					if(line.getUseNum() > 0){
 						
 						readProbe(line,lineID,fout);
@@ -315,6 +315,13 @@ public class Method implements tfvisConstants{
 				
 				if(event == Ev_Input){
 					inputState = true;
+				}
+				
+				if(event==Ev_Route && beforeLine.checkHasEvent(Ev_IfEnd)){
+					if(line.getUseNum() > 0){
+						
+						readProbe(line,lineID,fout);
+					}										
 				}
 			}
 			

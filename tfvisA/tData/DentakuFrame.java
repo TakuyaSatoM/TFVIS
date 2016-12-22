@@ -109,35 +109,39 @@ private static final long serialVersionUID=1L;
        TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1  );
         double resultValue=(Double.valueOf(result.getText())).doubleValue();
          TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "resultValue",resultValue,"",false);
+         TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3, "currentOp"  );
         if(currentOp.equals("Å{")){
          TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3  );
           stackedValue+=resultValue;
-           TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4, "resultValue"  );
+           TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4, "stackedValue",stackedValue,"stackedValue,resultValue",false);
           }
           else if(currentOp.equals("Å|")){
            TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6  );
+           TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6, "currentOp"  );
             stackedValue-=resultValue;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7, "resultValue"  );
+             TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7, "stackedValue",stackedValue,"stackedValue,resultValue",false);
             }
             else if(currentOp.equals("Å~")){
              TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,9  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,9, "currentOp"  );
               stackedValue*=resultValue;
-               TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,10, "resultValue"  );
+               TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,10, "stackedValue",stackedValue,"stackedValue,resultValue",false);
               }
               else if(currentOp.equals("ÅÄ")){
                TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,12  );
+               TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,12, "currentOp"  );
                 stackedValue/=resultValue;
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,13, "resultValue"  );
+                 TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,13, "stackedValue",stackedValue,"stackedValue,resultValue",false);
                 }
                 result.setText(String.valueOf(stackedValue));
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,15, "."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,15, ".,stackedValue"  );
                 }
                 currentOp=this.getText();
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,17, "."  );
+                 TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,17, "currentOp",currentOp,".",false);
                 stackedValue=(Double.valueOf(result.getText())).doubleValue();
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,18, "."  );
+                 TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,18, "stackedValue",stackedValue,".",false);
                 afterCalc=true;
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,20, "."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,20, "currentOp,."  );
                 if(currentOp.equals("ÅÅ")){
                  TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,20  );
                   isStacked=false;
@@ -172,6 +176,7 @@ private static final long serialVersionUID=1L;
       result.setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,50));
        TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "."  );
       stackedValue=0.0;
+       TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "stackedValue",stackedValue,"",false);
       result.setText("");
        TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3, "."  );
        TProbe.Input_Loop(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4);
@@ -261,7 +266,7 @@ private static final long serialVersionUID=1L;
         while(stackedValue>=MoneyType[i]){
          isLoop=true;
           stackedValue-=MoneyType[i];
-           TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, "MoneyType["+i+"],i"  );
+           TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, "stackedValue",stackedValue,"stackedValue,MoneyType["+i+"],i",false);
           MoneyCount[i]++;
            TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6, "MoneyCount["+i+"],i"  );
            TProbe.Input_LoopNext(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7,4);
@@ -301,26 +306,16 @@ private static final long serialVersionUID=1L;
    TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0);
    boolean isLoop=false;
     contentPane.setLayout(borderLayout1);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "."  );
     this.setTitle("ìdéqéÆëÏè„åvéZã@");
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "."  );
     this.setContentPane(contentPane);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3, "."  );
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4, "."  );
     result.setPreferredSize(new Dimension (200,100));
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, "."  );
     result.setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,50));
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6, "."  );
     result.setEditable(false);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7, "."  );
     result.setBackground(Color.WHITE);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,8, "."  );
     contentPane.add(result,BorderLayout.NORTH);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,9, "."  );
     JPanel keyPanel=new JPanel (gbl);
     contentPane.add(keyPanel,BorderLayout.CENTER);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,11, "."  );
      TProbe.Input_MethodCall(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,12);
     setMoneyLabel();
     int x=0;
@@ -420,9 +415,7 @@ private static final long serialVersionUID=1L;
      TProbe.Input_MethodCall(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,48);
     addConponent(keyPanel,label[6],++x,y,1,1);
     this.pack();
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,49, "."  );
     this.setVisible(true);
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,50, "."  );
      TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,51  );
     }
 
@@ -435,11 +428,11 @@ private static final long serialVersionUID=1L;
       if(!afterCalc){
        TProbe.Input_Route(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1  );
         result.setText(result.getText()+c);
-         TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, ".,c"  );
+         TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "c"  );
         }
 else{
           result.setText(c);
-           TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, ".,c"  );
+           TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, "c"  );
           afterCalc=false;
           }
            TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,8  );
@@ -455,19 +448,18 @@ else{
            TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0, "w",w,"",false);
            TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0, "h",h,"",false);
             gbc.fill=GridBagConstraints.BOTH;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "."  );
             gbc.gridx=x;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, ".,x"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "x"  );
             gbc.gridy=y;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3, ".,y"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3, "y"  );
             gbc.gridwidth=w;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4, ".,w"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4, "w"  );
             gbc.gridheight=h;
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, ".,h"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,5, "h"  );
             gbl.setConstraints(c,gbc);
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6, ".,c"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,6, "c"  );
             parent.add(c);
-             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7, ".,c"  );
+             TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,7, "c"  );
              TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,8  );
             }
 
@@ -493,13 +485,13 @@ else{
                isLoop=true;
                if(tvisLoopInit4==false){tvisLoopInit4=true;TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,11,"i",i,"",false);}
                 label[i]=new JLabel ("Å~0",icon[i],JLabel.CENTER);
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,12, "i,."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,12, "i"  );
                 label[i].setOpaque(true);
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,13, "i,."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,13, "i"  );
                 label[i].setBackground(Color.WHITE);
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,14, "i,."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,14, "i"  );
                 label[i].setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,40));
-                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,15, "i,."  );
+                 TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,15, "i"  );
                  TProbe.Input_LoopNext(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,16,11);
                  isLoop=false;
                 }

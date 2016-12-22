@@ -1,0 +1,17 @@
+100,###    public void actionPerformed(ActionEvent evt){#
+221,#s,##      String[] s={"0","1","2","3","4","5","6","7","8","9"};#
+221,#S,##      String[] S={"‚O","‚P","‚Q","‚R","‚S","‚T","‚U","‚V","‚W","‚X"};#
+220,#keyNumber,##      String keyNumber="";#
+170,###      if(this.getText()=="00"){#
+220,#keyNumber,##        keyNumber="00";#
+172,###        }#
+999,###else{#
+300,200,#z,#z,#          for(int z=0;z<10;z++){#
+170,##S[z],z,#            if(this.getText()==S[z]){#
+220,#keyNumber,#s[z],z,#              keyNumber=s[z];#
+999,###              break;#
+172,###              }#
+302,###              }#
+999,###              }#
+250,##keyNumber,#              appendResult(keyNumber);#
+101,###              }#

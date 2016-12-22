@@ -100,9 +100,11 @@ namespace db{
 			indexExe=indexExe->CHECK();
 
 			if(beforeExe->m_EventType == ev::METHOD_END){break;}
-
-			if(indexExe->m_EventType == ev::METHOD_START && indexExe != exe){indexExe=setExe(indexExe);}
 			
+			while(indexExe->m_EventType == ev::METHOD_START){
+				if(indexExe != exe){indexExe=setExe(indexExe);}
+			}
+
 		}
 
 		delete[] lvL;
@@ -118,8 +120,11 @@ namespace db{
 	//ƒf[ƒ^‘JˆÚ}‚ðì¬(¬Œ÷Žž0‚ð•Ô‚·)
 	int  createDTTable(){
 
+		Exe* indexExe = setExe(getExe()->CHECK());
 
-		setExe(getExe()->CHECK());
+		while(indexExe){
+			indexExe = setExe(indexExe);
+		}
 
 		return 0;
 	}

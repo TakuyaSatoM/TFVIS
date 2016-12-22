@@ -1,0 +1,18 @@
+100,###            public void setMoneyLabel(){#
+10,###              ImageIcon icon[] =new ImageIcon[9];#
+10,###              icon[0]=new ImageIcon ("./image/s_money_10000.png");#
+10,###              icon[1]=new ImageIcon ("./image/s_money_5000.png");#
+10,###              icon[2]=new ImageIcon ("./image/s_money_1000.png");#
+10,###              icon[3]=new ImageIcon ("./image/s_money_500.png");#
+10,###              icon[4]=new ImageIcon ("./image/s_money_100.png");#
+10,###              icon[5]=new ImageIcon ("./image/s_money_50.png");#
+10,###              icon[6]=new ImageIcon ("./image/s_money_10.png");#
+10,###              icon[7]=new ImageIcon ("./image/s_money_5.png");#
+10,###              icon[8]=new ImageIcon ("./image/s_money_1.png");#
+300,200,#i,#i,#              for(int i=0;i<9;i++){#
+10,##i,#                label[i]=new JLabel ("~0",icon[i],JLabel.CENTER);#
+999,##i,#                label[i].setOpaque(true);#
+999,##i,#                label[i].setBackground(Color.WHITE);#
+10,##i,#                label[i].setFont(new Font ("‚l‚r@ƒSƒVƒbƒN",Font.PLAIN,40));#
+302,###                }#
+101,###                }#

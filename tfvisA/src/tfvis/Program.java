@@ -135,10 +135,10 @@ public class Program implements tfvisConstants{
 		
 		for(FileData file: m_Files){
 			for(StrClass index: file.getClassData()){
+				index.outputLineFile(this);	
 				for(StrClass subClass:index.getSubClass()){
 					subClass.outputLineFile(this);
 				}
-				index.outputLineFile(this);	
 			}
 		}
 		

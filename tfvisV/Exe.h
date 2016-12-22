@@ -262,7 +262,10 @@ public:
   {
 	  if(m_Event){delete m_Event;}
   }
-  Exe* CHECK(){return (Exe*)C_Set::CHECK();}
+  Exe* CHECK(){
+	  if(C_Set::CHECK() == NULL){return 0;}
+	  return (Exe*)C_Set::CHECK();
+  }
   Exe* back(){return (Exe*)C_Set::CHECK_BACK();}
 
   INT2 m_DTXY;

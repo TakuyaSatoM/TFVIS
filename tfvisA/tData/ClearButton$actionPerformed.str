@@ -1,0 +1,11 @@
+100,###    public void actionPerformed(ActionEvent evt){#
+10,##.,#      result.setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,50));#
+210,#stackedValue,##      stackedValue=0.0;#
+999,##.,#      result.setText("");#
+300,200,#i,#i,#      for(int i=0;i<9;i++){#
+999,##i,.,#        label[i].setText("Å~0");#
+302,###        }#
+999,###        afterCalc=false;#
+999,###        isStacked=false;#
+250,##.,#        DentakuFrame.this.pack();#
+101,###        }#

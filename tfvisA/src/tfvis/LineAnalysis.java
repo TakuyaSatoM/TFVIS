@@ -110,7 +110,7 @@ public class LineAnalysis implements tfvisConstants{
 				}
 				
 				//=‚É‚æ‚éXV
-				if(state.equals("=") ){
+				if(state.equals("=")){
 					
 					int tID=pro.checkVarsUpdate_TFVISID(new VarsQue(m_Token.get(k-1).m_State));
 					if(tID>=0){
