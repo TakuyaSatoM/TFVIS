@@ -1,3 +1,0 @@
-100,###  public int getID(){#
-150,##id,#    return id;#
-101,###  }#
