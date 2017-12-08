@@ -1,5 +1,0 @@
-100,220,#op,##  public CalcButton(String op){#
-450,##op,#    super(op);#
-10,###    this.setFont(new Font ("ÇlÇrÅ@ÉSÉVÉbÉN",Font.PLAIN,40));#
-999,###    this.addActionListener(this);#
-101,###    }#

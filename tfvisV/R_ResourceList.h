@@ -15,10 +15,6 @@ class RC_ResourceList:public C_List
 
  RC_ResourceList(C_ListNest* mother);
  
- 
-
- 
-
 };
 
 

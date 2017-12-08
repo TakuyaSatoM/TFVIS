@@ -18,7 +18,3 @@ D3DXVECTOR4 ExecutionDiagram::getNestLvColor(int id){
 	return D3DXVECTOR4(0,0,0,1);
 }
 
-
-
-
-

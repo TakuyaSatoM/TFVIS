@@ -28,7 +28,4 @@ namespace draw{
 	RC_DownSampling* Down(){return p_Down;}
 	RC_2DPorigon* Basic(){return p_2DCommon;}
 
-
-
-
 }

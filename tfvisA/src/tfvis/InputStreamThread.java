@@ -1,6 +1,12 @@
 package tfvis;
-import java.io.*;
-import java.util.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputStreamThread extends Thread {
 
@@ -27,7 +33,8 @@ public class InputStreamThread extends Thread {
 		try {
 			for (;;) {
 				String line = br.readLine();
-				if (line == null) 	break;
+				if (line == null)
+					break;
 				list.add(line);
 			}
 		} catch (IOException e) {

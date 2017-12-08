@@ -50,6 +50,4 @@ namespace db{
 		  return 0;
 	}
 
-
-
 }

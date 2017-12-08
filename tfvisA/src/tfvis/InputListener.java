@@ -1,4 +1,5 @@
 package tfvis;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,8 +15,8 @@ public class InputListener extends Thread {
 	private BufferedWriter bw;
 	private BufferedReader br;
 	private List<String> list = new ArrayList<String>();
-	
-	public InputListener(OutputStream os){
+
+	public InputListener(OutputStream os) {
 		bw = new BufferedWriter(new OutputStreamWriter(os));
 		br = new BufferedReader(new InputStreamReader(System.in));
 	}
@@ -25,7 +26,7 @@ public class InputListener extends Thread {
 		String line;
 		System.out.println("“ü—Í");
 		try {
-			while(true) {
+			while (true) {
 				line = br.readLine();
 				bw.write(line);
 				bw.newLine();

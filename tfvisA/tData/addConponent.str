@@ -1,9 +1,0 @@
-100,200,200,200,200,#x,y,w,h,##          void addConponent(JComponent parent,JComponent c,int x,int y,int w,int h){#
-999,##.,#            gbc.fill=GridBagConstraints.BOTH;#
-999,##.,x,#            gbc.gridx=x;#
-999,##.,y,#            gbc.gridy=y;#
-999,##.,w,#            gbc.gridwidth=w;#
-999,##.,h,#            gbc.gridheight=h;#
-999,##.,c,#            gbl.setConstraints(c,gbc);#
-999,##.,c,#            parent.add(c);#
-101,###            }#

@@ -2,7 +2,7 @@
 #include "Game.h"
 
 const float DtDiagram::EVENTW =80*2;
-const float DtDiagram::DTCELLW =50*2;
+const float DtDiagram::DTCELLW =70*2;
 const float DtDiagram::LINEH =20*2;
 
 const float DtDiagram::valueZ=0.8;

@@ -55,7 +55,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			}
 		}
      
-		if(DXSceneStart()){Sleep(100); continue;}
+		if(DXSceneStart()){
+			Sleep(100);
+			clock_t end = clock();     // èIóπéûä‘
+		
+			FILE *fp;
+			fp = fopen("output.txt", "w");
+			fprintf(fp, "%d\n", (int)(end-start));
+			fclose(fp);
+			
+			continue;
+		}
 
 		if(GameNest==NULL){
 			GameNest = new C_GameNest;
@@ -66,6 +76,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	
 
 		DXSceneEnd();
+		
 	}
 
 	//å„énññ

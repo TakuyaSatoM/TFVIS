@@ -1,0 +1,11 @@
+100,200,#id,##  public void searchInfo(int id){#
+999,###    Item item;#
+380,###try{#
+999,##id,#      item=ItemList.get(id);#
+250,###      item.print();#
+382,###    }#
+390,###    catch(IndexOutOfBoundsException e){#
+999,###      System.out.println("äYìñÇ∑ÇÈç›å…Ç™ë∂ç›ÇµÇ‹ÇπÇÒÅB");#
+392,###    }#
+150,###    return ;#
+101,###  }#

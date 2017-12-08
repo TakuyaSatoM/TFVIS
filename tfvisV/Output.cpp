@@ -89,6 +89,8 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			DWordColor(D3DXCOLOR(0,0,0,1)); 
 			DWordFormat(DT_CENTER | DT_VCENTER);
 			DWordArea_W(x,y,z,w);
+			
+		
 			switch(m_Variables){
 				case m_Int:
 				sprintf(DWordBuffer(),"%s", tar_Int->m_Text.c_str());
@@ -101,7 +103,6 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			case m_Str:
 				sprintf(DWordBuffer(),"%s", tar_Str->m_Text.c_str());
 				break;
-
 			default:
 				break;
 			}

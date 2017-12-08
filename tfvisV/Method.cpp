@@ -15,7 +15,3 @@ void Method::loadLine(){
 	reader.Read(this);
 }
 
-
-
-
-

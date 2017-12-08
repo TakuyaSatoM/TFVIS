@@ -1,0 +1,10 @@
+100,200,200,#baseWeight,addWeight,##  public void addStockUnderWeight(int baseWeight,int addWeight){#
+300,200,#i,#i,#    for(int i=0;i<ItemList.size();i++){#
+999,##i,#      Item item=ItemList.get(i);#
+200,250,#itemWeight,##      int itemWeight=item.getWeight();#
+170,##baseWeight,itemWeight,#      if(baseWeight>itemWeight){#
+250,250,##addWeight,#        item.addWeight(addWeight);#
+172,###      }#
+302,###    }#
+250,##baseWeight,addWeight,#    System.out.println(baseWeight+"à»â∫ÇÃç›å…Ç"+addWeight+"kgí«â¡ÇµÇ‹ÇµÇΩÅB");#
+101,###  }#

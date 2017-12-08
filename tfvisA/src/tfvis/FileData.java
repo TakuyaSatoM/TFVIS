@@ -3,46 +3,46 @@ package tfvis;
 import java.util.ArrayList;
 
 //ファイルが持つクラスの情報
-class FileData{
-	
+class FileData {
+
 	ArrayList<StrClass> m_Classes;
-	
-	FileData(){
+
+	FileData() {
 		m_Classes = new ArrayList<StrClass>();
 	}
-	
-	public int getClassNum(){
+
+	public int getClassNum() {
 		return m_Classes.size();
 	}
-	
-	public String getClassName(){
+
+	public String getClassName() {
 		return m_Classes.get(0).getName();
 	}
-	
-	public String getClassName(int i){
+
+	public String getClassName(int i) {
 		return m_Classes.get(i).getName();
 	}
-	
-	public ArrayList<StrClass> getClassData(){
+
+	public ArrayList<StrClass> getClassData() {
 		return m_Classes;
 	}
-	
-	public StrClass getClassData(int i){
+
+	public StrClass getClassData(int i) {
 		return m_Classes.get(i);
 	}
-	
-	public void add(StrClass classData){
+
+	public void add(StrClass classData) {
 		m_Classes.add(classData);
 	}
-	
-	public void setSubClassData(StrClass classData){
-		(m_Classes.get(m_Classes.size()-1)).setSubClass(classData);
+
+	public void setSubClassData(StrClass classData) {
+		(m_Classes.get(m_Classes.size() - 1)).setSubClass(classData);
 	}
-	
-	public int getSubClassNum(){
-		int count=0;
-		for(StrClass classData:m_Classes){
-			count +=classData.getSubClassNum();
+
+	public int getSubClassNum() {
+		int count = 0;
+		for (StrClass classData : m_Classes) {
+			count += classData.getSubClassNum();
 		}
 		return count;
 	}

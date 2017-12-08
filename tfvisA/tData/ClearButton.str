@@ -1,5 +1,0 @@
-100,###  public ClearButton(){#
-450,###    super("C");#
-10,##.,#    this.setFont(new Font ("‚l‚r@ƒSƒVƒbƒN",Font.PLAIN,40));#
-999,##.,#    this.addActionListener(this);#
-101,###    }#

@@ -1,6 +1,0 @@
-100,###  public NoneButton(){#
-450,###    super("");#
-999,##.,#    this.addActionListener(this);#
-999,##.,#    this.setEnabled(false);#
-999,##.,#    this.setBorderPainted(false);#
-101,###    }#
