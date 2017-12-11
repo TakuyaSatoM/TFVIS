@@ -22,7 +22,7 @@ StrReader(char* filename)
 }
 virtual ~StrReader(){}
 
-void Read(C_Class* ctop); 
+void read(C_Class* ctop); 
 
 C_Class* m_NowClass;
 void _ClassRead(C_Class* top);

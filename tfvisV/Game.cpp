@@ -69,17 +69,13 @@ bool C_GameNest::Create()
  mRT_Spe=CreateNewRenderingTexture( mSize_ExeFlow.x*2, mSize_ExeFlow.y*2);
  mRT_Spe->SetColor( &D3DXCOLOR(0.9,0.9,0.9,0) );
 
+ // ’ŽßƒGƒŠƒA
  mTexXY_Output=INT2(0,0);
  mDrawArea_Output=C_Box(15,mDrawArea_SelectList.y+mDrawArea_SelectList.h+SCREEN_SPACE,WINDOWSIZEW-SCREEN_SPACE,200-SCREEN_SPACE);
  mSize_Output=INT2(2000,1000);
 
  mRT_Output=CreateNewRenderingTexture( mSize_Output.x*2, mSize_Output.y*2);
  mRT_Output->SetColor( &D3DXCOLOR(0.9,0.9,0.9,1) );
-
-
-
-
-
 
 
 

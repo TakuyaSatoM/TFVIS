@@ -14,6 +14,7 @@ extern C_GameNest* GameNest;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	clock_t start = clock();
 
 	//ƒƒ‚ƒŠƒŠ[ƒNŒŸo
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);

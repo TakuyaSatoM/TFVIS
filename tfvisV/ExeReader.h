@@ -19,7 +19,7 @@ ExeReader(char* filename)
 }
 virtual ~ExeReader(){}
 
-void Read(Exe* ctop); 
+void read(Exe* ctop); 
 
 
 };

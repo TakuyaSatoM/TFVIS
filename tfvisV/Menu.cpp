@@ -169,5 +169,7 @@ void S_Base::Menu()
    MenuBottons(m_Menubar->Option,D3DXVECTOR2(itW,20),"Option*");
 
    draw::Basic()->Draw();
+   
+   delete m_Menubar;
    DWordDrawEnd();
 }

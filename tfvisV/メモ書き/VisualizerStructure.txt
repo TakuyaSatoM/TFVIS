@@ -1,12 +1,9 @@
 TFVIS可視化部の構造メモ書き by sato
 
 
-記述方法
+記述方法(段下げにより、階層構造を表現)
 ファイル名(.cpp)#関数
 関数詳細
-
-段下げにより、階層構造を表現
-
 
 
 Main#WinMain メイン関数
@@ -14,6 +11,28 @@ Main#WinMain メイン関数
 GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 
 	Game#Create
-	ウィンドウ
-	
-	
+	ウィンドウ生成時に描画する各エリアのバッファを作成する
+
+		DB_Load#load
+		解析データの読み込みとメソッド呼び出し関係の解析
+		Exeクラスが実行時のイベントの実行順の繋がりやイベント等の情報を持つので超重要
+
+			StrReader#StrReader
+			継承元C_Readerクラスのコンストラクタ呼び出し
+			以降、StrReader(継承元C_Reader)クラスが解析データファイルの中身を保持
+
+				RL_Reader#C_Reader
+				解析データファイルの内容の読み込み
+
+			StrReader#read
+			構造ファイルのデータ読み込み
+			渡された空のC_Classファイルに構造データを入れていく
+			ここから作られていくC_ClassをDataBase(.cpp)で保持して、全体で静的な構造データとして扱う。
+
+				StrReader#_ClassRead
+				静的なクラスデータの読み込み
+
+				StrReader#_MethodRead
+				静的なメソッドデータの読み込み
+
+			

@@ -8,14 +8,14 @@ namespace db{
 
 		//基本構造データ読込
 		  {
-			StrReader read("Data\\SystemStr.txt");
-			read.Read(getClass());
+			StrReader reader("Data\\SystemStr.txt");
+			reader.read(getClass());
 		  }
 
 		  //実行結果読込
 		  {
-			  ExeReader read("Data\\Method.txt");
-			  read.Read(getExe());
+			  ExeReader reader("Data\\Method.txt");
+			  reader.read(getExe());
 		  }
 
 		  //各メソッドの呼び出し回数を計算・メソッド実行を登録

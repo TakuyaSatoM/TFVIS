@@ -46,7 +46,7 @@ void StrReader::_MethodRead()
 アニメデータの読み込み
 return アニメデータ
 *///-----------------------------------------------------------
-void StrReader::Read(C_Class* ctop)
+void StrReader::read(C_Class* ctop)
 {
  if(ctop == NULL){return;}
 
