@@ -35,4 +35,8 @@ GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 				StrReader#_MethodRead
 				静的なメソッドデータの読み込み
 
-			
+			ExeReader#ExeReader
+			StrReaderと大体一緒
+                        動的なデータの読み込みなど
+		
+		

@@ -10,7 +10,7 @@ using namespace std;
 アニメデータの読み込み
 return アニメデータ
 *///-----------------------------------------------------------
-void ExeReader::Read(Exe* top)
+void ExeReader::read(Exe* top)
 {
  if(top == NULL){return;}
 
