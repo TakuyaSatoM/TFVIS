@@ -1,0 +1,12 @@
+100,221,#args,##  public static void main(String[] args){#
+10,###    List ary=new ArrayList ();#
+10,###    Print print=new Print ();#
+380,###try{#
+250,###      print.set("aaa");#
+999,###      print.str="bbb";#
+999,###      System.out.println(print.str);#
+382,###    }#
+390,###    catch(IndexOutOfBoundsException e){#
+999,###      System.out.println(e);#
+392,###    }#
+101,###  }#
