@@ -58,7 +58,7 @@ public class Program implements tfvisConstants {
 
 		for (FileData file : m_Files) {
 			for (StrClass index : file.getClassData()) {
-				if (index.doesHasMainMethod()) {
+				if (index.hasMainMethod()) {
 					return index.getName();
 				}
 			}
@@ -78,13 +78,13 @@ public class Program implements tfvisConstants {
 			for (StrClass index : file.getClassData()) {
 				if (index.hasSubClass()) {
 					for (StrClass subClass : index.getSubClass()) {
-						if (subClass.doesHasMainMethod()) {
+						if (subClass.hasMainMethod()) {
 							subClass.setMethodID(count);
 							count += subClass.getHasMethodNum();
 						}
 					}
 				}
-				if (index.doesHasMainMethod()) {
+				if (index.hasMainMethod()) {
 					index.setMethodID(count);
 					count += index.getHasMethodNum();
 				}
@@ -93,12 +93,12 @@ public class Program implements tfvisConstants {
 		for (FileData file : m_Files) {
 			for (StrClass index : file.getClassData()) {
 				for (StrClass subClass : index.getSubClass()) {
-					if (!subClass.doesHasMainMethod()) {
+					if (!subClass.hasMainMethod()) {
 						subClass.setMethodID(count);
 						count += subClass.getHasMethodNum();
 					}
 				}
-				if (!index.doesHasMainMethod()) {
+				if (!index.hasMainMethod()) {
 					index.setMethodID(count);
 					count += index.getHasMethodNum();
 				}
@@ -177,14 +177,14 @@ public class Program implements tfvisConstants {
 		for (FileData file : m_Files) {
 			for (StrClass classData : file.getClassData()) {
 				for (StrClass subClassData : classData.getSubClass()) {
-					if (subClassData.doesHasMainMethod()) {
+					if (subClassData.hasMainMethod()) {
 						subClassData.setMyID(classCount);
 						subClassData.outputStr(ssfile);
 
 						classCount++;
 					}
 				}
-				if (classData.doesHasMainMethod()) {
+				if (classData.hasMainMethod()) {
 					classData.setMyID(classCount);
 					classData.outputStr(ssfile);
 
@@ -197,14 +197,14 @@ public class Program implements tfvisConstants {
 		for (FileData file : m_Files) {
 			for (StrClass classData : file.getClassData()) {
 				for (StrClass subClassData : classData.getSubClass()) {
-					if (!subClassData.doesHasMainMethod()) {
+					if (!subClassData.hasMainMethod()) {
 						subClassData.setMyID(classCount);
 						subClassData.outputStr(ssfile);
 
 						classCount++;
 					}
 				}
-				if (!classData.doesHasMainMethod()) {
+				if (!classData.hasMainMethod()) {
 					classData.setMyID(classCount);
 					classData.outputStr(ssfile);
 

@@ -16,7 +16,7 @@ public class StrClass implements tfvisConstants {
 	private ArrayList<Line> m_Line;
 	private ArrayList<StrClass> m_SubClasses;
 
-	public boolean doesHasMainMethod() {
+	public boolean hasMainMethod() {
 		return m_HasMainMethod;
 	}
 
@@ -160,7 +160,6 @@ public class StrClass implements tfvisConstants {
 		}
 
 		fout.println("  static final int TP_CLASSID = " + m_ID + ";");
-		fout.println("  static int TP_INSTANCEID = -1;");
 		fout.println();
 
 		if (this.hasSubClass()) {

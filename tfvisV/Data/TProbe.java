@@ -51,16 +51,10 @@ public class TProbe {
 
 	static final String DELIM ="#";
 	static int m_ExeCount=0;
-	static int m_InstanceCount=0;
 	
 	static public int GetExe()
 	{return m_ExeCount++;}
 	
-	static public int GetInstance(int i)
-	{
-		if(i>=0){return i;}
-		return m_InstanceCount++;
-	}	
 	
 	static public void Init()
 	{

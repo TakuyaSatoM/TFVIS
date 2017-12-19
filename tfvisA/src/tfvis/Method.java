@@ -214,14 +214,15 @@ public class Method implements tfvisConstants {
 				fout.println(indent + "final int TP_METHODID = " + m_ID + ";");
 				fout.println(indent + "int TP_METHODEXE=TProbe.GetExe();	");
 
+				// mainÉÅÉ\ÉbÉh
 				if (m_Type == Mt_Main) {
 					fout.println(indent + "TProbe.Init();");
-					fout.println(indent + "TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
-							+ ");");
+					fout.println(indent + "int TP_INSTANCEID = -1;");
 				} else {
-					fout.println(indent + "TProbe.Input_StartMethod(this.hashCode(),TP_METHODID,TP_METHODEXE," + lineID
-							+ ");");
+					fout.println(indent + "int TP_INSTANCEID = this.hashCode();");
 				}
+				fout.println(
+						indent + "TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID + ");");
 				fout.println(indent + "boolean isLoop=false;");
 				insertedProbe = true;
 			}

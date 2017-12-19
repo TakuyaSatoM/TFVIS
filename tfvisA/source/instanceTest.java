@@ -1,22 +1,17 @@
 
-import java.util.*;
 
-public class instanceTest{
+public class instanceTest {
 	public static void main(String[] args) {
-		
-		List ary = new ArrayList();
-		
+
 		Print print = new Print();
-		try{			
+		Print print2 = new Print();
+
 		print.set("aaa");
-		print.str = "bbb";
+		print2.set("bbb");
+		print.set("ccc");
+
 		System.out.println(print.str);
-		}
-		catch(IndexOutOfBoundsException e){
-			System.out.println(e);
-		}
-		
+		System.out.println(print2.str);
+
 	}
-	
-	
 }
