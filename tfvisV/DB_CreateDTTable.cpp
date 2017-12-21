@@ -4,11 +4,16 @@
 
 namespace db{
 
+
 	Exe* setExe(Exe* exe){
+		
 		Method* method=db::searchMethod(exe->m_MethodID);
 		MethodExe* meExe=db::searchMethodExe(exe->m_MethodExeID);
 
+		// メソッド内での行番号の取得
 		int lineNum=method->m_Line.back()->m_BaseID+1;
+
+		// ループバッファ
 		int* lvL=new int[lineNum];
 		for(int i=0;i<lineNum;i++){lvL[i]=0;}
 
@@ -114,7 +119,6 @@ namespace db{
 		return indexExe;
 	}
 
-
 	//データ遷移図を作成(成功時0を返す)
 	int  createDTTable(){
 
@@ -123,6 +127,5 @@ namespace db{
 
 		return 0;
 	}
-
 
 }

@@ -16,6 +16,8 @@ GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 		DB_Load#load
 		解析データの読み込みとメソッド呼び出し関係の解析
 		Exeクラスが実行時のイベントの実行順の繋がりやイベント等の情報を持つので超重要
+		Exeクラスは、1つの実行イベントを表しており、Check()で次の実行イベントを取得できる
+		このExeは実行順序でつながっていて、連なる一連のExeデータをイベントグラフと定義しています
 
 			StrReader#StrReader
 			継承元C_Readerクラスのコンストラクタ呼び出し
@@ -38,5 +40,11 @@ GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 			ExeReader#ExeReader
 			StrReaderと大体一緒
                         動的なデータの読み込みなど
-		
-		
+
+			DB_SetRelation_MethodExe#setRelation_MethodExe_andExe
+			メソッドの開始と終了のの実行イベント箇所をイベントグラフに追加
+
+			DB_CreateDTTable#createDTTable
+			次のsetExeの再帰用呼び出しっぽい
+
+				DB_CreateDTTable#setExe

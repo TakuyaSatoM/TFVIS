@@ -1,23 +1,57 @@
-﻿2017/12/15 2:13:15 にビルドを開始しました。
+﻿2017/12/21 19:00:09 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
-         "AlwaysCreate" が指定されたため "Debug\Tfvis.unsuccessfulbuild" を作成しています。
+         "Debug\Tfvis.unsuccessfulbuild" のタッチ タスクを実行しています。
        ClCompile:
-         すべての出力が最新のものです。
-       ResourceCompile:
-         すべての出力が最新のものです。
-       ManifestResourceCompile:
-         すべての出力が最新のものです。
-       Link:
-         すべての出力が最新のものです。
-       Manifest:
-         すべての出力が最新のものです。
-         すべての出力が最新のものです。
-       FinalizeBuildStatus:
-         ファイル "Debug\Tfvis.unsuccessfulbuild" を削除しています。
-         "Debug\Tfvis.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット) のビルドが完了しました。
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\DXUT\Core /I..\..\..\DXUT\Optional /ZI /nologo /W0 /WX- /Od /Oi /Oy- /D WIN32 /D _DEBUG /D DEBUG /D PROFILE /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp- /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Draw.cpp DTSearch.cpp DT_Code.cpp ConP.cpp DataBase.cpp DB_CreateDTTable.cpp DB_Load.cpp DTCom.cpp DT_Condition.cpp DT_Loop.cpp DT_Method.cpp DT_Others.cpp DT_Switch.cpp DT_TryCatch.cpp DT_VariableUpdate.cpp ED_Figures.cpp ED_Methods.cpp ED_Other.cpp DataTransitions.cpp DB_SetRelation_MethodExe.cpp Others.cpp Output.cpp LineReader.cpp SelectList.cpp Method.cpp DT_Table.cpp Menu.cpp ExeReader.cpp StrReader.cpp S_Base.cpp GameDefine.cpp Game.cpp Main.cpp ExecutionDiagram.cpp  
+         Draw.cpp
+         DTSearch.cpp
+         DT_Code.cpp
+         ConP.cpp
+         DataBase.cpp
+         DB_CreateDTTable.cpp
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(55): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(58): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(75): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(75): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(78): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(80): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(90): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(111): error C2065: 'lvL' : 定義されていない識別子です。
+     1>c:\users\tmp\desktop\tfvis\tfvisv\db_createdttable.cpp(111): error C2541: 'delete' : ポインターではないオブジェクトを削除することはできません。
+         DB_Load.cpp
+         DTCom.cpp
+         DT_Condition.cpp
+         DT_Loop.cpp
+         DT_Method.cpp
+         DT_Others.cpp
+         DT_Switch.cpp
+         DT_TryCatch.cpp
+         DT_VariableUpdate.cpp
+         ED_Figures.cpp
+         ED_Methods.cpp
+         ED_Other.cpp
+         DataTransitions.cpp
+         DB_SetRelation_MethodExe.cpp
+         コードを生成中...
+         コンパイル中...
+         Others.cpp
+         Output.cpp
+         LineReader.cpp
+         SelectList.cpp
+         Method.cpp
+         DT_Table.cpp
+         Menu.cpp
+         ExeReader.cpp
+         StrReader.cpp
+         S_Base.cpp
+         GameDefine.cpp
+         Game.cpp
+         Main.cpp
+         ExecutionDiagram.cpp
+         コードを生成中...
+     1>プロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット) のビルドが終了しました -- 失敗。
 
-ビルドに成功しました。
+ビルドに失敗しました。
 
-経過時間 00:00:00.71
+経過時間 00:00:20.31

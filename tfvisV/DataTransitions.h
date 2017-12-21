@@ -51,7 +51,6 @@ class DtDiagram
 	static const float methodZ;
 	static const float dtaZ;
 
-
 	static const D3DXVECTOR4 dtsColor;
 	static const D3DXVECTOR4 dtaColor;
 	static const D3DXVECTOR4 loopsTagColor;
