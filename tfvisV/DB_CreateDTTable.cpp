@@ -20,6 +20,8 @@ namespace db{
 		Exe* indexExe=exe;
 		Exe* beforeExe=exe;
 		C_Line* iline=NULL;
+
+		// 描画時に必要な情報をイベントクラスとして保持し、イベントグラフに紐付け
 		while( indexExe ){
 		
 
@@ -27,7 +29,8 @@ namespace db{
 				C_Line* tmpline=iline;
 				iline=db::searchLine(method,indexExe->m_LineID);
 
-				if(tmpline && tmpline->m_BaseID==tmpline->m_BaseID){
+				
+				if(tmpline){
 					if(tmpline->CHECK()){
 						if(((C_Line*)tmpline->CHECK())->m_BaseID == tmpline->m_BaseID){
 							iline=tmpline->CHECK();
@@ -35,6 +38,8 @@ namespace db{
 					}
 
 				}
+				
+
 				if(iline->m_EventNum>1){
 					int num=iline->m_EventNum;
 					while(iline && num > 0){
