@@ -1,5 +1,4 @@
 
-
 public class instanceTest {
 	public static void main(String[] args) {
 
@@ -14,4 +13,5 @@ public class instanceTest {
 		System.out.println(print2.str);
 
 	}
+
 }

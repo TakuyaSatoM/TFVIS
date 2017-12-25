@@ -13,7 +13,7 @@ namespace db{
 		// メソッド内での行番号の取得
 		int lineNum=method->m_Line.back()->m_BaseID+1;
 
-		// ループバッファ
+		// 各行のループ処理を横に並べる時に用いる値を保持する配列
 		int* lvL=new int[lineNum];
 		for(int i=0;i<lineNum;i++){lvL[i]=0;}
 
@@ -22,15 +22,16 @@ namespace db{
 		C_Line* iline=NULL;
 
 		// 描画時に必要な情報をイベントクラスとして保持し、イベントグラフに紐付け
-		while( indexExe ){
+		while( indexExe != NULL){
 		
 
 			{
+				// 該当メソッドのm_LineID行目を取得
 				C_Line* tmpline=iline;
 				iline=db::searchLine(method,indexExe->m_LineID);
 
 				
-				if(tmpline){
+				if(tmpline != NULL){
 					if(tmpline->CHECK()){
 						if(((C_Line*)tmpline->CHECK())->m_BaseID == tmpline->m_BaseID){
 							iline=tmpline->CHECK();
@@ -62,9 +63,11 @@ namespace db{
 					meExe->m_LtMemory.Add(newItem= new LooptMemo(indexExe,lvL[indexExe->m_LineID]));
 			}
 
+			// 実行イベントの描画箇所の算出(ループ処理以外)
 			indexExe->m_DTXY=INT2(lvL[indexExe->m_LineID],iline->m_ID);
 			meExe->m_XWide=max(meExe->m_XWide,indexExe->m_DTXY.x);
 
+			// ループ処理時の描画箇所の算出
 			if(indexExe->m_EventType == ev::LOOP_NEXT){
 
 				E_LoopNext* ev=(E_LoopNext*)indexExe->m_Event;
@@ -100,7 +103,7 @@ namespace db{
 				lt->Delete();
 			}
 
-			//try-catch文
+			//try-catch文のイベントクラスの紐づけ
 			if(indexExe->m_EventType == ev::CATCH){
 				E_Catch* ev=(E_Catch*)indexExe->m_Event;
 				ev->m_Try = beforeExe;
@@ -109,7 +112,7 @@ namespace db{
 			beforeExe=indexExe;
 			indexExe=indexExe->CHECK();
 
-			if(beforeExe->m_EventType == ev::METHOD_END){break;}
+			if(indexExe->m_EventType == ev::METHOD_END){break;}
 
 			if(indexExe->m_EventType == ev::METHOD_START && indexExe != exe){indexExe=setExe(indexExe);}
 			
@@ -128,7 +131,16 @@ namespace db{
 	int  createDTTable(){
 
 
-		setExe(getExe()->CHECK());
+		Exe* exe = setExe(getExe()->CHECK());
+
+		// メインメソッド終了位置の指定
+		Method* method=db::searchMethod(exe->m_MethodID);
+		MethodExe* meExe=db::searchMethodExe(exe->m_MethodExeID);
+
+		C_Line* iline=db::searchLine(method,exe->m_LineID);
+
+		exe->m_DTXY = INT2(0,iline->m_ID);
+		meExe->m_XWide = max(meExe->m_XWide,exe->m_DTXY.x);
 
 		return 0;
 	}
