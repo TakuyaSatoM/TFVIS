@@ -112,13 +112,13 @@ void E_Update::SetInt(char* stock)
 	//value
 	TEXT::Seek(stock,',',&seek,get);
 	int value=atoi(get);
-	m_Updates.Add(new UV_Int(name,value));
+	m_Updates.Add(new UV_Int(name,instanceID,value));
 	while(true)
 	{
 		TEXT::Seek(stock,',',&seek,get);
 		
 		if(get[0]==0){break;}
-		m_Infs.Add(new C_String(get));
+		m_Infs.Add(new C_String(get, instanceID));
 
 	}
 
@@ -145,7 +145,7 @@ void E_Update::SetIntArray(char* stock)
 		int value=atoi(get);
 	
 		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_Int(tmp,value));
+		m_Updates.Add(new UV_Int(tmp,instanceID,value));
 
 	}
 	return;
@@ -162,13 +162,13 @@ void E_Update::SetDouble(char* stock)
 	//value
 	TEXT::Seek(stock,',',&seek,get);
 	double value=atof(get);
-	m_Updates.Add(new UV_Double(name,value));
+	m_Updates.Add(new UV_Double(name,instanceID, value));
 
 	while(true)
 	{
 		TEXT::Seek(stock,',',&seek,get);		
 		if(get[0]==0){break;}
-		m_Infs.Add(new C_String(get));
+		m_Infs.Add(new C_String(get,instanceID));
 	}
 }
 
@@ -192,7 +192,7 @@ void E_Update::SetDoubleArray(char* stock)
 		int value=atof(get);
 	
 		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_Double(tmp,value));
+		m_Updates.Add(new UV_Double(tmp,instanceID,value));
 
 	}
 	return;
@@ -208,13 +208,13 @@ void E_Update::SetString(char* stock)
 	string name=get;
 	//value
 	TEXT::Seek(stock,',',&seek,get);
-	m_Updates.Add(new UV_String(name,get));
+	m_Updates.Add(new UV_String(name,instanceID,get));
 
 	while(true)
 	{
 		TEXT::Seek(stock,',',&seek,get);		
 		if(get[0]==0){break;}
-		m_Infs.Add(new C_String(get));
+		m_Infs.Add(new C_String(get, instanceID));
 	}
 }
 
@@ -237,7 +237,7 @@ void E_Update::SetStringArray(char* stock)
 		TEXT::Seek(stock,',',&seek,get);
 	
 		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_String(tmp,get));
+		m_Updates.Add(new UV_String(tmp,instanceID,get));
 
 	}
 	return;

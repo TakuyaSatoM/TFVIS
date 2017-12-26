@@ -54,7 +54,7 @@ GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 				あと、各実行イベントの描画時の位置の基準となるExeのm_DTXYもここで作ってます
 
 	Game#doMainTask
-	呼び出しのみ
+	_Taskの呼び出しのみ
 
 		S_Base#_Task
 		

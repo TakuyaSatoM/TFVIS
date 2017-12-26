@@ -24,6 +24,8 @@ namespace db{
 		// 描画時に必要な情報をイベントクラスとして保持し、イベントグラフに紐付け
 		while( indexExe != NULL){
 		
+			method=db::searchMethod(indexExe->m_MethodID);
+			meExe=db::searchMethodExe(indexExe->m_MethodExeID);
 
 			{
 				// 該当メソッドのm_LineID行目を取得

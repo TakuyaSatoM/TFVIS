@@ -1,0 +1,102 @@
+﻿'Tfvis.exe': 'C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe' を読み込みました。シンボルが読み込まれました。
+'Tfvis.exe': 'C:\Windows\SysWOW64\ntdll.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\kernel32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\kernel32.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\kernel32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\KernelBase.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\user32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\win32u.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3dx9d_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\d3d9.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DX10d_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\gdi32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msvcrt.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\sechost.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\advapi32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\gdi32full.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\rpcrt4.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msvcp_win.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ole32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ucrtbase.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\combase.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\sspicli.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\bcryptprimitives.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\cryptbase.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\winmm.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msvcp100d.dll' を読み込みました。シンボルが読み込まれました。
+'Tfvis.exe': 'C:\Windows\SysWOW64\winmmbase.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msvcr100d.dll' を読み込みました。シンボルが読み込まれました。
+'Tfvis.exe': 'C:\Windows\SysWOW64\dwmapi.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\cfgmgr32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\imm32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\uxtheme.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msctf.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\oleaut32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\kernel.appcore.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\TextInputFramework.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\CoreMessaging.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\CoreUIComponents.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\SHCore.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\WinTypes.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ntmarta.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\usermgrcli.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\igdumdim32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\setupapi.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ResourcePolicyClient.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ResourcePolicyClient.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\igdusc32.dll' を読み込みました。Cannot find or open the PDB file
+D3DX10: (INFO) Using Intel SSE2 optimizations
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\D3DCompiler_43.dll' をアンロード
+'Tfvis.exe': 'C:\Windows\SysWOW64\clbcatq.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\dinput8.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\hid.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\devobj.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\wintrust.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msasn1.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\crypt32.dll' を読み込みました。Cannot find or open the PDB file
+D3DX: Unicode support: 1
+
+'Tfvis.exe': 'C:\Windows\SysWOW64\usp10.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\IMEJP\IMJPTIP.DLL' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\shell32.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\windows.storage.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\shlwapi.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\powrprof.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\profapi.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\version.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\iertutil.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\oleacc.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\propsys.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\IMEJP\IMJPAPI.DLL' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ncrypt.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\ntasn1.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\bcrypt.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\SHARED\IMJKAPI.DLL' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\policymanager.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\msvcp110_win.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\IMEJP\IMJPPRED.DLL' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\SHARED\IMETIP.DLL' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\dui70.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\SHARED\imecfm.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\wer.dll' を読み込みました。Cannot find or open the PDB file
+'Tfvis.exe': 'C:\Windows\SysWOW64\IME\SHARED\IMESEARCHDLL.DLL' を読み込みました。Cannot find or open the PDB file
+スレッド 'Win32 スレッド' (0x22e8) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x19e4) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x52c) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x2da0) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x1dcc) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x23b4) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x2b7c) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x2e64) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x114) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x1778) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0xd80) はコード 0 (0x0) で終了しました。
+スレッド 'Win32 スレッド' (0x26bc) はコード 0 (0x0) で終了しました。
+プログラム '[7896] Tfvis.exe: ネイティブ' はコード 0 (0x0) で終了しました。

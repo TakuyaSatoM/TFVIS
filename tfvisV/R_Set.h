@@ -70,13 +70,19 @@ class C_String:public C_Set
 public:
 
   C_String(){}
-  C_String(string text)
+  C_String(string text){
+	m_Text=text;
+	instanceID=0;
+  }
+  C_String(string text, int id)
   {
 	m_Text=text;
+	instanceID=id;
   }
   C_String* CHECK(){return (C_String*)C_Set::CHECK();}
 
   string m_Text;
+  int instanceID;
 
 };
 

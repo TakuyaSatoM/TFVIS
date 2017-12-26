@@ -1,5 +1,7 @@
-100,220,#newStr,##  public void set(String newStr){#
-220,#str,#newStr,#    str=newStr;#
-999,##str,#    System.out.println(str);#
+100,220,200,200,#name,weight,price,##  public void set(String name,int weight,int price){#
+10,##ItemID,name,weight,price,#    Item item=new Item (ItemID,name,weight,price);#
+999,###    ItemList.add(item);#
+200,#ItemID,#ItemID,#    ItemID++;#
+999,##name,#    System.out.println("ç›å…"+name+"Çìoò^ÇµÇ‹ÇµÇΩ");#
 150,###    return ;#
 101,###  }#

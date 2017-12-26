@@ -1,0 +1,23 @@
+100,###  public void calculateUnitPrice(){#
+999,###    Item item;#
+200,#weight,##    int weight=0;#
+200,#totalPrice,##    int totalPrice=0;#
+200,#unitPrice,##    int unitPrice=0;#
+999,##name,#    String name;#
+300,200,#i,#i,#    for(int i=0;i<ItemList.size();i++){#
+380,###try{#
+999,##i,#        item=ItemList.get(i);#
+220,250,#name,##        name=item.getName();#
+200,250,#weight,##        weight=item.getWeight();#
+200,250,#totalPrice,##        totalPrice=item.getTotalPrice();#
+200,#unitPrice,#totalPrice,weight,#        unitPrice=totalPrice/weight;#
+999,##weight,#        System.out.println(weight);#
+999,##name,unitPrice,#        System.out.println(name+":"+unitPrice);#
+382,###      }#
+390,###      catch(ArithmeticException e){#
+999,###        System.out.println("ÝŒÉ‚È‚µ");#
+392,###      }#
+302,###    }#
+999,###    System.out.println();#
+150,###    return ;#
+101,###  }#

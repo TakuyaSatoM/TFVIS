@@ -86,7 +86,7 @@ void SelectLine::refresh(){
 			int count=0;
 			UpdateVars* uin=&((E_Update*)index->m_Event)->m_Updates;
 			while(uin=uin->next()){
-				if(uin->m_Target == varName){
+				if(uin->m_Target == varName && uin->instanceID == index->m_InstanceID){
 					existRelation=true;
 					break;
 				}

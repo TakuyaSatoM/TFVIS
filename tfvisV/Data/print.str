@@ -1,4 +1,7 @@
-100,###  public Print(){#
-220,#str,##    str="";#
-999,###    System.out.println(this.hashCode());#
+100,###  public void print(){#
+999,##id,#    System.out.println("ID:"+this.id);#
+999,##name,#    System.out.println("Name:"+this.name);#
+999,##totalWeight,#    System.out.println("Stock:"+this.totalWeight);#
+999,##totalPrice,#    System.out.println("Unit Price:"+this.totalPrice);#
+150,###    return ;#
 101,###  }#

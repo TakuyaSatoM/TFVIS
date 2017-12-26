@@ -140,7 +140,7 @@ void Exe::createDTA(DTAItem* dta)
 			UpdateVars* uin=&((E_Update*)index->m_Event)->m_Updates;
 			while(uin=uin->next())
 			{
-				if(uin->m_Target == infIndex->m_Text)
+				if(uin->m_Target == infIndex->m_Text && uin->instanceID == infIndex->instanceID)
 				{
 						existRelation=true;
 						break;

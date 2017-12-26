@@ -1,0 +1,3 @@
+100,200,#price,##  public void addPrice(int price){#
+200,#totalPrice,#totalPrice,price,#    this.totalPrice+=price;#
+101,###  }#

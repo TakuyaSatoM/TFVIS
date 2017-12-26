@@ -29,11 +29,16 @@ class UpdateVars:public C_Set
 public:
 
   UpdateVars(){}
-  UpdateVars(string name){m_Target=name;}
+  UpdateVars(string name, int id){
+	  m_Target=name;
+	  instanceID = id;
+  }
+
   virtual UpdateVars* next(){return (UpdateVars*)C_Set::CHECK();}
   virtual UpdateVars* back(){return (UpdateVars*)C_Set::CHECK_BACK();}
 
   string m_Target;
+  int instanceID;
 
   virtual string getNewDataText(){return "";}
 };
@@ -42,7 +47,7 @@ class UV_Int:public UpdateVars
 public:
 
   UV_Int(){}
-  UV_Int(string name,int newValue):UpdateVars(name)
+  UV_Int(string name, int instanceID, int newValue):UpdateVars(name, instanceID)
   {
 	m_Value=newValue;
 	m_Text = string(getNewDataText());
@@ -65,7 +70,7 @@ class UV_Double:public UpdateVars
 public:
 
   UV_Double(){}
-  UV_Double(string name,double newValue):UpdateVars(name)
+  UV_Double(string name,int instanceID, double newValue):UpdateVars(name, instanceID)
   {
 	m_Value=newValue;
 	ostringstream str;
@@ -90,7 +95,7 @@ class UV_String:public UpdateVars
 public:
 
   UV_String(){}
-  UV_String(string name,string text):UpdateVars(name)
+  UV_String(string name, int instanceID,string text):UpdateVars(name, instanceID)
   {
 	  m_Text=text;
   }
@@ -143,8 +148,9 @@ class E_Update:public Event
 	UpdateVars m_Updates;
 	C_String  m_Infs;
 	boolean standard_Input;
+	int instanceID;
 
-	E_Update(){}
+	E_Update(int id){instanceID=id;}
 
 	void SetInt(char* stock);
 	void SetIntArray(char* stock);
