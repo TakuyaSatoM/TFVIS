@@ -64,16 +64,18 @@ void SelectLine::refresh(){
 	if(index==NULL){return;}
 
 	//ŠY“–•Ï”‚ÌŒŸõ
-	string varName;
+	string varName = "";
 	{
 		if(index->m_Ref.NUM()==0){
 			int o=0;
 		}
 
 		C_String* inSt=index->m_Ref.CHECK();
+
 		for(int i=0;i<sl->m_SelectVar;i++){
 			inSt=inSt->CHECK();
 		}
+
 		varName=inSt->m_Text;
 	}
 	if(varName.size()==0){return;}

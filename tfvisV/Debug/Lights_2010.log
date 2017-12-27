@@ -1,96 +1,18 @@
-﻿2017/12/26 23:13:41 にビルドを開始しました。
+﻿2017/12/27 19:01:22 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
-         "Debug\Tfvis.unsuccessfulbuild" のタッチ タスクを実行しています。
+         "AlwaysCreate" が指定されたため "Debug\Tfvis.unsuccessfulbuild" を作成しています。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\DXUT\Core /I..\..\..\DXUT\Optional /ZI /nologo /W0 /WX- /Od /Oi /Oy- /D WIN32 /D _DEBUG /D DEBUG /D PROFILE /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp- /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DTSearch.cpp  
-         DTSearch.cpp
+         すべての出力が最新のものです。
        ResourceCompile:
          すべての出力が最新のものです。
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx10d.lib d3dx9d.lib dxerr.lib dxguid.lib dinput8.lib winmm.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Tfvis.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE:NO /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.lib" /MACHINE:X86 Debug\Lights.res
-         Debug\Tfvis.exe.embed.manifest.res
-         Debug\Draw.obj
-         Debug\DTSearch.obj
-         Debug\DT_Code.obj
-         Debug\ConP.obj
-         Debug\DataBase.obj
-         Debug\DB_CreateDTTable.obj
-         Debug\DB_Load.obj
-         Debug\DTCom.obj
-         Debug\DT_Condition.obj
-         Debug\DT_Loop.obj
-         Debug\DT_Method.obj
-         Debug\DT_Others.obj
-         Debug\DT_Switch.obj
-         Debug\DT_TryCatch.obj
-         Debug\DT_VariableUpdate.obj
-         Debug\ED_Figures.obj
-         Debug\ED_Methods.obj
-         Debug\ED_Other.obj
-         Debug\Exe.obj
-         Debug\DataTransitions.obj
-         Debug\DB_SetRelation_MethodExe.obj
-         Debug\Others.obj
-         Debug\Output.obj
-         Debug\LineReader.obj
-         Debug\R_File.obj
-         Debug\R_Text.obj
-         Debug\SelectList.obj
-         Debug\Method.obj
-         Debug\DT_Table.obj
-         Debug\Menu.obj
-         Debug\ExeReader.obj
-         Debug\StrReader.obj
-         Debug\R_AdVector.obj
-         Debug\R_Set.obj
-         Debug\R_StringVector.obj
-         Debug\S_Base.obj
-         Debug\RL_2DPorigon.obj
-         Debug\DXCommon.obj
-         Debug\GameDefine.obj
-         Debug\R_ScreenData.obj
-         Debug\RL_DownSampling.obj
-         Debug\RL_FigureLib.obj
-         Debug\RL_FigureNest.obj
-         Debug\RL_Reader.obj
-         Debug\Game.obj
-         Debug\ORFun_Iuput.obj
-         Debug\RL_TextureLib.obj
-         Debug\RL_TextureNest.obj
-         Debug\ORFun_DXWord.obj
-         Debug\ORFun_RenderingTexture.obj
-         Debug\R_Math.obj
-         Debug\R_MathAngle.obj
-         Debug\R_MathVector.obj
-         Debug\R_MathWord.obj
-         Debug\R_Input.obj
-         Debug\R_RenderingTextureNest.obj
-         Debug\R_RenderingTexture.obj
-         Debug\R_DXWord.obj
-         Debug\ORFun_LibCore.obj
-         Debug\ORFun_Window.obj
-         Debug\R_LibCore.obj
-         Debug\R_Renderer.obj
-         Debug\R_ResourceNest.obj
-         Debug\R_ResourceList.obj
-         Debug\R_Screen.obj
-         Debug\R_Strings.obj
-         Debug\R_List.obj
-         Debug\RL_Texture.obj
-         Debug\R_Window.obj
-         Debug\R_WindowPro.obj
-         Debug\Main.obj
-         Debug\ExecutionDiagram.obj
-         Debug\Event.obj  
+         すべての出力が最新のものです。
        Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Tfvis.exe.embed.manifest" /manifest Debug\Tfvis.exe.intermediate.manifest "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
          すべての出力が最新のものです。
-       LinkEmbedManifest:
          すべての出力が最新のものです。
-         Lights_2010.vcxproj -> C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe
        FinalizeBuildStatus:
          ファイル "Debug\Tfvis.unsuccessfulbuild" を削除しています。
          "Debug\Tfvis.lastbuildstate" のタッチ タスクを実行しています。
@@ -98,4 +20,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.47
+経過時間 00:00:00.11

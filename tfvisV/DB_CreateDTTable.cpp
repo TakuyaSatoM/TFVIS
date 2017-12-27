@@ -24,8 +24,8 @@ namespace db{
 		// 描画時に必要な情報をイベントクラスとして保持し、イベントグラフに紐付け
 		while( indexExe != NULL){
 		
-			method=db::searchMethod(indexExe->m_MethodID);
-			meExe=db::searchMethodExe(indexExe->m_MethodExeID);
+			//method=db::searchMethod(indexExe->m_MethodID);
+			//meExe=db::searchMethodExe(indexExe->m_MethodExeID);
 
 			{
 				// 該当メソッドのm_LineID行目を取得
@@ -111,10 +111,10 @@ namespace db{
 				ev->m_Try = beforeExe;
 			}
 
+			if(indexExe->m_EventType == ev::METHOD_END){break;}
+
 			beforeExe=indexExe;
 			indexExe=indexExe->CHECK();
-
-			if(indexExe->m_EventType == ev::METHOD_END){break;}
 
 			if(indexExe->m_EventType == ev::METHOD_START && indexExe != exe){indexExe=setExe(indexExe);}
 			
@@ -126,24 +126,24 @@ namespace db{
 		meExe->m_XWide=min(meExe->m_XWide,DT_XWIDEMAX);
 		meExe->m_XWide=max(meExe->m_XWide,method->m_CallNum);
 
-		return indexExe;
+		return indexExe->CHECK();
 	}
 
 	//データ遷移図を作成(成功時0を返す)
 	int  createDTTable(){
 
 
-		Exe* exe = setExe(getExe()->CHECK());
+		setExe(getExe()->CHECK());
 
 		// メインメソッド終了位置の指定
-		Method* method=db::searchMethod(exe->m_MethodID);
+		/*Method* method=db::searchMethod(exe->m_MethodID);
 		MethodExe* meExe=db::searchMethodExe(exe->m_MethodExeID);
 
 		C_Line* iline=db::searchLine(method,exe->m_LineID);
 
 		exe->m_DTXY = INT2(0,iline->m_ID);
 		meExe->m_XWide = max(meExe->m_XWide,exe->m_DTXY.x);
-
+		*/
 		return 0;
 	}
 

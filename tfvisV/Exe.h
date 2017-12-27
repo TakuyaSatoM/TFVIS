@@ -289,7 +289,7 @@ public:
   bool m_Argu;
 
 
-    C_String  m_Ref;
+  C_String  m_Ref;
   Event* m_Event;
 
   int GetMethodExeID(int methodID,int number);
