@@ -67,7 +67,7 @@ void SelectLine::refresh(){
 	string varName = "";
 	{
 		if(index->m_Ref.NUM()==0){
-			int o=0;
+			return;
 		}
 
 		C_String* inSt=index->m_Ref.CHECK();
@@ -78,8 +78,8 @@ void SelectLine::refresh(){
 
 		varName=inSt->m_Text;
 	}
-	if(varName.size()==0){return;}
-	
+
+	Exe* TargetIndex = index;
 	while(index){
 
 		if(ev::isUpdate(index->m_EventType) ){
@@ -88,7 +88,7 @@ void SelectLine::refresh(){
 			int count=0;
 			UpdateVars* uin=&((E_Update*)index->m_Event)->m_Updates;
 			while(uin=uin->next()){
-				if(uin->m_Target == varName && uin->instanceID == index->m_InstanceID){
+				if(uin->m_Target == varName && uin->instanceID == TargetIndex->m_InstanceID){
 					existRelation=true;
 					break;
 				}
