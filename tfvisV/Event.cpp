@@ -4,16 +4,25 @@
 namespace ev{
 
 	bool isArrayUpdate(int id){
-		int tmp=id/10;
-		return (id-tmp*10)==1;
+		if(id == UPDATE_INTARRAY || id==UPDATE_DOUBLEARRAY || id==UPDATE_STRINGARRAY){
+			return true;
+		}
+		return false;
 	}
 
+	bool isInstanceUpdate(int id){
+		if(id == GENERATE_INSTANCE){
+			return true;
+		}
+		return false;
+	}
 
 	bool isUpdate(int id){
 
 		if(id==UPDATE_INT || id==UPDATE_INTARRAY ||
 			id==UPDATE_DOUBLE || id==UPDATE_DOUBLEARRAY ||
-			id==UPDATE_STRING || id==UPDATE_STRINGARRAY ){return true;}
+			id==UPDATE_STRING || id==UPDATE_STRINGARRAY ||
+			id==GENERATE_INSTANCE){return true;}
 		return false;
 	}
 
@@ -240,6 +249,41 @@ void E_Update::SetStringArray(char* stock)
 		m_Updates.Add(new UV_String(tmp,instanceID,get));
 
 	}
+	return;
+
+}
+
+void E_Update::SetInstance(char* stock)
+{
+	int seek=0;
+	char get[256];
+	char tmp[256];
+	
+	//変数名
+	TEXT::Seek(stock,',',&seek,get);
+	string name = get;
+
+	//インスタンスの型
+	TEXT::Seek(stock,',',&seek,get);
+	string type = get;
+
+	//生成するインスタンスのid
+	TEXT::Seek(stock,',',&seek,get);
+	int targetInstanceID = atoi(get);
+
+	//size
+	TEXT::Seek(stock,',',&seek,get);
+	int num=atoi(get);
+
+	string* fields = new string[num];
+	for(int i=0;i<num;i++)
+	{
+		TEXT::Seek(stock,',',&seek,get);
+		fields[i] =get;
+	}
+
+	m_Updates.Add(new UV_Instance(name,instanceID,type,fields,targetInstanceID));
+
 	return;
 
 }

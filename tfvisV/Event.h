@@ -22,6 +22,7 @@ namespace ev{
 	static const int UPDATE_STRING=220;
 	static const int UPDATE_STRINGARRAY=221;
 	static const int METHOD_CALL=250;
+	static const int GENERATE_INSTANCE=260;
 	static const int LOOP_START=300;
 	static const int LOOP_NEXT=301;
 	static const int LOOP_END=302;
@@ -39,6 +40,7 @@ namespace ev{
 
    bool isUpdate(int id);
    bool isArrayUpdate(int id);
+   bool isInstanceUpdate(int id);
 }
 
 

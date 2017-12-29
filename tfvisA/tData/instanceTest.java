@@ -10,9 +10,9 @@ public class instanceTest{
    boolean isLoop=false;
    TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0, "args",args,false);
     Print print=new Print ();
-     TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1,print);
+     TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1,"print",print);
     Print print2=new Print ();
-     TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2,print2);
+     TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2,"print2",print2);
      TProbe.Input_MethodCall(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3);
     print.set("aaa");
      TProbe.Input_MethodCall(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,4);

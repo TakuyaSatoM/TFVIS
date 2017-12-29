@@ -98,8 +98,16 @@ void DtDiagram::drawTable(DTCom* dt)
 
 					if(ev::isUpdate(indexExe->m_EventType)){//変数更新
 
-						if(ev::isArrayUpdate(indexExe->m_EventType)==false){variableUpdate(dt,indexExe,cellArea,po);}//単体更新
-						else{variableArrayUpdate(dt,indexExe,cellArea,po);}//配列更新
+						if(ev::isArrayUpdate(indexExe->m_EventType)==true)
+						{
+							// 配列の更新
+							variableArrayUpdate(dt,indexExe,cellArea,po);
+						}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
+							//インスタンスの更新
+							InstanceUpdate(dt,indexExe,cellArea,po);
+						}else{
+							variableUpdate(dt,indexExe,cellArea,po);
+						}
 					}
 
 					{//メソッド系

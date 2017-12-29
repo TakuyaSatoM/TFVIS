@@ -67,5 +67,23 @@ void DtDiagram::variableArrayUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorig
 				
 }
 
+void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po){
+				
+		E_Update* ui=(E_Update*)indexExe->m_Event;
+		UpdateVars* index=&ui->m_Updates;
+
+		sprintf(DWordBuffer(),"%s", index->getNewDataText());	
+
+		DWordFormat(DT_LEFT | DT_VCENTER | DT_CALCRECT);
+		DWordColor(D3DXCOLOR(0,0,0,1));
+		DWordArea_W(box.x,box.y,box.w,box.h);		
+		DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
+
+		draw_box(po,box.x,box.y,DWordNowSize().right-DWordNowSize().left,box.h);
+
+		DWordFormat(DT_LEFT | DT_VCENTER );
+		DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
+				
+}
 
 

@@ -29,7 +29,7 @@ public class TProbe {
 
 	static final int INPUT = 230;
 	static final int CALL_METHOD = 250;
-	
+
 	static final int GENERATE_INSTANCE = 260;
 
 	static final int LOOP = 300;
@@ -305,8 +305,12 @@ public class TProbe {
 	}
 
 	// インスタンス生成
-	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, Object instance) {
+	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,Object instance) {
 		String str = "";
+		
+		str += name +",";
+		str += instance.getClass().getName() + ",";
+		str += instance.hashCode() + ",";
 		for (Field field : instance.getClass().getDeclaredFields()) {
 			field.setAccessible(true);
 			str += field.getName() + ",";
@@ -314,7 +318,7 @@ public class TProbe {
 
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + str);
+			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + str + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);

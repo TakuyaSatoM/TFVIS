@@ -23,9 +23,6 @@ namespace db{
 
 		// 描画時に必要な情報をイベントクラスとして保持し、イベントグラフに紐付け
 		while( indexExe != NULL){
-		
-			//method=db::searchMethod(indexExe->m_MethodID);
-			//meExe=db::searchMethodExe(indexExe->m_MethodExeID);
 
 			{
 				// 該当メソッドのm_LineID行目を取得
@@ -132,18 +129,8 @@ namespace db{
 	//データ遷移図を作成(成功時0を返す)
 	int  createDTTable(){
 
-
 		setExe(getExe()->CHECK());
 
-		// メインメソッド終了位置の指定
-		/*Method* method=db::searchMethod(exe->m_MethodID);
-		MethodExe* meExe=db::searchMethodExe(exe->m_MethodExeID);
-
-		C_Line* iline=db::searchLine(method,exe->m_LineID);
-
-		exe->m_DTXY = INT2(0,iline->m_ID);
-		meExe->m_XWide = max(meExe->m_XWide,exe->m_DTXY.x);
-		*/
 		return 0;
 	}
 

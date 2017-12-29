@@ -95,6 +95,7 @@ class DtDiagram
 
 	void variableUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);
 	void variableArrayUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);
+	void InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);
 
 	void methodStart(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po,int& changeTargetMethodExe);
 	void methodEnd(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);

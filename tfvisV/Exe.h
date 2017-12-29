@@ -111,6 +111,35 @@ public:
   }
 };
 
+class UV_Instance:public UpdateVars
+{
+public:
+
+  UV_Instance(){}
+  UV_Instance(string name, int instanceID, string type, string* fields, int targetInstanceID):UpdateVars(name, instanceID)
+  {
+	  m_Type=type;
+	  m_fields = fields;
+	  m_TargetInstanceID;
+
+  }
+
+  virtual UV_String* next(){return (UV_String*)C_Set::CHECK();}
+  virtual UV_String* back(){return (UV_String*)C_Set::CHECK_BACK();}
+
+  string m_Type;
+  string* m_fields;
+  int m_TargetInstanceID;
+
+  virtual string getNewDataText() {
+	  string str ="";
+	  for(int i=0; i<sizeof(m_fields); i++){
+	  str += m_fields[i];
+	  }
+
+	  return str;
+  }
+};
 
 class DTCom;
 class DTAItem
@@ -160,6 +189,8 @@ class E_Update:public Event
 
 	void SetString(char* stock);
 	void SetStringArray(char* stock);
+
+	void SetInstance(char* stock);
 
 	void setInputState(char* Input);
 	bool getInputState();

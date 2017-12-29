@@ -338,7 +338,7 @@ public class Method implements tfvisConstants {
 				// インスタンス生成プローブ
 				if (event == Ev_GenerateInstance) {
 					fout.println(indent + "TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
-							+ "," + line.getTarget() + ");");
+							+ ",\"" + line.getTarget() + "\"," + line.getTarget() + ");");
 				}
 
 				if (event == Ev_Input) {

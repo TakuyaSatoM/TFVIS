@@ -84,9 +84,6 @@ char S_Base::_Task()
 
 	Menu();
 
-
-
-
 	 
 	return 0;
 }
