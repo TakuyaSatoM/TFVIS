@@ -1,44 +1,43 @@
 package tfvis;
 
 public interface tfvisConstants {
-	
-	
+
 	String DIRECTORY_CREATE = "./data";
 	String ANALYSIS_EXT = ".parse";
 	String ARRAY_EXT = ".array";
-	
+
 	String DIRECTORY = DIRECTORY_CREATE + "/";
-	
+
 	String EmptyString = "";
 	String IndentString = "   ";
-	
+
 	String TVIS_PREFIX = " /*TVIS*/";
-	
-	int PID_IF = 1; 
-	int PID_FOR=2;
-	int PID_WHILE=3;
-	int PID_CLASS_DECLARE=4;
-	int PID_SWITCH=5;
-	int PID_ELSE=6;
-	int PID_METHOD_DECLARE=7;
-	
-	int PT_ARRAY =1;
-	int PT_UPDATE=2;
-	int PT_LOOP=3;
-	
-	int PID_METHOD_END =8;
-	int PID_ARRAY_INSERT =9;
-	int PID_CLASS_END =10;
-	
+
+	int PID_IF = 1;
+	int PID_FOR = 2;
+	int PID_WHILE = 3;
+	int PID_CLASS_DECLARE = 4;
+	int PID_SWITCH = 5;
+	int PID_ELSE = 6;
+	int PID_METHOD_DECLARE = 7;
+
+	int PT_ARRAY = 1;
+	int PT_UPDATE = 2;
+	int PT_LOOP = 3;
+
+	int PID_METHOD_END = 8;
+	int PID_ARRAY_INSERT = 9;
+	int PID_CLASS_END = 10;
+
 	int DrawWidth = 21;
 	int DrawHeight = 20;
-	
+
 	int Code = 0;
 	int FlowChart = 1;
 	int SequentialPaths = 2;
 	int SequentialPath = 3;
 	int InterModulePath = 4;
-	
+
 	int Semicolon = 1;
 	int End = 2;
 	int Identifier = 3;
@@ -67,8 +66,8 @@ public interface tfvisConstants {
 	int Slash = 3;
 	int Remainder = 4;
 
-	int Incre = Plus+Plus;
-	int Decre = Minus+Minus;
+	int Incre = Plus + Plus;
+	int Decre = Minus + Minus;
 
 	int Lshift1 = 0;
 	int Lshift2 = 1;
@@ -102,23 +101,23 @@ public interface tfvisConstants {
 	int SuperClass = Super + Class;
 	int Poly = 100;
 
-	//*******************************************************
+	// *******************************************************
 
-	//	TypeDeclaration
+	// TypeDeclaration
 	int TypeDec = 0;
 
-	//	ClassOrInterfaceBodyDeclaration
+	// ClassOrInterfaceBodyDeclaration
 	int CoiBodyDec = 20;
 
-	//	AnnotationTypeMemberDeclaration
+	// AnnotationTypeMemberDeclaration
 	int AnnTypeDec1 = 40;
 	int AnnTypeDec2 = 60;
 
-	//	ReferenceType
+	// ReferenceType
 	int RefType1 = 70;
 	int RefType2 = 80;
 
-	//	(Primitive/Result)Type
+	// (Primitive/Result)Type
 	int Boolean = 90;
 	int Void = 91;
 	int Char = 92;
@@ -129,260 +128,259 @@ public interface tfvisConstants {
 	int Float = 97;
 	int Double = 98;
 
-	//	PackageDeclaration
+	// PackageDeclaration
 	int Package = 100;
 
-	//	ImportDeclaration
+	// ImportDeclaration
 	int Import = 110;
 
-	//	ClassOrInterfaceDeclaration
+	// ClassOrInterfaceDeclaration
 	int CoiDec = 120;
 
-	//	ClassOrInterfaceType
+	// ClassOrInterfaceType
 	int CoiType1 = 130;
 	int CoiType2 = 140;
 
-	//	ClassOrInterfaceBody
+	// ClassOrInterfaceBody
 	int CoiBody = 150;
 
-	//	Method(Declaration/Declarator)
+	// Method(Declaration/Declarator)
 	int Method = 160;
 
-	//	ConstructorDeclaration
+	// ConstructorDeclaration
 	int Constructor = 170;
 
-	//	Enum(Declaration/Body)
+	// Enum(Declaration/Body)
 	int Enum = 180;
 
-	//	EnumConstant
+	// EnumConstant
 	int EnumConstant = 190;
 
-	//	FieldDeclaration
+	// FieldDeclaration
 	int Field = 200;
 
-	//	Variable(Declarator/DeclaratorId)
+	// Variable(Declarator/DeclaratorId)
 	int Variable = 210;
 
-	//	ExtendsList
+	// ExtendsList
 	int ExtList = 220;
 
-	//	ImplementsList
+	// ImplementsList
 	int Implements = 230;
 
-	//	Type(Parameters/Parameter)
+	// Type(Parameters/Parameter)
 	int TypeP = 240;
 
-	//	TypeBound
+	// TypeBound
 	int TypeB = 250;
 
-	//	Type(Arguments/Argument)
+	// Type(Arguments/Argument)
 	int TypeA = 260;
 
-	//	ArrayInitializer
+	// ArrayInitializer
 	int ArrayIni1 = 270;
 	int ArrayIni2 = 280;
 
-	//	Formal(Parameters/Parameter)
+	// Formal(Parameters/Parameter)
 	int Formal = 290;
 
-	//	ExplicitConstractorInvocation
+	// ExplicitConstractorInvocation
 	int ExplicitCons = 300;
 
-	//	Initializer
+	// Initializer
 	int Ini = 310;
 
-	//	WildcardBounds
+	// WildcardBounds
 	int WildBounds = 320;
 
-	//	Name/NameList
+	// Name/NameList
 	int Name1 = 330;
 	int Name2 = 340;
 
-	//	AssignmentOperator
+	// AssignmentOperator
 	int Assign1 = 350;
 	int Assign2 = 360;
 	int Assign3 = 370;
 
-	//	RelationalExpression
+	// RelationalExpression
 	int RelationExp = 380;
 
-	//	Conditional(/And/Or)Expression
+	// Conditional(/And/Or)Expression
 	int ConditionExp = 390;
 
-	//	(InclusiveOr/ExclusiveOr/And)Expression
+	// (InclusiveOr/ExclusiveOr/And)Expression
 	int OrAndExp = 400;
 
-	//	EqualityExpression
+	// EqualityExpression
 	int EqualityExp = 410;
 
-	//	InstanceOfExpression
+	// InstanceOfExpression
 	int Instanceof = 420;
 
-	//	ShiftExpression
+	// ShiftExpression
 	int ShiftExp = 430;
 
-	//	RUNSIGNEDSHIFT
+	// RUNSIGNEDSHIFT
 	int Runsign = 440;
 
-	//	RSIGNEDSHIFT
+	// RSIGNEDSHIFT
 	int Rsign = 450;
 
-	//	(Additive/Multiplicative)Expression
+	// (Additive/Multiplicative)Expression
 	int Exp = 460;
 
-	//	Pre(In/De)crementExpression
+	// Pre(In/De)crementExpression
 	int PreExp = 470;
 
-	//	PostfixExpression
+	// PostfixExpression
 	int PostfixExp = 480;
 
-	//	StatementExpression
+	// StatementExpression
 	int StateExp = 490;
 
-	//	UnaryExpression(/NotPlusMinus)
+	// UnaryExpression(/NotPlusMinus)
 	int UnaryExp = 500;
 
-	//	AllocationExpression
+	// AllocationExpression
 	int ArrayExp = 510;
 	int ObjectExp = 520;
 
-	//	CastLookahead
+	// CastLookahead
 	int Cast1 = 530;
 	int Cast2 = 540;
 	int Cast3 = 550;
 	int SubCast1 = 560;
 	int SubCast2 = 570;
 
-	//	CastExpression
+	// CastExpression
 	int CastExp1 = 580;
 	int CastExp2 = 590;
 
-
-	//	PrimaryPrefix
+	// PrimaryPrefix
 	int Prefix1 = 600;
 	int Prefix2 = 610;
 
-	//	PrimarySuffix
+	// PrimarySuffix
 	int Suffix1 = 620;
 	int Suffix2 = 630;
 	int Suffix3 = 640;
 
-	//	Literal
+	// Literal
 	int Lit_Integer = 650;
 	int Lit_Floating_P = 651;
 	int Lit_Character = 652;
 	int Lit_String = 653;
 
-	//	(Boolean/Null)Literal
+	// (Boolean/Null)Literal
 	int Lit_True = 660;
 	int Lit_False = 661;
 	int Lit_Null = 662;
 
-	//	Arguments/ArgumentList
+	// Arguments/ArgumentList
 	int Args = 670;
 
-	//	ArrayDimsAndInits
+	// ArrayDimsAndInits
 	int ArrayDim1 = 680;
 	int ArrayDim2 = 690;
 	int ArrayDim3 = 700;
 
-	//	Statement
+	// Statement
 	int State = 710;
 
-	//	AssertStatement
+	// AssertStatement
 	int Assert = 720;
 
-	//	LabeledStatement
+	// LabeledStatement
 	int Label = 730;
 
-	//	Block/BlockStatement
+	// Block/BlockStatement
 	int Block = 740;
 
-	//	LocalVariableDeclaration
+	// LocalVariableDeclaration
 	int LocalVariable = 750;
 
-	//	EmptyStatement
+	// EmptyStatement
 	int Empty = 760;
 
-	//	SwitchStatement
+	// SwitchStatement
 	int Switch = 770;
 
-	//	SwitchLabel
+	// SwitchLabel
 	int Case = 780;
 	int Default = 781;
 
-	//	IfStatement
+	// IfStatement
 	int If = 790;
 	int Else = 791;
 	int Branch = 796;
 
-	//	WhileStatement/DoStatement
+	// WhileStatement/DoStatement
 	int While = 800;
 	int Do_While = 810;
 	int Do = 813;
 
-	//	ForStatement
+	// ForStatement
 	int For = 820;
 	int For_Ini = 830;
 	int For_Con = 840;
 
-	//	StatementExpressionList
+	// StatementExpressionList
 	int StateExpList = 850;
 
-	//	(Continue/Break)Statement
+	// (Continue/Break)Statement
 	int Continue = 860;
 	int Break = 864;
 
-	//	(Return/Throw)Statement
+	// (Return/Throw)Statement
 	int Return = 870;
 	int Throw = 874;
 
-	//	SynchronizedStatement
+	// SynchronizedStatement
 	int Sync = 880;
 
-	//	TryStatement
+	// TryStatement
 	int Try = 890;
 	int Catch = 900;
 	int Finally = 893;
 
-	//	NormalAnnotation
+	// NormalAnnotation
 	int NormalAnn = 910;
 
-	//	MarkerAnnotation
+	// MarkerAnnotation
 	int MarkerAnn = 920;
 
-	//	SingleMemberAnnotation
+	// SingleMemberAnnotation
 	int SingleMemAnn = 930;
 
-	//	AnnotationType(Declaration/Body)
+	// AnnotationType(Declaration/Body)
 	int AnnType = 940;
 
-	//	MemberValue(Pairs/Pair)
+	// MemberValue(Pairs/Pair)
 	int MemPair = 950;
 
-	//	MemberValueArrayInitializer
+	// MemberValueArrayInitializer
 	int MemArray1 = 960;
 	int MemArray2 = 970;
 
-	//	MemberSelector
+	// MemberSelector
 	int MemSelect = 980;
 
-	//	DefaultValue
+	// DefaultValue
 	int DefaultVal = 990;
-	
+
 	/***
 	 * 
 	 ***/
-	
-	int If_true  = If;
+
+	int If_true = If;
 	int If_false = If * -1;
-	int For_true  = For;
+	int For_true = For;
 	int For_false = For * -1;
-	int While_true  = While;
+	int While_true = While;
 	int While_false = While * -1;
-	int Case_true  = Case;
+	int Case_true = Case;
 	int Case_false = Case * -1;
-	
+
 	int End_If_true = End + If;
 	int End_If_false = End_If_true * -1;
 	int End_Else_false = End + Else;
@@ -395,11 +393,11 @@ public interface tfvisConstants {
 	int End_While_false = End_While_true * -1;
 	int End_Case_true = End + Case;
 	int End_Case_false = End_Case_true * -1;
-	
+
 	/***
 	 * 
 	 ***/
-	
+
 	int Start_Class = 1000;
 	int Start_SuperClass = 1100;
 	int Start_SuperClassConst = 1200;
@@ -412,208 +410,134 @@ public interface tfvisConstants {
 	int Called_SuperClass = 3100;
 	int Called_SuperClassConst = 3200;
 	int Called_Method = 3300;
-	
+
 	int Poly_Branch = 4000;
-	
-	
+
 	/***
 	 * 
 	 * 
 	 ***/
-	
-	int[] skipSpaceOffsetList={
-			
-			Semicolon,
-			Rbracket,
-			Lbracket,
-			Lparen,
-			Rparen,
-			Dot,
-			//Identifier,
-			
-	};
-	
-	int[] skipSpaceList = {
-			
-		//	Name1,
-			/*
-			Formal+Lparen,
-			For+Lparen,
-			
-			Boolean,
-			Void,
-			Char,
-			Byte,
-			Short,
-			Int,
-			Long,
-			Float,
-			Double,	
 
-			*/
-	//		 Method+Static,
-		//	 Lbracket+RefType1,
-			// Lbracket+RefType2,			 
-			 //Int,
+	int[] skipSpaceOffsetList = {
+
+			Semicolon, Rbracket, Lbracket, Lparen, Rparen, Dot,
+			// Identifier,
+
 	};
-	
-	
-	
-	int[] CodeEndList = {
-			Semicolon + TypeDec,
-			Semicolon + CoiBodyDec,
-			Semicolon + AnnTypeDec1,
-			Semicolon + AnnTypeDec2,
-			Semicolon + Package,
-			Semicolon + Import,
-			Semicolon + Method,
-			Semicolon + Enum,
-			Semicolon + Field,
-			Semicolon + ExplicitCons + This,
-			Semicolon + ExplicitCons + Super,
-			Semicolon + State,
-			Semicolon + Assert,
-			Semicolon + Block,
-			Semicolon + Empty,
-			Semicolon + Do_While,
-			Semicolon + Continue,
-			Semicolon + Break,
-			Semicolon + Return,
-			Semicolon + Throw,
-			
-			Colon + ConditionExp,
-			Colon + Assert,
-			Colon + Label,
-			Colon + Case,
-			Colon + Default,
-			
-			Lbrace + CoiBody,
-			Lbrace + Method,
-			Lbrace + Constructor,
-			Lbrace + Enum,
-		//	Lbrace + ArrayIni1,
-			Lbrace + Block,
-			Lbrace + Switch,
-			Lbrace + AnnType,
-			Lbrace + MemArray1,
-			
-			Rbrace + CoiBody,
-			Rbrace + Method,
-			Rbrace + Constructor,
-			Rbrace + Enum,
-			//Rbrace + ArrayIni1,
-			Rbrace + Block,
-			Rbrace + Switch,
-			Rbrace + AnnType,
-			Rbrace + MemArray1,
-			
-			End + If,
-			End + For,
-			End + While,
-			End + Else,
-			End + Branch,
-			End + Do_While,
-			End + Switch,
-			End + Case,
+
+	int[] skipSpaceList = {
+
+			// Name1,
+			/*
+			 * Formal+Lparen, For+Lparen,
+			 * 
+			 * Boolean, Void, Char, Byte, Short, Int, Long, Float, Double,
+			 * 
+			 */
+			// Method+Static,
+			// Lbracket+RefType1,
+			// Lbracket+RefType2,
+			// Int,
+	};
+
+	int[] CodeEndList = { Semicolon + TypeDec, Semicolon + CoiBodyDec, Semicolon + AnnTypeDec1, Semicolon + AnnTypeDec2,
+			Semicolon + Package, Semicolon + Import, Semicolon + Method, Semicolon + Enum, Semicolon + Field,
+			Semicolon + ExplicitCons + This, Semicolon + ExplicitCons + Super, Semicolon + State, Semicolon + Assert,
+			Semicolon + Block, Semicolon + Empty, Semicolon + Do_While, Semicolon + Continue, Semicolon + Break,
+			Semicolon + Return, Semicolon + Throw,
+
+			Colon + ConditionExp, Colon + Assert, Colon + Label, Colon + Case, Colon + Default,
+
+			Lbrace + CoiBody, Lbrace + Method, Lbrace + Constructor, Lbrace + Enum,
+			// Lbrace + ArrayIni1,
+			Lbrace + Block, Lbrace + Switch, Lbrace + AnnType, Lbrace + MemArray1,
+
+			Rbrace + CoiBody, Rbrace + Method, Rbrace + Constructor, Rbrace + Enum,
+			// Rbrace + ArrayIni1,
+			Rbrace + Block, Rbrace + Switch, Rbrace + AnnType, Rbrace + MemArray1,
+
+			End + If, End + For, End + While, End + Else, End + Branch, End + Do_While, End + Switch, End + Case,
 			End + Default,
-		//	End + Class,
-			End + Interface,
-			End + Constructor,
-			End + Method,
-			End + Try,
-			End + Catch,
-			End + Finally,
-			
-			Rparen + If,
-			Rparen + For,
-			Rparen + While
-	};
-	
-	//TFVIS
-	
-	 int CLASSID=0;
-	 int METHODID=1;
-	 String DLM="#";
-	 
-	 int Object=10;
-	 
-	int Ev_MethodStart=100; 	
-	int Ev_MethodEnd=101; 	
-	int Ev_Return=150; 		
-	
+			// End + Class,
+			End + Interface, End + Constructor, End + Method, End + Try, End + Catch, End + Finally,
+
+			Rparen + If, Rparen + For, Rparen + While };
+
+	// TFVIS
+
+	int CLASSID = 0;
+	int METHODID = 1;
+	String DLM = "#";
+
+	int Ev_MethodStart = 100;
+	int Ev_MethodEnd = 101;
+	int Ev_Return = 150;
+
 	int Ev_ClassStart = 120;
-	int Ev_ClassEnd = 122;	
-	
-	int Ev_Switch=160;
-	int Ev_SwitchEnd=161;
-	int Ev_Case=162;
-	int Ev_CaseEnd=163;
-	int Ev_DefaultEnd=164;
-	
-	int Ev_Route=170;
-	int Ev_IfEnd=172;
-	
-	int Ev_IntUpdate=200; 		 
-	int Ev_DoubleUpdate=210; 	
-	int Ev_StringUpdate=220;
+	int Ev_ClassEnd = 122;
+
+	int Ev_Switch = 160;
+	int Ev_SwitchEnd = 161;
+	int Ev_Case = 162;
+	int Ev_CaseEnd = 163;
+	int Ev_DefaultEnd = 164;
+
+	int Ev_Route = 170;
+	int Ev_IfEnd = 172;
+
+	int Ev_IntUpdate = 200;
+	int Ev_DoubleUpdate = 210;
+	int Ev_StringUpdate = 220;
 	int Ev_Input = 230;
-	
-	int Ev_UpdateRangeL=200;
-	int Ev_UpdateRangeH=249;
-	
-	int Ev_CallMethod=250; 	
-	
-	int Ev_For=300; 
-	int Ev_ForEnd=302; 
-	
-	int Ev_While=350;
-	int Ev_WhileEnd=352;
-	
+
+	int Ev_UpdateRangeL = 200;
+	int Ev_UpdateRangeH = 249;
+
+	int Ev_CallMethod = 250;
+
+	int Ev_GenerateInstance = 260;
+
+	int Ev_For = 300;
+	int Ev_ForEnd = 302;
+
+	int Ev_While = 350;
+	int Ev_WhileEnd = 352;
+
 	int Ev_Do = 360;
 	int Ev_DoEnd = 362;
 	int Ev_DoWhile = 364;
 	int Ev_DoWhileEnd = 366;
-	
-	int Ev_Try=380;
-	int Ev_TryEnd=382;
-	int Ev_Catch=390;
-	int Ev_CatchEnd=392;
-	int Ev_Finally=400;
-	int Ev_FinallyEnd=402;
-	
+
+	int Ev_Try = 380;
+	int Ev_TryEnd = 382;
+	int Ev_Catch = 390;
+	int Ev_CatchEnd = 392;
+	int Ev_Finally = 400;
+	int Ev_FinallyEnd = 402;
+
 	int Ev_Super = 450;
-	int Ev_Other=999;
-	
-	int ArrayMode=1;
-	
-	
-	int Mt_Normal=0;
-	int Mt_Main=1;
-	int Mt_Constructor=2;
-	
+	int Ev_Other = 999;
+
+	int ArrayMode = 1;
+
+	int Mt_Normal = 0;
+	int Mt_Main = 1;
+	int Mt_Constructor = 2;
+
 	/*
-	 	static const int NONE=0;
-	static const int CLASS_START=0;
-	static const int CLASS_END=1;
-	static const int METHOD_START=100;
-	static const int METHOD_END=101;
-	static const int RETURN=150;
-	static const int ROUTE=170;
-	static const int UPDATE_INT=200;
-	static const int UPDATE_INTARRAY=201;
-	static const int METHOD_CALL=250;
-	static const int LOOP_START=300;
-	static const int LOOP_NEXT=301;
-	static const int LOOP_END=302;
-	static const int DATAREAD=500;
-	static const int LIFELIMIT=680;
-	static const int MEMO=980;
-	static const int OTHER=999;
-	  */
-	String sourceDir="source\\";
-	String outDir="tData\\";
-	String outDirName="tData";
-	String Exten_Probe=".java";
-	String Exten_Lines=".str";
-	String Exten_Str=".txt";
+	 * static const int NONE=0; static const int CLASS_START=0; static const int
+	 * CLASS_END=1; static const int METHOD_START=100; static const int
+	 * METHOD_END=101; static const int RETURN=150; static const int ROUTE=170;
+	 * static const int UPDATE_INT=200; static const int UPDATE_INTARRAY=201; static
+	 * const int METHOD_CALL=250; static const int LOOP_START=300; static const int
+	 * LOOP_NEXT=301; static const int LOOP_END=302; static const int DATAREAD=500;
+	 * static const int LIFELIMIT=680; static const int MEMO=980; static const int
+	 * OTHER=999;
+	 */
+	String sourceDir = "source\\";
+	String outDir = "tData\\";
+	String outDirName = "tData";
+	String Exten_Probe = ".java";
+	String Exten_Lines = ".str";
+	String Exten_Str = ".txt";
 }

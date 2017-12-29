@@ -335,6 +335,12 @@ public class Method implements tfvisConstants {
 					insertedProbe = true;
 				}
 
+				// インスタンス生成プローブ
+				if (event == Ev_GenerateInstance) {
+					fout.println(indent + "TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
+							+ "," + line.getTarget() + ");");
+				}
+
 				if (event == Ev_Input) {
 					inputState = true;
 				}

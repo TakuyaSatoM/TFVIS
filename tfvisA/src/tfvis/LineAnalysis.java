@@ -66,6 +66,7 @@ public class LineAnalysis implements tfvisConstants {
 			if (nowID == Return) {
 				nowLine.addEvent(Ev_Return);
 			}
+
 			if (nowID == For) {
 				nowLine.addEvent(Ev_For);
 			}
@@ -137,7 +138,9 @@ public class LineAnalysis implements tfvisConstants {
 			}
 
 			if (nowID == ObjectExp) {
-				nowLine.addEvent(Object);
+				nowLine.addEvent(Ev_GenerateInstance);
+				nowLine.setTarget(m_Token.get(k - 2).m_State);
+				nowLine.deleteUse(m_Token.get(k - 2).m_State);
 			}
 
 			if (nowID == Do) {
@@ -256,7 +259,8 @@ public class LineAnalysis implements tfvisConstants {
 			// メソッド呼び出しの検出//func();
 			eventCheck_CallMethod(pro, m_Token.get(k), nowLine);
 
-			if (Vars.checkVarsDec(state)) {// stateは変数の型である(int or double・・・)
+			// stateが変数の型である場合(int or double・・・)
+			if (Vars.checkVarsDec(state)) {
 
 				// 変数の登録Identifier
 				if (!m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 1).m_ID != Identifier + Method) {
