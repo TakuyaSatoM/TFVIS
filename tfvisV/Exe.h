@@ -134,7 +134,7 @@ public:
   virtual string getNewDataText() {
 	  string str ="";
 	  for(int i=0; i<sizeof(m_fields); i++){
-	  str += m_fields[i];
+	  str += m_fields[i].c_str();
 	  }
 
 	  return str;

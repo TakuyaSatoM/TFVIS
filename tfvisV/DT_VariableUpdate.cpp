@@ -71,8 +71,9 @@ void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* p
 				
 		E_Update* ui=(E_Update*)indexExe->m_Event;
 		UpdateVars* index=&ui->m_Updates;
+		UV_Instance* instance=(UV_Instance*)ui->m_Updates.CHECK();
 
-		sprintf(DWordBuffer(),"%s", index->getNewDataText());	
+		sprintf(DWordBuffer(),"%s", instance->getNewDataText());	
 
 		DWordFormat(DT_LEFT | DT_VCENTER | DT_CALCRECT);
 		DWordColor(D3DXCOLOR(0,0,0,1));

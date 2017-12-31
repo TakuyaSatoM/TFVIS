@@ -1,0 +1,4 @@
+100,###  public Print(){#
+220,#str,##    str="";#
+999,###    System.out.println(this.hashCode());#
+101,###  }#
