@@ -18,8 +18,6 @@ public:
   void SelectList();
   void Output();
 
-
-
   void Con();
 
   bool m_ArrowsEndOK,m_ArrowsStartOK;

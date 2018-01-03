@@ -2,31 +2,51 @@
 #include "Game.h"
 #include <typeinfo.h>
 
+//インスタンス選択時の注釈の描画
+void drawFieldsOfInstance(E_Update* eup,RC_2DPorigon* po,D3DXVECTOR2 center){
+
+	UV_Instance* tar_Instance = (UV_Instance*)eup->m_Updates.CHECK();
+
+	int x,y,z,w;
+	z=100*2;
+	w=30*2;
+	x=20;
+	y=20;
+
+	DWordColor(D3DXCOLOR(0,0,0,1)); 
+	DWordFormat(DT_CENTER | DT_VCENTER);
+	DWordArea_W(x,y,z,w);
+
+	sprintf(DWordBuffer(),"%s/%s", tar_Instance->m_Type.c_str(), tar_Instance->m_Target.c_str());		
+	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
+
+	for(int i=0; i<tar_Instance->fieldNum; i++){
+	y=40+30*(i+2);
+	
+	DWordArea_W(x,y,z,w);
+	sprintf(DWordBuffer(),"%s",tar_Instance->m_fields[i].c_str());		
+	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
+
+
+	
+	}
+	
+	return;
+}
+
+
 //画面下部のデータ遷移線の注釈
 void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
-			enum Variables {m_Int=0, m_Double=1, m_Str=2} m_Variables=m_Int;
+			enum Variables {m_Int=0, m_Double=1, m_Str=2, m_Instance=3} m_Variables=m_Int;
 
 			if(dIt->m_Ad==NULL){return;}
 
-			/*memo*************************************
-			tar->m_Value 注釈に出力する値
-
-			tar eup->m_UPdates.CHECKをUV_Int型にキャストしたもの
-			m_Updates E_Updateクラスで生成される、UpdateVars型
-			UpdateVars C_Setを継承、m_Targetにnameを格納
-			C_Setクラス f_Nextを辿るCHECK()やf_Backを辿るCHECK_BACK()など C_IntとC_StrがあるがC_Doubleはない？
-
-			eup dIt->m_Ad->m_EventをE_Update型にキャストしたもの
-			DTAItemクラス Exe*型のm_Ad、m_Inumber、m_Child、m_Sibling(兄弟ノード？)の定義と初期化
-			m_Ad 多分関係リスト
-
-			*******************************************/
 			E_Update* eup=(E_Update*)dIt->m_Ad->m_Event;
 			UV_Int* tar_Int=(UV_Int*)eup->m_Updates.CHECK();
 			UV_Double* tar_Double=(UV_Double*)eup->m_Updates.CHECK();
 			UV_String* tar_Str=(UV_String*)eup->m_Updates.CHECK();
-			int nexts=dIt->m_INumber;
 
+			// 変数更新の型の判別
 			switch(dIt->m_Ad->m_EventType){
 			case ev::UPDATE_INT:
 				for(int i=0;i<dIt->m_INumber;i++)
@@ -52,10 +72,18 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 				m_Variables = m_Str;
 				break;
 
+			case ev::GENERATE_INSTANCE:
+				drawFieldsOfInstance(eup, po,center);
+				m_Variables = m_Instance;
+				break;
+
 			default:
 				break;
 			}
 
+			if(m_Variables == m_Instance){return;}
+
+			// 対象変数名の描画位置指定
 			int x,y,z,w;
 			z=80*2;
 			w=30*2;
@@ -68,6 +96,8 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			DWordColor(D3DXCOLOR(0.3,0,0,1));
 			DWordFormat(DT_NOCLIP);	
 			DWordArea_W(x,y-20*2,0,0);
+
+			// 対象変数名の取得
 			switch(m_Variables){
 			case m_Int:
 				sprintf(DWordBuffer(),"%s", tar_Int->m_Target.c_str());
@@ -86,11 +116,12 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			}
 			DWordDrawText(G()->m_CommonFont  ,DWordBuffer());		
 
+			// 対象変数の更新値の描画位置
 			DWordColor(D3DXCOLOR(0,0,0,1)); 
 			DWordFormat(DT_CENTER | DT_VCENTER);
 			DWordArea_W(x,y,z,w);
 			
-		
+			// 対象変数の更新値取得
 			switch(m_Variables){
 				case m_Int:
 				sprintf(DWordBuffer(),"%s", tar_Int->m_Text.c_str());
@@ -112,6 +143,7 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			depth--;
 			if(depth < 0){return;}
 
+			// 対象変数の更新行の取得
 			Method* method=db::searchMethod(dIt->m_Ad->m_MethodID);
 			C_Line* line=db::searchLine(method,dIt->m_Ad->m_LineID);
 
