@@ -116,12 +116,12 @@ class UV_Instance:public UpdateVars
 public:
 
   UV_Instance(){}
-  UV_Instance(string name, int instanceID, string type, string* fields, int targetInstanceID):UpdateVars(name, instanceID)
+  UV_Instance(string name, int instanceID, string type, string* fields, int num, int targetInstanceID):UpdateVars(name, instanceID)
   {
 	  m_Type=type;
 	  m_fields = fields;
 	  m_TargetInstanceID;
-
+	  fieldNum = num;
   }
 
   virtual UV_String* next(){return (UV_String*)C_Set::CHECK();}
@@ -130,14 +130,13 @@ public:
   string m_Type;
   string* m_fields;
   int m_TargetInstanceID;
+  int fieldNum;
 
   virtual string getNewDataText() {
-	  string str ="";
-	  for(int i=0; i<sizeof(m_fields); i++){
-	  str += m_fields[i].c_str();
-	  }
-
-	  return str;
+	  static char text[128];
+	  
+	  sprintf(text,"%s",m_Target.c_str());
+	  return text;
   }
 };
 

@@ -56,4 +56,20 @@ GameNestはウィンドウの抽象的な構造を持ってる(ような感じ)奴
 	_Taskの呼び出しのみ
 
 		S_Base#_Task
+		実行フローやデータ遷移図等の描画のメインタスク
+		描画中はここがループしてる
 		
+			GameDefine#executionDiagram
+			実行フロー図を司るExecutionDiagramクラスの保持と描画呼び出し
+			
+				ExecutionDiagram#draw
+				実行フローの描画
+				実行フローの方は私はいじってないので省略
+		
+			SelectLine#SelectList
+			描画時の画面左にあるクラスやメソッドの一覧を表示する部分の描画
+			
+			Output#Output
+			画面左下の、変数の更新値を選択した時に出る注釈の描画
+			変数の更新値を選択した際にDTAItem->m_Adに選択した更新値のExeクラスが入る
+			データ遷移図左側のソースコード

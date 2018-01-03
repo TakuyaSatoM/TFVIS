@@ -307,10 +307,13 @@ public class TProbe {
 	// インスタンス生成
 	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,Object instance) {
 		String str = "";
-		
+
+		int fieldCountNum=instance.getClass().getDeclaredFields().length;
+
 		str += name +",";
 		str += instance.getClass().getName() + ",";
 		str += instance.hashCode() + ",";
+		str += fieldCountNum + ",";
 		for (Field field : instance.getClass().getDeclaredFields()) {
 			field.setAccessible(true);
 			str += field.getName() + ",";

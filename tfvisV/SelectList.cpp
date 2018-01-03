@@ -1,7 +1,7 @@
 #include "S_Base.h"
 #include "Game.h"
 
-
+// 画面左部のクラスやメソッドの一覧の描画
 void S_Base::SelectList()
 {
 	HideBackBuffer();
@@ -20,12 +20,15 @@ void S_Base::SelectList()
 
 		int bold=20*2;
 		int yoffset=-bold+5*2;
+
+		// クラスデータの取得
 		C_Class* indexClass=db::getClass();
+
+		// 各クラスのクラス名の取り出し
 		while(indexClass=indexClass->next())
 		{
 			yoffset+=bold;
 			DWordArea_W(5*2,yoffset,0,0);
-
 			
 			string fileName=indexClass->m_Name+"/class";
 			
@@ -35,9 +38,10 @@ void S_Base::SelectList()
 
 			yoffset+=bold;
 
-			//if(indexClass->m_Line.NUM()<=0){continue;}
-
+			// クラスが持つメソッドデータの取得
 			Method* indexMethod=&indexClass->m_Method;
+			
+
 			while(indexMethod=indexMethod->next())
 			{
 				DWordColor(D3DXCOLOR(0,0,0,1));

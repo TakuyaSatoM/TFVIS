@@ -273,16 +273,16 @@ void E_Update::SetInstance(char* stock)
 
 	//size
 	TEXT::Seek(stock,',',&seek,get);
-	int num=atoi(get);
+	int fieldNum=atoi(get);
 
-	string* fields = new string[num];
-	for(int i=0;i<num;i++)
+	string* fields = new string[fieldNum];
+	for(int i=0;i<fieldNum;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
 		fields[i] =get;
 	}
 
-	m_Updates.Add(new UV_Instance(name,instanceID,type,fields,targetInstanceID));
+	m_Updates.Add(new UV_Instance(name,instanceID,type,fields,fieldNum,targetInstanceID));
 
 	return;
 
