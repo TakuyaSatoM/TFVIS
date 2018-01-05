@@ -1,3 +1,0 @@
-sato 1000
-kato 2000
-kuroki 3000
