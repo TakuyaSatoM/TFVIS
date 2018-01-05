@@ -1,0 +1,11 @@
+100,221,#args,##  public static void main(String[] args){#
+260,#print,#print,#    Print print=new Print ();#
+260,#print2,##    Print print2=new Print ();#
+260,#print3,#print2,#    Print print3=print2;#
+250,###    print.set("aaa");#
+250,##print2,#    print2.set("bbb");#
+250,###    print.set("ccc");#
+999,###    System.out.println(print.str);#
+999,##print2,#    System.out.println(print2.str);#
+999,##print3,#    System.out.println(print3.str);#
+101,###  }#

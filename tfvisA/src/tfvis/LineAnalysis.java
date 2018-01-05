@@ -262,16 +262,15 @@ public class LineAnalysis implements tfvisConstants {
 			// メソッド呼び出しの検出//func();
 			eventCheck_CallMethod(pro, m_Token.get(k), nowLine);
 
-			// stateが変数の型である場合(int or double・・・)
+			// stateがオブジェクト型以外の変数の型である場合(int or double・・・)
 			if (Vars.checkVarsDec(state)) {
 
-				// 変数の登録Identifier
 				if (!m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 1).m_ID != Identifier + Method) {
+					// 変数の登録Identifier
 					pro.setVar(new Vars(state, m_Token.get(k + 1).m_State));
-				}
-				// 変数の登録Identifier配列
-				if (m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 2).m_State.equals("]")
+				} else if (m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 2).m_State.equals("]")
 						&& m_Token.get(k + 1).m_ID != Identifier + Method) {
+					// 変数の登録Identifier配列
 					pro.setVar(new Vars(state, m_Token.get(k + 3).m_State, true));
 				}
 
@@ -294,7 +293,6 @@ public class LineAnalysis implements tfvisConstants {
 					}
 				}
 			}
-
 			if (k < m_Token.size() - 1 && m_Token.get(k + 1).m_State.equals("{") == true
 					&& !m_Token.get(k).m_State.equals("=")) {
 

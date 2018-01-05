@@ -39,6 +39,9 @@ public class Vars implements tfvisConstants {
 		if (m_State.equals("String")) {
 			return Ev_StringUpdate + tmp;
 		}
+		if (typeList.contains(m_State)) {
+			return Ev_UpdateInstance;
+		}
 
 		return -1;
 
