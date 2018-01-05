@@ -495,7 +495,7 @@ public interface tfvisConstants {
 
 	int Ev_CallMethod = 250;
 
-	int Ev_GenerateInstance = 260;
+	int Ev_UpdateInstance = 260;
 
 	int Ev_For = 300;
 	int Ev_ForEnd = 302;
