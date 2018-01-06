@@ -17,18 +17,21 @@ void drawFieldsOfInstance(E_Update* eup,RC_2DPorigon* po,D3DXVECTOR2 center){
 	DWordFormat(DT_CENTER | DT_VCENTER);
 	DWordArea_W(x,y,z,w);
 
+
 	sprintf(DWordBuffer(),"%s/%s", tar_Instance->m_Type.c_str(), tar_Instance->m_Target.c_str());		
 	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
 
 	for(int i=0; i<tar_Instance->fieldNum; i++){
+	x = 20;
 	y=40+30*(i+2);
 	
 	DWordArea_W(x,y,z,w);
 	sprintf(DWordBuffer(),"%s",tar_Instance->m_fields[i].c_str());		
 	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
 
+	po->f_Color=D3DXVECTOR4(0.0,0.0,0.0,0.5);
+	po->Set_Box(x+z,y+10,z,w,2*2);
 
-	
 	}
 	
 	return;
@@ -72,8 +75,9 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 				m_Variables = m_Str;
 				break;
 
-			case ev::GENERATE_INSTANCE:
-				drawFieldsOfInstance(eup, po,center);
+			case ev::UPDATE_INSTANCE:
+				//注釈にフィールドを出力する場合
+				//drawFieldsOfInstance(eup, po,center);
 				m_Variables = m_Instance;
 				break;
 

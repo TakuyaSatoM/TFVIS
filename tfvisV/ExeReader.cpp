@@ -84,7 +84,7 @@ void ExeReader::read(Exe* top)
 			 ((E_Update*)index->m_Event)->SetStringArray(StockText);
 			 if(SeekDel('#')){return;}
 			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }else if(index->m_EventType == ev::GENERATE_INSTANCE){
+		 }else if(index->m_EventType == ev::UPDATE_INSTANCE){
 			 ((E_Update*)index->m_Event)->SetInstance(StockText);
 		 }
 	 }

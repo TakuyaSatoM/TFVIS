@@ -11,7 +11,7 @@ namespace ev{
 	}
 
 	bool isInstanceUpdate(int id){
-		if(id == GENERATE_INSTANCE){
+		if(id == UPDATE_INSTANCE){
 			return true;
 		}
 		return false;
@@ -22,7 +22,7 @@ namespace ev{
 		if(id==UPDATE_INT || id==UPDATE_INTARRAY ||
 			id==UPDATE_DOUBLE || id==UPDATE_DOUBLEARRAY ||
 			id==UPDATE_STRING || id==UPDATE_STRINGARRAY ||
-			id==GENERATE_INSTANCE){return true;}
+			id==UPDATE_INSTANCE){return true;}
 		return false;
 	}
 

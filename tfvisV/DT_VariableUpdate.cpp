@@ -71,29 +71,19 @@ void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* p
 				
 	E_Update* ui=(E_Update*)indexExe->m_Event;
 
-	if(dt->m_DTA.m_Ad!=indexExe){
-
-		if(IsMouseInBox(dt->m_DrawArea.x+box.x/2,dt->m_DrawArea.y+box.y/2,box.w/2,box.h/2)){
-
-			draw_box(po,box.x,box.y,box.w,box.h,mouseOnColor);
-			G()->m_NameExe=indexExe;
-			if(RL_INPUT()->m_MouseL.NowPush()){
-
-				DTCom* next=&G()->m_DtCom;
-				while(next=next->CHECK())
-				{next->m_DTA.release();}
-				createDTA(dt,indexExe);
-				G()->m_SelectLine.init();
-			}
-		}else{draw_box(po,box.x,box.y,box.w,box.h);}
-
-	}else{
+	if(IsMouseInBox(dt->m_DrawArea.x+box.x/2,dt->m_DrawArea.y+box.y/2,box.w/2,box.h/2))
+			{
+				draw_box(po,box.x,box.y,box.w,box.h,mouseOnColor);
 					
-		if(IsMouseInBox(dt->m_DrawArea.x+box.x/2,dt->m_DrawArea.y+box.y/2,box.w/2,box.h/2))
-		{G()->m_NameExe=indexExe;}
+				Exe* tmp=indexExe;
 
-		draw_box(po,box.x,box.y,box.w,box.h,D3DXVECTOR4(1,1,1,1),D3DXVECTOR4(1,0,0,1));
-	}
+				if(RL_INPUT()->m_MouseL.NowPush())
+				{
+					DTCom::Open(&G()->m_DtCom,ui);
+				}
+
+			}
+			else{draw_box(po,box.x,box.y,box.w,box.h);}
 
 	DWordFormat(DT_CENTER | DT_VCENTER);
 	DWordColor(D3DXCOLOR(0,0,0,1));

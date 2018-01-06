@@ -44,6 +44,7 @@ public:
   bool m_BookDelete;
 
   static DTCom* Open(DTCom* comTop,MethodExe* methodExe);
+  static DTCom* Open(DTCom* comTop,E_Update* instanceUpdate);
   static DTCom* whatMousePointerCovered(DTCom* comTop,bool mostFront,bool onlyTitle);
   static DTCom* transDTDiagram(DTCom* top,DTCom* oldOne,MethodExe* newOne_MethodExe);
 

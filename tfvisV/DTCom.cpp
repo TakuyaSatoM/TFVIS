@@ -74,3 +74,13 @@ DTCom* DTCom::Open(DTCom* comTop,MethodExe* methodExe){
 
    return add;
 }
+
+//フィールド図の追加
+DTCom* DTCom::Open(DTCom* comTop, E_Update* instanceUpdate){
+
+	DTCom* add;
+	comTop->Add(add=new );
+
+
+   return add;
+}

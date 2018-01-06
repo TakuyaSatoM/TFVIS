@@ -1,16 +1,16 @@
-﻿2018/01/04 1:55:28 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\Users\Muco\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット)。
+﻿2018/01/06 17:17:10 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット)。
      1>InitializeBuildStatus:
-         "AlwaysCreate" が指定されたため "Debug\Tfvis.unsuccessfulbuild" を作成しています。
+         "Debug\Tfvis.unsuccessfulbuild" のタッチ タスクを実行しています。
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\DXUT\Core /I..\..\..\DXUT\Optional /ZI /nologo /W0 /WX- /Od /Oi /Oy- /D WIN32 /D _DEBUG /D DEBUG /D PROFILE /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp- /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Output.cpp  
-         Output.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\DXUT\Core /I..\..\..\DXUT\Optional /ZI /nologo /W0 /WX- /Od /Oi /Oy- /D WIN32 /D _DEBUG /D DEBUG /D PROFILE /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /arch:SSE2 /fp:fast /Zc:wchar_t /Zc:forScope /openmp- /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt DTCom.cpp  
+         DTCom.cpp
        ResourceCompile:
          すべての出力が最新のものです。
        ManifestResourceCompile:
          すべての出力が最新のものです。
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Muco\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx10d.lib d3dx9d.lib dxerr.lib dxguid.lib dinput8.lib winmm.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Tfvis.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Muco\Desktop\TFVIS\tfvisV\Debug\Tfvis.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE:NO /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Muco\Desktop\TFVIS\tfvisV\Debug\Tfvis.lib" /MACHINE:X86 Debug\Lights.res
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx10d.lib d3dx9d.lib dxerr.lib dxguid.lib dinput8.lib winmm.lib comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Tfvis.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE:NO /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.lib" /MACHINE:X86 Debug\Lights.res
          Debug\Tfvis.exe.embed.manifest.res
          Debug\Draw.obj
          Debug\DTSearch.obj
@@ -90,12 +90,12 @@
          すべての出力が最新のものです。
        LinkEmbedManifest:
          すべての出力が最新のものです。
-         Lights_2010.vcxproj -> C:\Users\Muco\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe
+         Lights_2010.vcxproj -> C:\Users\tmp\Desktop\TFVIS\tfvisV\Debug\Tfvis.exe
        FinalizeBuildStatus:
          ファイル "Debug\Tfvis.unsuccessfulbuild" を削除しています。
          "Debug\Tfvis.lastbuildstate" のタッチ タスクを実行しています。
-     1>プロジェクト "C:\Users\Muco\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット) のビルドが完了しました。
+     1>プロジェクト "C:\Users\tmp\Desktop\TFVIS\tfvisV\Lights_2010.vcxproj" (build ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:02.35
+経過時間 00:00:01.60
