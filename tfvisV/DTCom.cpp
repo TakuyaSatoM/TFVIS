@@ -75,12 +75,23 @@ DTCom* DTCom::Open(DTCom* comTop,MethodExe* methodExe){
    return add;
 }
 
-//フィールド図の追加
-DTCom* DTCom::Open(DTCom* comTop, E_Update* instanceUpdate){
+//オブジェクト図の追加
+DTCom* DTCom::Open(DTCom* comTop, Exe* indexExe){
 
 	DTCom* add;
-	comTop->Add(add=new );
+	comTop->Add(add=new DTCom);
 
+	add->m_MethodExe=NULL;
+	add->m_Exe=indexExe;
+	add->m_TexXY=INT2(0,0);
+	int w=comTop->m_DS;
+
+	E_Update* updateEvent = (E_Update*)indexExe->m_Event;
+	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+	add->m_DrawArea=C_Box(40,80,w,20*instance->fieldNum);
+	add->m_Size=INT2(w,20*2*instance->fieldNum);
+	add->m_Render=CreateNewRenderingTexture( add->m_Size.x*2, add->m_Size.y*2);
+	add->m_Render->SetColor( &D3DXCOLOR(0.9,0.9,0.9,1) );
 
    return add;
 }

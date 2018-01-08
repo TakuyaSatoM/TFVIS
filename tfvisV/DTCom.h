@@ -10,7 +10,9 @@ class DTCom:public C_Set
   friend class C_GameNest;
   void Delete()
   {
-	  m_MethodExe->m_NowOpen=false;
+	  if(m_MethodExe != NULL){
+		m_MethodExe->m_NowOpen=false;
+	  }
 	  C_Set::Delete();
   }
   ~DTCom(){}
@@ -21,6 +23,7 @@ public:
   DTCom()
   {
 	m_MethodExe=NULL;
+	m_Exe = NULL;
 	m_DS=300*2;
 	m_DragStart=false;
 	m_BookDelete=false;
@@ -29,6 +32,7 @@ public:
 
   DTAItem m_DTA; 
   MethodExe* m_MethodExe;
+  Exe* m_Exe;
   Method* getMethod(){return m_MethodExe->m_Method;}
 
   RC_RenderingTexture* m_Render;
@@ -44,7 +48,7 @@ public:
   bool m_BookDelete;
 
   static DTCom* Open(DTCom* comTop,MethodExe* methodExe);
-  static DTCom* Open(DTCom* comTop,E_Update* instanceUpdate);
+  static DTCom* Open(DTCom* comTop,Exe* indexExe);
   static DTCom* whatMousePointerCovered(DTCom* comTop,bool mostFront,bool onlyTitle);
   static DTCom* transDTDiagram(DTCom* top,DTCom* oldOne,MethodExe* newOne_MethodExe);
 

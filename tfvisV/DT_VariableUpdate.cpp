@@ -68,18 +68,17 @@ void DtDiagram::variableArrayUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorig
 }
 
 void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po){
-				
-	E_Update* ui=(E_Update*)indexExe->m_Event;
+
+	E_Update* updateEvent = (E_Update*)indexExe->m_Event; 
+
 
 	if(IsMouseInBox(dt->m_DrawArea.x+box.x/2,dt->m_DrawArea.y+box.y/2,box.w/2,box.h/2))
 			{
 				draw_box(po,box.x,box.y,box.w,box.h,mouseOnColor);
-					
-				Exe* tmp=indexExe;
 
 				if(RL_INPUT()->m_MouseL.NowPush())
 				{
-					DTCom::Open(&G()->m_DtCom,ui);
+					DTCom::Open(&G()->m_DtCom,indexExe);
 				}
 
 			}
@@ -89,7 +88,7 @@ void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* p
 	DWordColor(D3DXCOLOR(0,0,0,1));
 	DWordColor(D3DXCOLOR(0,0,0,1));
 	DWordArea_W(box.x,box.y,box.w,box.h);	
-	DWordDrawText(G()->m_CommonFont  ,ui->m_Updates.next()->getNewDataText().c_str());	
+	DWordDrawText(G()->m_CommonFont  ,updateEvent->m_Updates.next()->getNewDataText().c_str());	
 				
 }
 
