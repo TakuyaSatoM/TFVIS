@@ -122,7 +122,7 @@ int E_Update::existRelation(E_Update* base,E_Update* inf)
 	return -1;
 }
 
-void E_Update::SetInt(char* stock)
+void E_Update::SetPrimitives(char* stock, int type)
 {
 	int seek=0;
 	char get[256];
@@ -131,8 +131,8 @@ void E_Update::SetInt(char* stock)
 	string name=get;
 	//value
 	TEXT::Seek(stock,',',&seek,get);
-	int value=atoi(get);
-	m_Updates.Add(new UV_Int(name,instanceID,value));
+	string value=get;
+	m_Updates.Add(new UpdateVars(name,instanceID,value, ev::getUpdateType(type)));
 	while(true)
 	{
 		TEXT::Seek(stock,',',&seek,get);
@@ -145,7 +145,7 @@ void E_Update::SetInt(char* stock)
 
 
 }
-void E_Update::SetIntArray(char* stock)
+void E_Update::SetPrimitivesArray(char* stock, int type)
 {
 	int seek=0;
 	char get[256];
@@ -162,127 +162,24 @@ void E_Update::SetIntArray(char* stock)
 	// 空配列の場合
 	if(num == 0){
 		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
-		m_Updates.Add(new UV_String(tmp,instanceID,""));
+		m_Updates.Add(new UpdateVars(tmp,instanceID,"", ev::getUpdateType(type)));
 	}
 
 	for(int i=0;i<num;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
-		int value=atoi(get);
+		string value=get;
 	
 		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_Int(tmp,instanceID,value));
+		m_Updates.Add(new UpdateVars(tmp,instanceID,value,ev::getUpdateType(type)));
 
 	}
 	return;
 
 }
 
-void E_Update::SetDouble(char* stock)
-{
-	int seek=0;
-	char get[256];
-	//name
-	TEXT::Seek(stock,',',&seek,get);
-	string name=get;
-	//value
-	TEXT::Seek(stock,',',&seek,get);
-	double value=atof(get);
-	m_Updates.Add(new UV_Double(name,instanceID, value));
 
-	while(true)
-	{
-		TEXT::Seek(stock,',',&seek,get);		
-		if(get[0]==0){break;}
-		m_Infs.Add(new C_String(get,instanceID));
-	}
-}
-
-void E_Update::SetDoubleArray(char* stock)
-{
-	int seek=0;
-	char get[256];
-	char tmp[256];
-
-	//name
-	TEXT::Seek(stock,',',&seek,get);
-	string baseName=get;
-
-	//size
-	TEXT::Seek(stock,',',&seek,get);
-	int num=atoi(get);
-
-	// 空配列の場合
-	if(num == 0){
-		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
-		m_Updates.Add(new UV_String(tmp,instanceID,""));
-	}
-
-	for(int i=0;i<num;i++)
-	{
-		TEXT::Seek(stock,',',&seek,get);
-		int value=atof(get);
-	
-		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_Double(tmp,instanceID,value));
-
-	}
-	return;
-
-}
-
-void E_Update::SetString(char* stock)
-{
-	int seek=0;
-	char get[256];
-	//name
-	TEXT::Seek(stock,',',&seek,get);
-	string name=get;
-	//value
-	TEXT::Seek(stock,',',&seek,get);
-	m_Updates.Add(new UV_String(name,instanceID,get));
-
-	while(true)
-	{
-		TEXT::Seek(stock,',',&seek,get);		
-		if(get[0]==0){break;}
-		m_Infs.Add(new C_String(get, instanceID));
-	}
-}
-
-void E_Update::SetStringArray(char* stock)
-{
-	int seek=0;
-	char get[256];
-	char tmp[256];
-
-	//name
-	TEXT::Seek(stock,',',&seek,get);
-	string baseName=get;
-
-	//size
-	TEXT::Seek(stock,',',&seek,get);
-	int num=atoi(get);
-
-	// 空配列の場合
-	if(num == 0){
-		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
-		m_Updates.Add(new UV_String(tmp,instanceID,""));
-	}
-
-	for(int i=0;i<num;i++)
-	{
-		TEXT::Seek(stock,',',&seek,get);
-	
-		sprintf(tmp,"%s[%d]",baseName.c_str(),i);
-		m_Updates.Add(new UV_String(tmp,instanceID,get));
-
-	}
-	return;
-
-}
-
-void E_Update::SetInstance(char* stock)
+void E_Update::SetInstance(char* stock, Exe* exe)
 {
 	int seek=0;
 	char get[256];
@@ -302,19 +199,37 @@ void E_Update::SetInstance(char* stock)
 
 	//size
 	TEXT::Seek(stock,',',&seek,get);
+	// コンパイル時に自動生成されるTP_CLASSIDを除く
 	int fieldNum=atoi(get)-1;
 
-	
-	string* fields = new string[fieldNum];
+	UV_Instance* instance;
+	m_Updates.Add(instance = new UV_Instance(name,instanceID,type,fieldNum));
 
-	// コンパイル時に自動追加されるTP_CLASSIDを除く
-	for(int i=0;i<fieldNum;i++)
-	{
+	// 各フィールドの型、更新値を取得
+	for(int i=0;i<fieldNum;i++){
+		Exe* indexExe = exe;
+
 		TEXT::Seek(stock,',',&seek,get);
-		fields[i] =get;
-	}
+		string fieldName = get;
+		string fieldType = "";
+		string fieldValue = "";
 
-	m_Updates.Add(new UV_Instance(name,instanceID,type,fields,fieldNum,targetInstanceID));
+
+		while(indexExe = indexExe->back()){
+			if(ev::isUpdate(indexExe->m_EventType)){
+				E_Update* updateEvent = (E_Update*)indexExe->m_Event;
+
+				if(updateEvent->m_Updates.next()->m_Target == fieldName && indexExe -> m_InstanceID== targetInstanceID){
+					fieldType = ev::getUpdateType(indexExe->m_EventType);
+					fieldValue = updateEvent->m_Updates.next()->m_Value;
+					break;
+				}
+			}
+		}
+
+		instance->m_fields.Add(new UpdateVars(fieldName, targetInstanceID, fieldValue, fieldType));
+
+	}
 
 	return;
 

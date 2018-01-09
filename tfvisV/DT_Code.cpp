@@ -126,28 +126,14 @@ void DtDiagram::drawFields(DTCom* dt){
 	bool shadow=true;
 
 	for(int i=0; i<instance->fieldNum; i++){
-		Exe* indexExe = db::getExe(); 
+		UpdateVars* field = instance->m_fields.next();
 
-		string targetVariable = instance->m_fields[i].c_str();
-
-		string targetVariableType = "";
-
-		while(indexExe = indexExe->CHECK()){
-			
-			if(ev::isUpdate(indexExe->m_EventType)){
-				E_Update* updateEvent = (E_Update*)indexExe->m_Event;
-
-				if(updateEvent->m_Updates.next()->m_Target == targetVariable && indexExe -> m_InstanceID== instance->m_TargetInstanceID){
-					targetVariableType = ev::getUpdateType(indexExe->m_EventType);
-					break;
-				}
-			}
-		}
-
+		string targetVariableName = field->m_Target.c_str();
+		string targetVariableType = field->m_Type;
 
 		DWordFormat(DT_NOCLIP);
 		DWordArea_W(10*2,i*bold,0,0);
-		sprintf(DWordBuffer(),"%s %s",targetVariableType.c_str(),instance->m_fields[i].c_str());
+		sprintf(DWordBuffer(),"%s %s",targetVariableType.c_str(),targetVariableName.c_str());
 		DWordColor(D3DXCOLOR(0,0,0,1));
 		DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
 
@@ -160,6 +146,8 @@ void DtDiagram::drawFields(DTCom* dt){
 			po->f_Color=D3DXVECTOR4(0,0,0,0.05);
 			po->Set();
 		}
+
+		field = (UpdateVars*)field->CHECK();
 
 	}
 

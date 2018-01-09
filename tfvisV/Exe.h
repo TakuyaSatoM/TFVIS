@@ -29,9 +29,11 @@ class UpdateVars:public C_Set
 public:
 
   UpdateVars(){}
-  UpdateVars(string name, int id){
+  UpdateVars(string name, int id, string value, string type){
 	  m_Target=name;
 	  instanceID = id;
+	  m_Value=value;
+	  m_Type = type;
   }
 
   virtual UpdateVars* next(){return (UpdateVars*)C_Set::CHECK();}
@@ -39,76 +41,12 @@ public:
 
   string m_Target;
   int instanceID;
+  string m_Value;
+  string m_Type;
 
-  virtual string getNewDataText(){return "";}
-};
-
-
-class UV_Int:public UpdateVars
-{
-public:
-
-  UV_Int(){}
-  UV_Int(string name, int instanceID, int newValue):UpdateVars(name, instanceID)
-  {
-	m_Value=newValue;
-	m_Text = string(getNewDataText());
-  }
-  virtual UV_Int* next(){return (UV_Int*)C_Set::CHECK();}
-  virtual UV_Int* back(){return (UV_Int*)C_Set::CHECK_BACK();}
-
-  int m_Value;
-  string m_Text;
-
-  virtual string getNewDataText()
-  {
+  virtual string getNewDataText(){
 	  static char text[128];
-	  sprintf(text,"%d",m_Value);
-	  return text;
-  }
-};
-class UV_Double:public UpdateVars
-{
-public:
-
-  UV_Double(){}
-  UV_Double(string name,int instanceID, double newValue):UpdateVars(name, instanceID)
-  {
-	m_Value=newValue;
-	ostringstream str;
-	str << m_Value;
-	m_Text = str.str(); 
-	
-  }
-  virtual UV_Double* next(){return (UV_Double*)C_Set::CHECK();}
-  virtual UV_Double* back(){return (UV_Double*)C_Set::CHECK_BACK();}
-
-  double m_Value;
-  string m_Text;
-
-  virtual string getNewDataText() {
-	  static char text[128];
-	  sprintf(text,"%.2lf",m_Value);
-	  return text;
-  }
-};
-class UV_String:public UpdateVars
-{
-public:
-
-  UV_String(){}
-  UV_String(string name, int instanceID,string text):UpdateVars(name, instanceID)
-  {
-	  m_Text=text;
-  }
-  virtual UV_String* next(){return (UV_String*)C_Set::CHECK();}
-  virtual UV_String* back(){return (UV_String*)C_Set::CHECK_BACK();}
-
-  string m_Text;
-
-  virtual string getNewDataText() {
-	  static char text[128];
-	  sprintf(text,"%s",m_Text.c_str());
+	  sprintf(text,"%s",m_Value.c_str());
 	  return text;
   }
 };
@@ -118,21 +56,14 @@ class UV_Instance:public UpdateVars
 public:
 
   UV_Instance(){}
-  UV_Instance(string name, int instanceID, string type, string* fields, int num, int targetInstanceID):UpdateVars(name, instanceID)
+  UV_Instance(string name, int instanceID, string type, int num):UpdateVars(name, instanceID,"", type)
   {
-	  m_Type=type;
-	  m_TargetInstanceID = targetInstanceID;
 	  fieldNum = num;
-	  for(int i=0; i<fieldNum; i++){
-		  m_fields.Add(new UpdateVars(fields[i].c_str(),targetInstanceID));
-	  }
-
   }
 
   virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
   virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
 
-  string m_Type;
   UpdateVars m_fields;
   int m_TargetInstanceID;
   int fieldNum;
@@ -140,7 +71,7 @@ public:
   virtual string getNewDataText() {
 	  static char text[128];
 	  
-	  sprintf(text,"%s",m_Target.c_str());
+	  sprintf(text,"%s", m_Target.c_str());
 	  return text;
   }
 };
@@ -186,16 +117,9 @@ class E_Update:public Event
 
 	E_Update(int id){instanceID=id;}
 
-	void SetInt(char* stock);
-	void SetIntArray(char* stock);
-
-	void SetDouble(char* stock);
-	void SetDoubleArray(char* stock);
-
-	void SetString(char* stock);
-	void SetStringArray(char* stock);
-
-	void SetInstance(char* stock);
+	void SetPrimitives(char* stock, int type);
+	void SetPrimitivesArray(char* stock, int type);
+	void SetInstance(char* stock, Exe* exe);
 
 	void setInputState(char* Input);
 	bool getInputState();

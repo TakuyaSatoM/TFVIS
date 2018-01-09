@@ -2,41 +2,6 @@
 #include "Game.h"
 #include <typeinfo.h>
 
-//インスタンス選択時の注釈の描画
-void drawFieldsOfInstance(E_Update* eup,RC_2DPorigon* po,D3DXVECTOR2 center){
-
-	UV_Instance* tar_Instance = (UV_Instance*)eup->m_Updates.CHECK();
-
-	int x,y,z,w;
-	z=100*2;
-	w=30*2;
-	x=20;
-	y=20;
-
-	DWordColor(D3DXCOLOR(0,0,0,1)); 
-	DWordFormat(DT_CENTER | DT_VCENTER);
-	DWordArea_W(x,y,z,w);
-
-
-	sprintf(DWordBuffer(),"%s/%s", tar_Instance->m_Type.c_str(), tar_Instance->m_Target.c_str());		
-	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
-
-	for(int i=0; i<tar_Instance->fieldNum; i++){
-	x = 20;
-	y=40+30*(i+2);
-	
-	DWordArea_W(x,y,z,w);
-	sprintf(DWordBuffer(),"%s",tar_Instance->m_fields[i].c_str());		
-	DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
-
-	po->f_Color=D3DXVECTOR4(0.0,0.0,0.0,0.5);
-	po->Set_Box(x+z,y+10,z,w,2*2);
-
-	}
-	
-	return;
-}
-
 
 //画面下部のデータ遷移線の注釈
 void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
@@ -45,47 +10,11 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			if(dIt->m_Ad==NULL){return;}
 
 			E_Update* eup=(E_Update*)dIt->m_Ad->m_Event;
-			UV_Int* tar_Int=(UV_Int*)eup->m_Updates.CHECK();
-			UV_Double* tar_Double=(UV_Double*)eup->m_Updates.CHECK();
-			UV_String* tar_Str=(UV_String*)eup->m_Updates.CHECK();
+			UpdateVars* tar_Var=(UpdateVars*)eup->m_Updates.CHECK();
 
-			// 変数更新の型の判別
-			switch(dIt->m_Ad->m_EventType){
-			case ev::UPDATE_INT:
-				for(int i=0;i<dIt->m_INumber;i++)
-				{
-					tar_Int=(UV_Int*)tar_Int->CHECK();
+			for(int i=0;i<dIt->m_INumber;i++){
+					tar_Var=(UpdateVars*)tar_Var->CHECK();
 				}
-				m_Variables = m_Int;
-				break;
-				
-			case ev::UPDATE_DOUBLE:
-				for(int i=0;i<dIt->m_INumber;i++)
-				{
-					tar_Double=(UV_Double*)tar_Double->CHECK();
-				}
-				m_Variables = m_Double;
-				break;
-				
-			case ev::UPDATE_STRING:
-				for(int i=0;i<dIt->m_INumber;i++)
-				{
-					tar_Str=(UV_String*)tar_Str->CHECK();
-				}
-				m_Variables = m_Str;
-				break;
-
-			case ev::UPDATE_INSTANCE:
-				//注釈にフィールドを出力する場合
-				//drawFieldsOfInstance(eup, po,center);
-				m_Variables = m_Instance;
-				break;
-
-			default:
-				break;
-			}
-
-			if(m_Variables == m_Instance){return;}
 
 			// 対象変数名の描画位置指定
 			int x,y,z,w;
@@ -101,23 +30,7 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			DWordFormat(DT_NOCLIP);	
 			DWordArea_W(x,y-20*2,0,0);
 
-			// 対象変数名の取得
-			switch(m_Variables){
-			case m_Int:
-				sprintf(DWordBuffer(),"%s", tar_Int->m_Target.c_str());
-				break;
-				
-			case m_Double:
-				sprintf(DWordBuffer(),"%s", tar_Double->m_Target.c_str());
-				break;
-				
-			case m_Str:
-				sprintf(DWordBuffer(),"%s", tar_Str->m_Target.c_str());
-				break;
-
-			default:
-				break;
-			}
+			sprintf(DWordBuffer(),"%s", tar_Var->m_Target.c_str());
 			DWordDrawText(G()->m_CommonFont  ,DWordBuffer());		
 
 			// 対象変数の更新値の描画位置
@@ -126,21 +39,7 @@ void dtIcon(DTAItem* dIt,RC_2DPorigon* po,D3DXVECTOR2 center,int depth){
 			DWordArea_W(x,y,z,w);
 			
 			// 対象変数の更新値取得
-			switch(m_Variables){
-				case m_Int:
-				sprintf(DWordBuffer(),"%s", tar_Int->m_Text.c_str());
-				break;
-				
-			case m_Double:
-				sprintf(DWordBuffer(),"%s", tar_Double->m_Text.c_str());
-				break;
-				
-			case m_Str:
-				sprintf(DWordBuffer(),"%s", tar_Str->m_Text.c_str());
-				break;
-			default:
-				break;
-			}
+			sprintf(DWordBuffer(),"%s", tar_Var->m_Value.c_str());
 			DWordDrawText(G()->m_CommonFont  ,DWordBuffer());
 			
 

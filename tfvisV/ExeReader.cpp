@@ -58,34 +58,16 @@ void ExeReader::read(Exe* top)
 		 
 		 index->m_Event=new E_Update(index->m_InstanceID);
 
-		 if(index->m_EventType==ev::UPDATE_INT){
-			 ((E_Update*)index->m_Event)->SetInt(StockText);
+		 if(index->m_EventType==ev::UPDATE_INT || index->m_EventType==ev::UPDATE_DOUBLE || index->m_EventType==ev::UPDATE_STRING){
+			 ((E_Update*)index->m_Event)->SetPrimitives(StockText, index->m_EventType);
 			 if(SeekDel('#')){return;}
 			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }else if(index->m_EventType==ev::UPDATE_INTARRAY){
-			 ((E_Update*)index->m_Event)->SetIntArray(StockText);
-			 if(SeekDel('#')){return;}
-			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }
-		 else if(index->m_EventType==ev::UPDATE_DOUBLE){
-			 ((E_Update*)index->m_Event)->SetDouble(StockText);
-			 if(SeekDel('#')){return;}
-			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }else if(index->m_EventType==ev::UPDATE_DOUBLEARRAY){
-			 ((E_Update*)index->m_Event)->SetDoubleArray(StockText);
-			 if(SeekDel('#')){return;}
-			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }
-		 else if(index->m_EventType==ev::UPDATE_STRING){
-			 ((E_Update*)index->m_Event)->SetString(StockText);
-			 if(SeekDel('#')){return;}
-			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }else if(index->m_EventType==ev::UPDATE_STRINGARRAY){
-			 ((E_Update*)index->m_Event)->SetStringArray(StockText);
+		 }else if(index->m_EventType==ev::UPDATE_INTARRAY || index->m_EventType==ev::UPDATE_DOUBLEARRAY || index->m_EventType==ev::UPDATE_STRINGARRAY){
+			 ((E_Update*)index->m_Event)->SetPrimitivesArray(StockText, index->m_EventType);
 			 if(SeekDel('#')){return;}
 			 ((E_Update*)index->m_Event)->setInputState(StockText);
 		 }else if(index->m_EventType == ev::UPDATE_INSTANCE){
-			 ((E_Update*)index->m_Event)->SetInstance(StockText);
+			 ((E_Update*)index->m_Event)->SetInstance(StockText, index);
 		 }
 	 }
 	 if(index->m_EventType==ev::LIFELIMIT){

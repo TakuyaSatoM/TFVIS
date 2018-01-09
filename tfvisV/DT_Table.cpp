@@ -207,38 +207,58 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	po->f_Color=D3DXVECTOR4(0.50,0.50,0.50,1);
 	po->Set();	
 
+	E_Update* updateEvent = (E_Update*)dt->m_Exe->m_Event;
+	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+
+	//行別イベント名
+	{
+		for(int i=0; i<instance->fieldNum; i++){
+
+					DWordFormat(DT_CENTER | DT_VCENTER);
+					DWordArea_W(ds,i*LINEH,EVENTW,LINEH);
+					po->f_Point=D3DXVECTOR3(ds+6*2,i*LINEH+LINEH-5*2,G()->GetInsZ());
+					po->f_Size=D3DXVECTOR2(EVENTW-12*2,4*2);
+					po->f_Color=D3DXVECTOR4(0.00,0,1.00,1);
+
+					DWordColor(D3DXCOLOR(1,1,1,1));
+					sprintf(DWordBuffer(),"%s",instance->m_Target.c_str());	
+					po->Set();
+
+					DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
+
+			}
+	}
+
+
 	//データ遷移表上描画
 	{
 			Exe* exe  = dt->m_Exe;
-
-
-			while(indexExe=indexExe->CHECK()){
-
-					if(indexExe->m_MethodExeID!=mexeID){continue;}
+			
+			for(int i=0; i<instance->fieldNum; i++){
 					C_Box cellArea;
-					cellArea.x=ds+EVENTW+indexExe->m_DTXY.x*DTCELLW+3*2;
-					cellArea.y=indexExe->m_DTXY.y*LINEH+2*2;
+					cellArea.x=ds+EVENTW+3*2;
+					cellArea.y=i*LINEH+2*2;
 					cellArea.w=DTCELLW-6*2;
 					cellArea.h=LINEH-4*2;
-					indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
+					//indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
 
-
-					if(ev::isUpdate(indexExe->m_EventType)){//変数更新
-
-						if(ev::isArrayUpdate(indexExe->m_EventType)==true)
-						{
+					if(ev::isArrayUpdate(instance->m_Type == "")==true)
+					{
 							// 配列の更新
 							variableArrayUpdate(dt,indexExe,cellArea,po);
-						}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
+					}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
 							//インスタンスの更新
 							InstanceUpdate(dt,indexExe,cellArea,po);
-						}else{
+					}else{
 							variableUpdate(dt,indexExe,cellArea,po);
-						}
 					}
-
 			}
 
+
+					
+					
+	}
+			
 
 	po->Draw();
 	DWordDrawEnd();
