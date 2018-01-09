@@ -10,8 +10,23 @@ namespace ev{
 		return false;
 	}
 
+	bool isArrayUpdate(string eventName){
+		if(eventName == "int[]" || eventName == "double[]" || eventName == "String[]"){
+			return true;
+		}
+		return false;
+	}
+
 	bool isInstanceUpdate(int id){
 		if(id == UPDATE_INSTANCE){
+			return true;
+		}
+		return false;
+	}
+
+	bool isPrimitiveUpdate(string eventName){
+
+		if(eventName == "int" || eventName == "double" || eventName == "String"){
 			return true;
 		}
 		return false;
@@ -179,7 +194,7 @@ void E_Update::SetPrimitivesArray(char* stock, int type)
 }
 
 
-void E_Update::SetInstance(char* stock, Exe* exe)
+void E_Update::SetInstance(char* stock, Exe* exe, Exe* top)
 {
 	int seek=0;
 	char get[256];
@@ -228,6 +243,9 @@ void E_Update::SetInstance(char* stock, Exe* exe)
 		}
 
 		instance->m_fields.Add(new UpdateVars(fieldName, targetInstanceID, fieldValue, fieldType));
+
+		// フィールドの更新を実行イベントグラフに追加
+		top->Add();
 
 	}
 

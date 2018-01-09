@@ -40,7 +40,9 @@ namespace ev{
 
    bool isUpdate(int id);
    bool isArrayUpdate(int id);
+    bool isArrayUpdate(string eventName);
    bool isInstanceUpdate(int id);
+   bool isPrimitiveUpdate(string eventName);
    string getUpdateType(int id);
 
 }

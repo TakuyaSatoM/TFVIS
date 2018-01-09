@@ -305,23 +305,26 @@ public class TProbe {
 	}
 
 	// インスタンス生成
-	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,Object instance) {
+	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,
+			Object instance) {
 		String str = "";
 
-		int fieldCountNum=instance.getClass().getDeclaredFields().length;
-
-		str += name +",";
-		str += instance.getClass().getName() + ",";
-		str += instance.hashCode() + ",";
-		str += fieldCountNum + ",";
-		for (Field field : instance.getClass().getDeclaredFields()) {
-			field.setAccessible(true);
-			str += field.getName() + ",";
+		if (instance != null) {
+			str += name + ",";
+			str += instance.getClass().getName() + ",";
+			str += instance.hashCode() + ",";
+			int fieldCountNum = instance.getClass().getDeclaredFields().length;
+			str += fieldCountNum + ",";
+			for (Field field : instance.getClass().getDeclaredFields()) {
+				field.setAccessible(true);
+				str += field.getName() + ",";
+			}
 		}
 
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + str + DELIM);
+			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ str + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);

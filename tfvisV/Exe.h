@@ -119,7 +119,7 @@ class E_Update:public Event
 
 	void SetPrimitives(char* stock, int type);
 	void SetPrimitivesArray(char* stock, int type);
-	void SetInstance(char* stock, Exe* exe);
+	void SetInstance(char* stock, Exe* exe, Exe* top);
 
 	void setInputState(char* Input);
 	bool getInputState();

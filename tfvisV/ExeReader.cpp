@@ -67,7 +67,7 @@ void ExeReader::read(Exe* top)
 			 if(SeekDel('#')){return;}
 			 ((E_Update*)index->m_Event)->setInputState(StockText);
 		 }else if(index->m_EventType == ev::UPDATE_INSTANCE){
-			 ((E_Update*)index->m_Event)->SetInstance(StockText, index);
+			 ((E_Update*)index->m_Event)->SetInstance(StockText, index, top);
 		 }
 	 }
 	 if(index->m_EventType==ev::LIFELIMIT){

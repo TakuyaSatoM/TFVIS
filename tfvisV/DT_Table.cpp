@@ -208,10 +208,12 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	po->Set();	
 
 	E_Update* updateEvent = (E_Update*)dt->m_Exe->m_Event;
-	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+	UV_Instance* instance = ((UV_Instance*)updateEvent->m_Updates.CHECK());
 
 	//行別イベント名
 	{
+		UpdateVars* field = (instance->m_fields).next();
+
 		for(int i=0; i<instance->fieldNum; i++){
 
 					DWordFormat(DT_CENTER | DT_VCENTER);
@@ -221,18 +223,19 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 					po->f_Color=D3DXVECTOR4(0.00,0,1.00,1);
 
 					DWordColor(D3DXCOLOR(1,1,1,1));
-					sprintf(DWordBuffer(),"%s",instance->m_Target.c_str());	
+					sprintf(DWordBuffer(),"%s",field->m_Target.c_str());	
 					po->Set();
 
 					DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
 
+					field = (UpdateVars*)field->CHECK();
 			}
 	}
 
 
 	//データ遷移表上描画
 	{
-			Exe* exe  = dt->m_Exe;
+		UpdateVars* field = (instance->m_fields).next();
 			
 			for(int i=0; i<instance->fieldNum; i++){
 					C_Box cellArea;
@@ -242,16 +245,19 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 					cellArea.h=LINEH-4*2;
 					//indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
 
-					if(ev::isArrayUpdate(instance->m_Type == "")==true)
+					if(ev::isArrayUpdate(field->m_Type)==true)
 					{
 							// 配列の更新
-							variableArrayUpdate(dt,indexExe,cellArea,po);
-					}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
-							//インスタンスの更新
-							InstanceUpdate(dt,indexExe,cellArea,po);
+						variableArrayUpdate(dt,dt->m_Exe,cellArea,po);
+					}else if(ev::isPrimitiveUpdate(field->m_Type) == true){
+							variableUpdate(dt,dt->m_Exe,cellArea,po);
 					}else{
-							variableUpdate(dt,indexExe,cellArea,po);
+						//インスタンスの更新
+							InstanceUpdate(dt,dt->m_Exe,cellArea,po);
+							
 					}
+
+					field = (UV_Instance*)field->CHECK();
 			}
 
 

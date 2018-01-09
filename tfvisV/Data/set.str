@@ -1,5 +1,0 @@
-100,220,#newStr,##  public void set(String newStr){#
-220,#str,#newStr,#    str=newStr;#
-999,##str,#    System.out.println(str);#
-150,###    return ;#
-101,###  }#
