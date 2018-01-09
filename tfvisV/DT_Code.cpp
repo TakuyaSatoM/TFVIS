@@ -110,3 +110,62 @@ void DtDiagram::drawCode(DTCom* dt){
  
 }
 
+// オブジェクト図のフィールドの描画
+void DtDiagram::drawFields(DTCom* dt){
+
+	RC_2DPorigon* po=draw::Basic();
+	DWordDrawStart();
+	draw::Basic()->SetTexture(NULL);
+
+	DWordFormat(DT_NOCLIP);
+	DWordColor(D3DXCOLOR(0,0,0,1));
+
+	int bold=20*2;
+	E_Update* updateEvent = (E_Update*)dt->m_Exe->m_Event;
+	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+	bool shadow=true;
+
+	for(int i=0; i<instance->fieldNum; i++){
+		Exe* indexExe = dt->m_Exe;
+
+		string targetVariable = instance->m_fields[i].c_str();
+
+		string targetVariableType = "";
+
+		while(indexExe = indexExe->back()){
+			
+			if(ev::isUpdate(indexExe->m_EventType)){
+				E_Update* updateEvent = (E_Update*)indexExe->m_Event;
+
+				if(updateEvent->m_Updates.next()->m_Target == targetVariable && indexExe -> m_InstanceID== instance->m_TargetInstanceID){
+					targetVariableType = ev::getUpdateType(indexExe->m_EventType);
+					break;
+				}
+			}
+		}
+
+
+		DWordFormat(DT_NOCLIP);
+		DWordArea_W(10*2,i*bold,0,0);
+		sprintf(DWordBuffer(),"%s %s",targetVariableType.c_str(),instance->m_fields[i].c_str());
+		DWordColor(D3DXCOLOR(0,0,0,1));
+		DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
+
+		shadow = !shadow;
+		
+		po->f_Point=D3DXVECTOR3(0,i*bold,G()->GetInsZ());
+		po->f_Size=D3DXVECTOR2(dt->m_DrawArea.w*2,bold);
+		//縞模様
+		if(shadow){
+			po->f_Color=D3DXVECTOR4(0,0,0,0.05);
+			po->Set();
+		}
+
+	}
+
+
+	draw::Basic()->Draw();
+	DWordDrawEnd();
+
+	return;
+}

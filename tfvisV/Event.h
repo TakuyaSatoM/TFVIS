@@ -41,6 +41,8 @@ namespace ev{
    bool isUpdate(int id);
    bool isArrayUpdate(int id);
    bool isInstanceUpdate(int id);
+   string getUpdateType(int id);
+
 }
 
 

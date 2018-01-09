@@ -8,7 +8,6 @@ void DtDiagram::drawTable(DTCom* dt)
 {
 	int command_ChangeMethodExe=-1;
 
-
 	if(RL_INPUT()->m_MouseR.NowPush() && IsMouseInBox(dt->m_DrawArea.x,dt->m_DrawArea.y,dt->m_DrawArea.w,dt->m_DrawArea.h)){dt->m_DTA.release();}
 
 	RC_2DPorigon* po=draw::Basic();
@@ -173,5 +172,44 @@ void DtDiagram::drawTable(DTCom* dt)
 
 }
 
+void DtDiagram::drawFieldsTable(DTCom* dt){
+
+	int command_ChangeMethodExe=-1;
+
+	if(RL_INPUT()->m_MouseR.NowPush() && IsMouseInBox(dt->m_DrawArea.x,dt->m_DrawArea.y,dt->m_DrawArea.w,dt->m_DrawArea.h)){dt->m_DTA.release();}
+
+	RC_2DPorigon* po=draw::Basic();
+	draw::Basic()->SetTexture(NULL);
+	
+	DWordDrawStart();
+	DWordFormat(DT_NOCLIP);
+	DWordColor(D3DXCOLOR(0,0,0,1));
+	
+	int ds=dt->m_DS;
+	
+	po->f_Point=D3DXVECTOR3(ds,0,G()->GetInsZ());
+	po->f_Size=D3DXVECTOR2(EVENTW,dt->m_DrawArea.h*2);
+	po->f_Color=D3DXVECTOR4(0.0,0.0,0.0,0.3);
+	po->Set();
+	
+	po->f_Point=D3DXVECTOR3(ds,0,G()->GetInsZ());
+	po->f_Size=D3DXVECTOR2(2*2,dt->m_DrawArea.h*2);
+	po->f_Color=D3DXVECTOR4(0.0,0.0,0.0,0.3);
+	po->Set();
+	
+	po->f_Point=D3DXVECTOR3(ds+EVENTW-2*2,0,G()->GetInsZ());
+	po->f_Size=D3DXVECTOR2(2*2,dt->m_DrawArea.h*2);
+	po->f_Color=D3DXVECTOR4(0.0,0.0,0.0,0.3);
+	po->Set();
+	
+	po->f_Point=D3DXVECTOR3(ds+EVENTW+DTCELLW,0,G()->GetInsZ());
+	po->f_Size=D3DXVECTOR2(1*2,dt->m_DrawArea.h*2);
+	po->f_Color=D3DXVECTOR4(0.50,0.50,0.50,1);
+	po->Set();	
+
+
+	po->Draw();
+	DWordDrawEnd();
+}
 
 

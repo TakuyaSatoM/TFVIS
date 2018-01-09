@@ -120,7 +120,7 @@ public:
   {
 	  m_Type=type;
 	  m_fields = fields;
-	  m_TargetInstanceID;
+	  m_TargetInstanceID = targetInstanceID;
 	  fieldNum = num;
   }
 

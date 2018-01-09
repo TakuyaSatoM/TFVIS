@@ -64,6 +64,8 @@ class DtDiagram
 	static const D3DXVECTOR2 DTCELL_SIZE;
 
 	bool draw(DTCom* dt);
+	bool drawTransitionsDiagram(DTCom* dt);
+	bool drawInstanceDiagram(DTCom* dt);
 
 	private:
 
@@ -91,7 +93,9 @@ class DtDiagram
 	void draw_box(RC_2DPorigon* po,float x,float y,float w,float h);
 
 	void drawCode(DTCom* dt);
+	void drawFields(DTCom* dt);
 	void drawTable(DTCom* dt);
+	void drawFieldsTable(DTCom* dt);
 
 	void variableUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);
 	void variableArrayUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* po);

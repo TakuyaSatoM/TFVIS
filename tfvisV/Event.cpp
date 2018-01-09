@@ -26,6 +26,17 @@ namespace ev{
 		return false;
 	}
 
+	string getUpdateType(int id){
+		if(id==UPDATE_INT){return "int";}
+		if(id==UPDATE_INTARRAY){return "int[]";}
+		if(id==UPDATE_DOUBLE){return "double";}
+		if(id==UPDATE_DOUBLEARRAY){return "double[]";}
+		if(id==UPDATE_STRING){return "String";}
+		if(id==UPDATE_STRINGARRAY){return "String[]";}
+
+		return "Object";
+	}
+
 	float getEventWeight(int type){
 
 		if(ev::isUpdate(type)){return 2*2;}
