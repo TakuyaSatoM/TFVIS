@@ -42,6 +42,8 @@ public:
 
   virtual string getNewDataText(){return "";}
 };
+
+
 class UV_Int:public UpdateVars
 {
 public:
@@ -119,16 +121,19 @@ public:
   UV_Instance(string name, int instanceID, string type, string* fields, int num, int targetInstanceID):UpdateVars(name, instanceID)
   {
 	  m_Type=type;
-	  m_fields = fields;
 	  m_TargetInstanceID = targetInstanceID;
 	  fieldNum = num;
+	  for(int i=0; i<fieldNum; i++){
+		  m_fields.Add(new UpdateVars(fields[i].c_str(),targetInstanceID));
+	  }
+
   }
 
-  virtual UV_String* next(){return (UV_String*)C_Set::CHECK();}
-  virtual UV_String* back(){return (UV_String*)C_Set::CHECK_BACK();}
+  virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
+  virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
 
   string m_Type;
-  string* m_fields;
+  UpdateVars m_fields;
   int m_TargetInstanceID;
   int fieldNum;
 
@@ -139,6 +144,7 @@ public:
 	  return text;
   }
 };
+
 
 class DTCom;
 class DTAItem

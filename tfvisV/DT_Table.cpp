@@ -207,6 +207,38 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	po->f_Color=D3DXVECTOR4(0.50,0.50,0.50,1);
 	po->Set();	
 
+	//データ遷移表上描画
+	{
+			Exe* exe  = dt->m_Exe;
+
+
+			while(indexExe=indexExe->CHECK()){
+
+					if(indexExe->m_MethodExeID!=mexeID){continue;}
+					C_Box cellArea;
+					cellArea.x=ds+EVENTW+indexExe->m_DTXY.x*DTCELLW+3*2;
+					cellArea.y=indexExe->m_DTXY.y*LINEH+2*2;
+					cellArea.w=DTCELLW-6*2;
+					cellArea.h=LINEH-4*2;
+					indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
+
+
+					if(ev::isUpdate(indexExe->m_EventType)){//変数更新
+
+						if(ev::isArrayUpdate(indexExe->m_EventType)==true)
+						{
+							// 配列の更新
+							variableArrayUpdate(dt,indexExe,cellArea,po);
+						}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
+							//インスタンスの更新
+							InstanceUpdate(dt,indexExe,cellArea,po);
+						}else{
+							variableUpdate(dt,indexExe,cellArea,po);
+						}
+					}
+
+			}
+
 
 	po->Draw();
 	DWordDrawEnd();

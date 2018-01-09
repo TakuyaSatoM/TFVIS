@@ -49,9 +49,13 @@ void DtDiagram::variableArrayUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorig
 
 		string out="";
 		UpdateVars* index=&ui->m_Updates;
+		int count =0;
 		while(index=index->next()){
 			out+=index->getNewDataText();
-			out+=",";
+			if(count !=0){
+				out+=",";
+			}
+			count++;
 		}
 		sprintf(DWordBuffer(),"%s", out.c_str());	
 

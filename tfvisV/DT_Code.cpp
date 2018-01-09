@@ -126,13 +126,13 @@ void DtDiagram::drawFields(DTCom* dt){
 	bool shadow=true;
 
 	for(int i=0; i<instance->fieldNum; i++){
-		Exe* indexExe = dt->m_Exe;
+		Exe* indexExe = db::getExe(); 
 
 		string targetVariable = instance->m_fields[i].c_str();
 
 		string targetVariableType = "";
 
-		while(indexExe = indexExe->back()){
+		while(indexExe = indexExe->CHECK()){
 			
 			if(ev::isUpdate(indexExe->m_EventType)){
 				E_Update* updateEvent = (E_Update*)indexExe->m_Event;

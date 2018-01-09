@@ -159,6 +159,12 @@ void E_Update::SetIntArray(char* stock)
 	TEXT::Seek(stock,',',&seek,get);
 	int num=atoi(get);
 
+	// 空配列の場合
+	if(num == 0){
+		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
+		m_Updates.Add(new UV_String(tmp,instanceID,""));
+	}
+
 	for(int i=0;i<num;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
@@ -206,6 +212,12 @@ void E_Update::SetDoubleArray(char* stock)
 	TEXT::Seek(stock,',',&seek,get);
 	int num=atoi(get);
 
+	// 空配列の場合
+	if(num == 0){
+		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
+		m_Updates.Add(new UV_String(tmp,instanceID,""));
+	}
+
 	for(int i=0;i<num;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
@@ -252,6 +264,12 @@ void E_Update::SetStringArray(char* stock)
 	TEXT::Seek(stock,',',&seek,get);
 	int num=atoi(get);
 
+	// 空配列の場合
+	if(num == 0){
+		sprintf(tmp,"%s[%d]",baseName.c_str(),num);
+		m_Updates.Add(new UV_String(tmp,instanceID,""));
+	}
+
 	for(int i=0;i<num;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
@@ -284,9 +302,12 @@ void E_Update::SetInstance(char* stock)
 
 	//size
 	TEXT::Seek(stock,',',&seek,get);
-	int fieldNum=atoi(get);
+	int fieldNum=atoi(get)-1;
 
+	
 	string* fields = new string[fieldNum];
+
+	// コンパイル時に自動追加されるTP_CLASSIDを除く
 	for(int i=0;i<fieldNum;i++)
 	{
 		TEXT::Seek(stock,',',&seek,get);
