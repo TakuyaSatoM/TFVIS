@@ -1,0 +1,7 @@
+100,221,#args,##  public static void main(String[] args){#
+260,#item,#item,#    InstanceItem item=new InstanceItem ();#
+250,###    item.setID(1);#
+260,#newItem,##    InstanceItem newItem=item;#
+200,250,#id,#newItem,#    int id=newItem.getID();#
+999,##id,#    System.out.println(id);#
+101,###  }#

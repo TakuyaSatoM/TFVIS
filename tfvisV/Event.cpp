@@ -52,6 +52,18 @@ namespace ev{
 		return "Object";
 	}
 
+	int getUpdateType(string type){
+		if(type == "int"){return UPDATE_INT;}
+		if(type == "int[]"){return UPDATE_INTARRAY;}
+		if(type == "double"){return UPDATE_DOUBLE;}
+		if(type == "double[]"){return UPDATE_DOUBLEARRAY;}
+		if(type == "String"){return UPDATE_STRING;}
+		if(type == "String[]"){return UPDATE_STRINGARRAY;}
+
+		return UPDATE_INSTANCE;
+	}
+
+
 	float getEventWeight(int type){
 
 		if(ev::isUpdate(type)){return 2*2;}
@@ -194,7 +206,7 @@ void E_Update::SetPrimitivesArray(char* stock, int type)
 }
 
 
-void E_Update::SetInstance(char* stock, Exe* exe, Exe* top)
+void E_Update::SetInstance(char* stock,Exe* exe, Exe* top)
 {
 	int seek=0;
 	char get[256];
@@ -220,7 +232,7 @@ void E_Update::SetInstance(char* stock, Exe* exe, Exe* top)
 	UV_Instance* instance;
 	m_Updates.Add(instance = new UV_Instance(name,instanceID,type,fieldNum));
 
-	// 各フィールドの型、更新値を取得
+	// インスタンス更新クラス下に各フィールドの更新イベントクラスを作成
 	for(int i=0;i<fieldNum;i++){
 		Exe* indexExe = exe;
 
@@ -229,7 +241,7 @@ void E_Update::SetInstance(char* stock, Exe* exe, Exe* top)
 		string fieldType = "";
 		string fieldValue = "";
 
-
+		// 各フィールドの型、更新値を取得
 		while(indexExe = indexExe->back()){
 			if(ev::isUpdate(indexExe->m_EventType)){
 				E_Update* updateEvent = (E_Update*)indexExe->m_Event;
@@ -242,10 +254,31 @@ void E_Update::SetInstance(char* stock, Exe* exe, Exe* top)
 			}
 		}
 
-		instance->m_fields.Add(new UpdateVars(fieldName, targetInstanceID, fieldValue, fieldType));
+		// イベントグラフにフィールドの更新を追加
+		Exe* updateField;
+		top->Add(updateField = new Exe);
+		
+		updateField->m_EventType = ev::getUpdateType(fieldType);
+		updateField->m_Number = exe->m_Number;
+		updateField->m_InstanceID = targetInstanceID;
+		updateField->m_MethodID = exe->m_MethodID;
+		updateField->m_MethodExeID = exe->m_MethodExeID;
+		updateField->m_LineID = exe->m_LineID;
 
-		// フィールドの更新を実行イベントグラフに追加
-		top->Add();
+		updateField->m_Event=new E_Update(updateField->m_InstanceID);
+
+		if(updateField->m_EventType==ev::UPDATE_INT || updateField->m_EventType==ev::UPDATE_DOUBLE || updateField->m_EventType==ev::UPDATE_STRING){
+			 ((E_Update*)updateField->m_Event)->m_Updates.Add(new UpdateVars(fieldName,instanceID,fieldValue, fieldType));
+			 if(fieldValue != ""){
+				 ((E_Update*)updateField->m_Event)->m_Infs.Add(new C_String(fieldName, targetInstanceID));
+			 }
+			 
+		 }else if(updateField->m_EventType==ev::UPDATE_INTARRAY || updateField->m_EventType==ev::UPDATE_DOUBLEARRAY || updateField->m_EventType==ev::UPDATE_STRINGARRAY){
+			 //((E_Update*)index->m_Event)->SetPrimitivesArray(StockText, updateField->m_EventType);
+		 }else if(updateField->m_EventType == ev::UPDATE_INSTANCE){
+			 //((E_Update*)index->m_Event)->SetInstance(StockText, index, top);
+		 }
+		 ((E_Update*)updateField->m_Event)->standard_Input = false;
 
 	}
 

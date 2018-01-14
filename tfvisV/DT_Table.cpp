@@ -104,6 +104,12 @@ void DtDiagram::drawTable(DTCom* dt)
 						}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
 							//インスタンスの更新
 							InstanceUpdate(dt,indexExe,cellArea,po);
+							// フィールド更新の読み飛ばし
+							E_Update* updateEvent = (E_Update*)indexExe->m_Event;
+							UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+							for(int i=0; i<instance->fieldNum; i++){
+								indexExe = indexExe->CHECK();
+							}
 						}else{
 							variableUpdate(dt,indexExe,cellArea,po);
 						}
@@ -210,11 +216,14 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	E_Update* updateEvent = (E_Update*)dt->m_Exe->m_Event;
 	UV_Instance* instance = ((UV_Instance*)updateEvent->m_Updates.CHECK());
 
+	
+
 	//行別イベント名
 	{
-		UpdateVars* field = (instance->m_fields).next();
-
+		Exe* indexExe = dt->m_Exe;
 		for(int i=0; i<instance->fieldNum; i++){
+					indexExe = indexExe->CHECK();
+					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 
 					DWordFormat(DT_CENTER | DT_VCENTER);
 					DWordArea_W(ds,i*LINEH,EVENTW,LINEH);
@@ -227,33 +236,34 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 					po->Set();
 
 					DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
-
-					field = (UpdateVars*)field->CHECK();
 			}
 	}
 
 
 	//データ遷移表上描画
-	{
-		UpdateVars* field = (instance->m_fields).next();
-			
+	{	
+			Exe* indexExe = dt->m_Exe;
 			for(int i=0; i<instance->fieldNum; i++){
+					indexExe = indexExe->CHECK();
+					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
+
 					C_Box cellArea;
 					cellArea.x=ds+EVENTW+3*2;
 					cellArea.y=i*LINEH+2*2;
 					cellArea.w=DTCELLW-6*2;
 					cellArea.h=LINEH-4*2;
-					//indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
+					indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
 
 					if(ev::isArrayUpdate(field->m_Type)==true)
 					{
 							// 配列の更新
-						variableArrayUpdate(dt,dt->m_Exe,cellArea,po);
+						variableArrayUpdate(dt,indexExe,cellArea,po);
 					}else if(ev::isPrimitiveUpdate(field->m_Type) == true){
-							variableUpdate(dt,dt->m_Exe,cellArea,po);
+							// プリミティブ型の更新
+							variableUpdate(dt,indexExe,cellArea,po);
 					}else{
 						//インスタンスの更新
-							InstanceUpdate(dt,dt->m_Exe,cellArea,po);
+							InstanceUpdate(dt,indexExe,cellArea,po);
 							
 					}
 

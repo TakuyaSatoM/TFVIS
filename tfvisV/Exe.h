@@ -64,7 +64,7 @@ public:
   virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
   virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
 
-  UpdateVars m_fields;
+
   int m_TargetInstanceID;
   int fieldNum;
 

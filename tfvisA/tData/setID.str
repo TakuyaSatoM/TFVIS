@@ -1,0 +1,3 @@
+100,200,#num,##  public void setID(int num){#
+200,#id,#num,#    id=num;#
+101,###  }#

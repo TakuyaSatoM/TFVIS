@@ -125,10 +125,12 @@ void DtDiagram::drawFields(DTCom* dt){
 	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
 	bool shadow=true;
 
-	UpdateVars* field = instance->m_fields.next();
+	Exe* indexExe = dt->m_Exe;
 
 	for(int i=0; i<instance->fieldNum; i++){
+		indexExe = indexExe->CHECK();
 
+		UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 		string targetVariableName = field->m_Target.c_str();
 		string targetVariableType = field->m_Type;
 

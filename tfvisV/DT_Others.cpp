@@ -87,7 +87,7 @@ void  DTAItem::drawDTA(RC_2DPorigon* po,DTCom* dt,DTAItem* parent)
 		{
 			if(m_Ad->m_EventType==ev::UPDATE_INTARRAY)
 			{
-				be.x+=-DtDiagram::DTCELLW/4+m_INumber*12+5;
+					be.x+=-DtDiagram::DTCELLW/4+m_INumber*12+5;
 			}		
 		}
 	}

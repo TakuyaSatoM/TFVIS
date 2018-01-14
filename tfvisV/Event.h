@@ -44,6 +44,7 @@ namespace ev{
    bool isInstanceUpdate(int id);
    bool isPrimitiveUpdate(string eventName);
    string getUpdateType(int id);
+   int getUpdateType(string type);
 
 }
 
