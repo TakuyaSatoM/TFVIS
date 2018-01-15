@@ -1,0 +1,3 @@
+100,###  static int getStaticID(){#
+150,##staticID,#    return staticID;#
+101,###  }#

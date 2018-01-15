@@ -135,14 +135,16 @@ public class StrClass implements tfvisConstants {
 		}
 		// メソッド検索
 		for (int i = 0; i < data.size(); i++) {
+			
 
-			// メソッドの登録
-			if (data.getId(i) == Method + Static && !data.getState(i).equals("main")) {
+			if(data.getId(i) == Method + Static && !data.getState(i).equals("main") && data.getState(i-2).equals("static")) {
+				// 静的メソッドの登録
+				registMethod(data, i, Mt_Static);
+			}else if (data.getId(i) == Method + Static && !data.getState(i).equals("main")) {
+				// メソッドの登録
 				registMethod(data, i, Mt_Normal);
-			}
-
-			// コンストラクタの登録
-			if (data.getId(i) == Constructor + Static) {
+			}else if (data.getId(i) == Constructor + Static) {
+				// コンストラクタの登録
 				registMethod(data, i, Mt_Constructor);
 			}
 

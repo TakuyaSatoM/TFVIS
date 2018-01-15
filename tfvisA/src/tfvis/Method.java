@@ -217,7 +217,9 @@ public class Method implements tfvisConstants {
 				// mainメソッド
 				if (m_Type == Mt_Main) {
 					fout.println(indent + "TProbe.Init();");
-					fout.println(indent + "int TP_INSTANCEID = -1;");
+					fout.println(indent + "int TP_INSTANCEID = TP_CLASSID*-1;");
+				} else if (m_Type == Mt_Static) {
+					fout.println(indent + "int TP_INSTANCEID = TP_CLASSID*-1;");
 				} else {
 					fout.println(indent + "int TP_INSTANCEID = this.hashCode();");
 				}
@@ -337,7 +339,7 @@ public class Method implements tfvisConstants {
 
 				// インスタンス生成プローブ
 				if (event == Ev_UpdateInstance) {
-					fout.println(indent + "TProbe.Generate_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
+					fout.println(indent + "TProbe.Update_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
 							+ ",\"" + line.getTarget() + "\"," + line.getTarget() + ");");
 				}
 

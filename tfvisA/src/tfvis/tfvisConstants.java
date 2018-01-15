@@ -523,6 +523,7 @@ public interface tfvisConstants {
 	int Mt_Normal = 0;
 	int Mt_Main = 1;
 	int Mt_Constructor = 2;
+	int Mt_Static = 3;
 
 	/*
 	 * static const int NONE=0; static const int CLASS_START=0; static const int

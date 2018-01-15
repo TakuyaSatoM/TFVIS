@@ -1,17 +1,22 @@
 
 public class InstanceItem {
-
-		int id;
+		static int staticID;
+		int dynamicID;
 		public InstanceItem() {
-		id = 0;
+			staticID =0;
+			dynamicID = this.hashCode();
 		}
 		
 		public void setID(int num) {
-			id = num;
+			dynamicID = num;
 		}
 		
-		int getID() {
-			return id;
+		int getDynamicID() {
+			return dynamicID;
+		}
+		
+		static int getStaticID() {
+			return staticID;
 		}
 	
 }

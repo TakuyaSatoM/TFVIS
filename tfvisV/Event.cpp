@@ -246,7 +246,7 @@ void E_Update::SetInstance(char* stock,Exe* exe, Exe* top)
 			if(ev::isUpdate(indexExe->m_EventType)){
 				E_Update* updateEvent = (E_Update*)indexExe->m_Event;
 
-				if(updateEvent->m_Updates.next()->m_Target == fieldName && indexExe -> m_InstanceID== targetInstanceID){
+				if(updateEvent->m_Updates.next()->m_Target == fieldName && indexExe -> m_InstanceID == targetInstanceID){
 					fieldType = ev::getUpdateType(indexExe->m_EventType);
 					fieldValue = updateEvent->m_Updates.next()->m_Value;
 					break;

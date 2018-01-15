@@ -1,3 +1,4 @@
 100,###  public InstanceItem(){#
-200,#id,##    id=0;#
+200,#staticID,##    staticID=0;#
+200,#dynamicID,##    dynamicID=this.hashCode();#
 101,###  }#

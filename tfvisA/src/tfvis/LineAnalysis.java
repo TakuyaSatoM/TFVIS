@@ -137,16 +137,6 @@ public class LineAnalysis implements tfvisConstants {
 				continue;
 			}
 
-			if (nowID == ObjectExp) {
-				String objectType = m_Token.get(k - 3).m_State;
-				// newÇµÇΩå^ñºÇìoò^
-				if (!Vars.checkVarsDec(objectType)) {
-					Vars.addType(objectType);
-					nowLine.setTarget(m_Token.get(k - 2).m_State);
-					nowLine.addUse(m_Token.get(k - 2).m_State);
-					nowLine.addEvent(Ev_UpdateInstance);
-				}
-			}
 
 			if (nowID == Do) {
 				nowLine.addEvent(Ev_Do);
@@ -204,6 +194,9 @@ public class LineAnalysis implements tfvisConstants {
 							nowLine.deleteUse(varfName);
 							nowLine.addEvent(uID - ArrayMode);
 						}
+					}else if(m_Token.get(k-1).m_State != "=" && m_Token.get(k+1).m_State != "=") {
+						nowLine.setTarget(m_Token.get(k - 1).m_State);
+						nowLine.addEvent(Ev_UpdateInstance);
 					}
 				}
 				// += -= *= /=Ç…ÇÊÇÈçXêV

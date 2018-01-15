@@ -1,5 +1,6 @@
 public class InstanceItem{
-int id;
+static int staticID;
+int dynamicID;
   static final int TP_CLASSID = 1;
 
   public InstanceItem(){
@@ -8,9 +9,11 @@ int id;
    int TP_INSTANCEID = this.hashCode();
    TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0);
    boolean isLoop=false;
-    id=0;
-     TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "id",id,"",false);
-   TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2  );
+    staticID=0;
+     TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "staticID",staticID,"",false);
+    dynamicID=this.hashCode();
+     TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2, "dynamicID",dynamicID,"",false);
+   TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,3  );
   }
 
   public void setID(int num){
@@ -20,20 +23,31 @@ int id;
    TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0);
    boolean isLoop=false;
    TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0, "num",num,"",false);
-    id=num;
-     TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "id",id,"num",false);
+    dynamicID=num;
+     TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "dynamicID",dynamicID,"num",false);
    TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,2  );
   }
 
-  int getID(){
+  int getDynamicID(){
    final int TP_METHODID = 3;
    int TP_METHODEXE=TProbe.GetExe();	
    int TP_INSTANCEID = this.hashCode();
    TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0);
    boolean isLoop=false;
-     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "id"  );
+     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "dynamicID"  );
      TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1  );
-    return id;
+    return dynamicID;
+  }
+
+  static int getStaticID(){
+   final int TP_METHODID = 4;
+   int TP_METHODEXE=TProbe.GetExe();	
+   int TP_INSTANCEID = TP_CLASSID*-1;
+   TProbe.Input_StartMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,0);
+   boolean isLoop=false;
+     TProbe.Input_Read(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1, "staticID"  );
+     TProbe.Input_EndMethod(TP_INSTANCEID,TP_METHODID,TP_METHODEXE,1  );
+    return staticID;
   }
 
 }

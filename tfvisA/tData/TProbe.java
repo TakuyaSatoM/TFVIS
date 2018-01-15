@@ -304,8 +304,8 @@ public class TProbe {
 		}
 	}
 
-	// インスタンス生成
-	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,
+	// インスタンス更新
+	static public void Update_Instance(int insID, int methodid, int methodexe, int line, String name,
 			Object instance) {
 		String str = "";
 
