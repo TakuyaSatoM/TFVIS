@@ -95,7 +95,8 @@ void DtDiagram::drawTable(DTCom* dt)
 					indexExe->m_LastPos=D3DXVECTOR2(cellArea.x+cellArea.w/2,cellArea.y+cellArea.h/2)/2+D3DXVECTOR2(dt->m_DrawArea.x,dt->m_DrawArea.y);
 
 
-					if(ev::isUpdate(indexExe->m_EventType)){//変数更新
+					if(ev::isUpdate(indexExe->m_EventType)){
+						//変数更新
 
 						if(ev::isArrayUpdate(indexExe->m_EventType)==true)
 						{

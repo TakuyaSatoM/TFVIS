@@ -1,3 +1,0 @@
-100,200,#num,##  public void setID(int num){#
-200,#dynamicID,#num,#    dynamicID=num;#
-101,###  }#

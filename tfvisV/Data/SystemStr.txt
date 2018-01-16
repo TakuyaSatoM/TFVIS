@@ -1,7 +1,4 @@
-0#InstanceTest#0#
+0#Sample#0#
 1#main#main#0#
-0#InstanceItem#1#
-1#InstanceItem#InstanceItem#1#
-1#setID#setID#2#
-1#getDynamicID#getDynamicID#3#
-1#getStaticID#getStaticID#4#
+0#Item#1#
+1#Item#Item#1#

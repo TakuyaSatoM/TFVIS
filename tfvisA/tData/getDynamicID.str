@@ -1,3 +1,0 @@
-100,###  int getDynamicID(){#
-150,##dynamicID,#    return dynamicID;#
-101,###  }#

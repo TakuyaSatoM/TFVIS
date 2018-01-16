@@ -1,9 +1,4 @@
 100,221,#args,##  public static void main(String[] args){#
-260,#item,##    InstanceItem item=new InstanceItem ();#
-250,###    System.out.println(item.getDynamicID());#
-250,###    item.setID(1);#
-260,#newItem,##    InstanceItem newItem=item;#
-200,250,#staticID,##    int staticID=newItem.getStaticID();#
-200,250,#dynamicID,##    int dynamicID=newItem.getDynamicID();#
-999,##staticID,dynamicID,#    System.out.println(staticID+","+dynamicID);#
+260,#item,##    Item item=new Item ();#
+260,#newItem,##    Item newItem=item;#
 101,###  }#

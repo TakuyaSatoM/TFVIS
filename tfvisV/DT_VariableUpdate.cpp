@@ -92,7 +92,7 @@ void DtDiagram::InstanceUpdate(DTCom* dt,Exe* indexExe,C_Box box,RC_2DPorigon* p
 	DWordColor(D3DXCOLOR(0,0,0,1));
 	DWordColor(D3DXCOLOR(0,0,0,1));
 	DWordArea_W(box.x,box.y,box.w,box.h);	
-	DWordDrawText(G()->m_CommonFont  ,updateEvent->m_Updates.next()->getNewDataText().c_str());	
+	DWordDrawText(G()->m_CommonFont  ,updateEvent->m_Updates.next()->m_Type.c_str());	
 				
 }
 
