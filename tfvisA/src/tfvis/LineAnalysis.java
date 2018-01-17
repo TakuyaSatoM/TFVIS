@@ -137,7 +137,6 @@ public class LineAnalysis implements tfvisConstants {
 				continue;
 			}
 
-
 			if (nowID == Do) {
 				nowLine.addEvent(Ev_Do);
 			}
@@ -194,7 +193,7 @@ public class LineAnalysis implements tfvisConstants {
 							nowLine.deleteUse(varfName);
 							nowLine.addEvent(uID - ArrayMode);
 						}
-					}else if(m_Token.get(k-1).m_State != "=" && m_Token.get(k+1).m_State != "=") {
+					} else if (m_Token.get(k - 1).m_State != "=" && m_Token.get(k + 1).m_State != "=") {
 						nowLine.setTarget(m_Token.get(k - 1).m_State);
 						nowLine.addEvent(Ev_UpdateInstance);
 					}
@@ -257,9 +256,9 @@ public class LineAnalysis implements tfvisConstants {
 
 			// stateがオブジェクト型以外の変数の型である場合(int or double・・・)
 			if (Vars.checkVarsDec(state)) {
-				if(m_Token.get(k+1).m_State.equals("{") || m_Token.get(k+1).m_State.equals("(")) {
+				if (m_Token.get(k + 1).m_State.equals("{") || m_Token.get(k + 1).m_State.equals("(")) {
 					// クラス定義とメソッド定義のときは除く
-				}else if (!m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 1).m_ID != Identifier + Method) {
+				} else if (!m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 1).m_ID != Identifier + Method) {
 					// 変数の登録Identifier
 					pro.setVar(new Vars(state, m_Token.get(k + 1).m_State));
 				} else if (m_Token.get(k + 1).m_State.equals("[") && m_Token.get(k + 2).m_State.equals("]")
@@ -296,6 +295,8 @@ public class LineAnalysis implements tfvisConstants {
 				lineHead = true;
 
 				changeLine = true;
+			} else if (state.equals("}") && nowLine.hasUpdateEvent_NotArray()) {
+				nowLine.addCode("}");
 			} else if (state.equals("}") == true) {
 				indent--;
 				lineHead = true;

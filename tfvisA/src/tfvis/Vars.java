@@ -54,5 +54,4 @@ public class Vars implements tfvisConstants {
 	static boolean checkVarsDec(String state) {
 		return typeList.contains(state);
 	}
-
 }

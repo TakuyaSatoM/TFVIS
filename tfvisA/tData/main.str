@@ -1,4 +1,0 @@
-100,221,#args,##  public static void main(String[] args){#
-260,#item,##    Item item=new Item ();#
-260,#newItem,##    Item newItem=item;#
-101,###  }#

@@ -134,13 +134,6 @@ public class Method implements tfvisConstants {
 			// beforeプローブ
 			for (Integer event : line.getEventList()) {
 
-				if (event == Ev_Route) {
-					if (line.getUseNum() > 0) {
-
-						readProbe(line, lineID, fout);
-					}
-				}
-
 				if (event == Ev_Return) {// メソッド終了
 					readProbe(line, lineID, fout);
 					try {
@@ -233,6 +226,13 @@ public class Method implements tfvisConstants {
 
 			for (Integer event : line.getEventList()) {
 
+				if (event == Ev_Route) {
+					if (line.getUseNum() > 0) {
+
+						readProbe(line, lineID, fout);
+					}
+				}
+
 				// 変数更新系プローブ
 				if (line.checkHasEvent(Ev_For) == false) {// for文の条件としての変数更新(カウンタ)は別処理(for)
 					if (event == Ev_IntUpdate || event == Ev_DoubleUpdate || event == Ev_StringUpdate) {// int型更新
@@ -273,15 +273,12 @@ public class Method implements tfvisConstants {
 					if (event == Ev_IntUpdate + ArrayMode || event == Ev_DoubleUpdate + ArrayMode
 							|| event == Ev_StringUpdate + ArrayMode) {// int型配列更新
 
-						String target = line.getTarget();
-						String use = "";
-
-						if (line.getUseNum() > 0) {
-							use = line.getUse(0);
-						}
+						ArrayList<String> targetList = line.getTargetList();
+						String target = targetList.get(0);
+						targetList.remove(0);
 
 						fout.println(indent + "TProbe.Input_Update(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
-								+ ", \"" + target + "\"," + target + "," + inputState + ");");
+								+ ",\"" + target + "\"," + target + "," + inputState + ");");
 						insertedProbe = true;
 						inputState = false;
 					}

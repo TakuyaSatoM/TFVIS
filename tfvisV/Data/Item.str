@@ -1,4 +1,0 @@
-100,###  public Item(){#
-200,#id,##    id=0;#
-220,#name,##    name="sample";#
-101,###  }#
