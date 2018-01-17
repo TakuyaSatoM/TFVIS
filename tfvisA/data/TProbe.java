@@ -13,6 +13,7 @@ public class TProbe {
 	static final int END_CLASS = 1;
 	static final int START_METHOD = 100;
 	static final int END_METHOD = 101;
+	static final int CALL_METHOD = 110;
 
 	static final int RETURN = 150;
 
@@ -27,10 +28,25 @@ public class TProbe {
 	static final int UPDATE_STRING = 220;
 	static final int UPDATE_STRINGARRAY = 221;
 
-	static final int INPUT = 230;
-	static final int CALL_METHOD = 250;
+	static final int UPDATE_BYTE = 230;
+	static final int UPDATE_BYTEARRAY = 231;
 
-	static final int GENERATE_INSTANCE = 260;
+	static final int UPDATE_SHORT = 240;
+	static final int UPDATE_SHORTARRAY = 241;
+
+	static final int UPDATE_LONG = 250;
+	static final int UPDATE_LONGARRAY = 251;
+
+	static final int UPDATE_CHAR = 260;
+	static final int UPDATE_CHARARRAY = 261;
+
+	static final int UPDATE_FLOAT = 270;
+	static final int UPDATE_FLOATARRAY = 271;
+
+	static final int UPDATE_BOOLEAN = 280;
+	static final int UPDATE_BOOLEANARRAY = 281;
+
+	static final int UPDATE_INSTANCE = 290;
 
 	static final int LOOP = 300;
 	static final int LOOPNEXT = 301;
@@ -41,6 +57,8 @@ public class TProbe {
 
 	static final int Switch = 160;
 	static final int Case = 162;
+
+	static final int INPUT = 460;
 
 	static final int DATAREAD = 500;
 
@@ -158,6 +176,108 @@ public class TProbe {
 		}
 	}
 
+	// 更新-byte配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, byte[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_BYTEARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-short配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, short[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_SHORTARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-long配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, long[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_LONGARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-char配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, char[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_CHARARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-float配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, float[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_FLOATARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-boolean配列
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, boolean[] array,
+			boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.print(UPDATE_BOOLEANARRAY + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM);
+			pw.print(line + DELIM + name + "," + array.length);
+			for (int i = 0; i < array.length; i++) {
+				pw.print("," + array[i]);
+			}
+			pw.println("," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
 	// 更新-int単体
 	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, int var, String infs,
 			boolean inputState) {
@@ -197,6 +317,84 @@ public class TProbe {
 		}
 	}
 
+	// 更新-byte単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, byte var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_BYTE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-short単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, short var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_SHORT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-long単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, long var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_LONG + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-char単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, char var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_CHAR + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-float単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, float var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_FLOAT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	// 更新-boolean単体
+	static public void Input_Update(int insID, int methodid, int methodexe, int line, String name, boolean var,
+			String infs, boolean inputState) {
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(UPDATE_BOOLEAN + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
 	// 生存限界-int
 	static public void Input_LifeLimit(int insID, int methodid, int methodexe, int line, String name) {
 		try {
@@ -209,7 +407,7 @@ public class TProbe {
 		}
 	}
 
-	// 更新-int単体
+	// 参照
 	static public void Input_Read(int insID, int methodid, int methodexe, int line, String infs) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
@@ -323,7 +521,7 @@ public class TProbe {
 
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+			pw.println(UPDATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
 					+ str + DELIM);
 			pw.close();
 		} catch (IOException e) {

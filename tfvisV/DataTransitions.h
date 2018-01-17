@@ -79,7 +79,7 @@ class DtDiagram
 			y=exe->m_DTXY.y*LINEH+2*2;
 			w=DTCELLW-6*2;
 			h=LINEH-4*2;	
-			if(exe->m_EventType==ev::UPDATE_INTARRAY){
+			if(ev::isArrayUpdate(exe->m_EventType)){
 				x=dt->m_DS+EVENTW+exe->m_DTXY.x*DTCELLW+3*2+inum*12*2;
 				w=12*2;
 			}

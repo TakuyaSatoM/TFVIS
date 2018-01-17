@@ -11,18 +11,32 @@ namespace ev{
 	static const int CLASS_END=1;
 	static const int METHOD_START=100;
 	static const int METHOD_END=101;
+	static const int METHOD_CALL=110;
 	static const int RETURN=150;
 	static const int SWITCH=160;
 	static const int CASE=162;
 	static const int ROUTE=170;
+
 	static const int UPDATE_INT=200;
 	static const int UPDATE_INTARRAY=201;
 	static const int UPDATE_DOUBLE=210;
 	static const int UPDATE_DOUBLEARRAY=211;
 	static const int UPDATE_STRING=220;
-	static const int UPDATE_STRINGARRAY=221;
-	static const int METHOD_CALL=250;
-	static const int UPDATE_INSTANCE=260;
+	static const int UPDATE_STRINGARRAY = 221;
+	static const int UPDATE_BYTE = 230;
+	static const int UPDATE_BYTEARRAY = 231;
+	static const int UPDATE_SHORT = 240;
+	static const int UPDATE_SHORTARRAY = 241;
+	static const int UPDATE_LONG = 250;
+	static const int UPDATE_LONGARRAY = 251;
+	static const int UPDATE_CHAR = 260;
+	static const int UPDATE_CHARARRAY = 261;
+	static const int UPDATE_FLOAT = 270;
+	static const int UPDATE_FLOATARRAY = 271;
+	static const int UPDATE_BOOLEAN = 280;
+	static const int UPDATE_BOOLEANARRAY = 281;
+	static const int UPDATE_INSTANCE=290;
+
 	static const int LOOP_START=300;
 	static const int LOOP_NEXT=301;
 	static const int LOOP_END=302;

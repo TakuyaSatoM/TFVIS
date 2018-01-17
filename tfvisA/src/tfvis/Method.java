@@ -207,13 +207,15 @@ public class Method implements tfvisConstants {
 				fout.println(indent + "final int TP_METHODID = " + m_ID + ";");
 				fout.println(indent + "int TP_METHODEXE=TProbe.GetExe();	");
 
-				// mainメソッド
+				// mainメソッドの場合、プローブの初期化とインスタンスIDの設定
 				if (m_Type == Mt_Main) {
 					fout.println(indent + "TProbe.Init();");
 					fout.println(indent + "int TP_INSTANCEID = TP_CLASSID*-1;");
 				} else if (m_Type == Mt_Static) {
+					// staticメソッドの場合、インスタンスIdの設定
 					fout.println(indent + "int TP_INSTANCEID = TP_CLASSID*-1;");
 				} else {
+					// インスタンスIDを動的に取得
 					fout.println(indent + "int TP_INSTANCEID = this.hashCode();");
 				}
 				fout.println(
@@ -235,7 +237,7 @@ public class Method implements tfvisConstants {
 
 				// 変数更新系プローブ
 				if (line.checkHasEvent(Ev_For) == false) {// for文の条件としての変数更新(カウンタ)は別処理(for)
-					if (event == Ev_IntUpdate || event == Ev_DoubleUpdate || event == Ev_StringUpdate) {// int型更新
+					if (Tools.isUpdateEvent(event) && Tools.isPrimitiveUpdateEvent(event)) {// Primitive型更新
 
 						ArrayList<String> targetList = line.getTargetList();
 						String target;
@@ -270,8 +272,7 @@ public class Method implements tfvisConstants {
 						insertedProbe = true;
 						inputState = false;
 					}
-					if (event == Ev_IntUpdate + ArrayMode || event == Ev_DoubleUpdate + ArrayMode
-							|| event == Ev_StringUpdate + ArrayMode) {// int型配列更新
+					if (Tools.isUpdateEvent(event) && !Tools.isPrimitiveUpdateEvent(event)) {// Primitive型配列更新
 
 						ArrayList<String> targetList = line.getTargetList();
 						String target = targetList.get(0);
@@ -334,7 +335,7 @@ public class Method implements tfvisConstants {
 					insertedProbe = true;
 				}
 
-				// インスタンス生成プローブ
+				// インスタンス更新プローブ
 				if (event == Ev_UpdateInstance) {
 					fout.println(indent + "TProbe.Update_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
 							+ ",\"" + line.getTarget() + "\"," + line.getTarget() + ");");

@@ -58,17 +58,17 @@ void ExeReader::read(Exe* top)
 		 
 		 index->m_Event=new E_Update(index->m_InstanceID);
 
-		 if(index->m_EventType==ev::UPDATE_INT || index->m_EventType==ev::UPDATE_DOUBLE || index->m_EventType==ev::UPDATE_STRING){
-			 ((E_Update*)index->m_Event)->SetPrimitives(StockText, index->m_EventType);
-			 if(SeekDel('#')){return;}
-			 ((E_Update*)index->m_Event)->setInputState(StockText);
+		 if(index->m_EventType == ev::UPDATE_INSTANCE){
+			 ((E_Update*)index->m_Event)->SetInstance(StockText, index, top);;
 		 }else if(index->m_EventType==ev::UPDATE_INTARRAY || index->m_EventType==ev::UPDATE_DOUBLEARRAY || index->m_EventType==ev::UPDATE_STRINGARRAY){
 			 ((E_Update*)index->m_Event)->SetPrimitivesArray(StockText, index->m_EventType);
 			 if(SeekDel('#')){return;}
 			 ((E_Update*)index->m_Event)->setInputState(StockText);
-		 }else if(index->m_EventType == ev::UPDATE_INSTANCE){
-			 ((E_Update*)index->m_Event)->SetInstance(StockText, index, top);;
-		 }
+		 }else{
+			 ((E_Update*)index->m_Event)->SetPrimitives(StockText, index->m_EventType);
+			 if(SeekDel('#')){return;}
+			 ((E_Update*)index->m_Event)->setInputState(StockText);
+		}
 	 }
 	 if(index->m_EventType==ev::LIFELIMIT){
 		 if(SeekDel('#')){return;}

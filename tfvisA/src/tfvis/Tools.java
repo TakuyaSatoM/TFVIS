@@ -25,6 +25,22 @@ public class Tools implements tfvisConstants{
 		return false;
 	}
 	
+	static boolean isUpdateEvent(int eventID) {
+		if(Ev_UpdateRangeL <= eventID && eventID <= Ev_UpdateRangeH) {
+			return true;
+		}
+		return false;
+	}
+	
+	static boolean isPrimitiveUpdateEvent(int eventID) {
+		if(Ev_UpdateRangeL <= eventID && eventID <= Ev_UpdateRangeH) {
+			if (eventID % 2 == 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 *  インデントの深さに応じた空白文字列を生成
 	 *  @param indent インデントの深さ

@@ -134,7 +134,24 @@ public class Program implements tfvisConstants {
 		if (state.equals("String")) {
 			return Ev_StringUpdate + arrayOffset;
 		}
-
+		if(id == Byte) {
+			return Ev_ByteUpdate + arrayOffset;
+		}
+		if(id == Short) {
+			return Ev_ShortUpdate + arrayOffset;
+		}
+		if(id == Long) {
+			return Ev_LongUpdate + arrayOffset;
+		}
+		if(id == Char) {
+			return Ev_CharUpdate + arrayOffset;
+		}
+		if(id == Float) {
+			return Ev_FloatUpdate + arrayOffset;
+		}
+		if(id == Boolean) {
+			return Ev_BooleanUpdate + arrayOffset;
+		}
 		return -1;
 	}
 

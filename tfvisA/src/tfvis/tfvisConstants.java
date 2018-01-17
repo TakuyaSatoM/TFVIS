@@ -471,6 +471,7 @@ public interface tfvisConstants {
 
 	int Ev_MethodStart = 100;
 	int Ev_MethodEnd = 101;
+	int Ev_CallMethod = 110;
 	int Ev_Return = 150;
 
 	int Ev_ClassStart = 120;
@@ -488,14 +489,19 @@ public interface tfvisConstants {
 	int Ev_IntUpdate = 200;
 	int Ev_DoubleUpdate = 210;
 	int Ev_StringUpdate = 220;
-	int Ev_Input = 230;
-
+	int Ev_ByteUpdate = 230;
+	int Ev_ShortUpdate = 240;
+	int Ev_LongUpdate = 250;
+	int Ev_CharUpdate = 260;
+	int Ev_FloatUpdate = 270;
+	int Ev_BooleanUpdate = 280;
+	
+	int Ev_UpdateInstance = 290;
+	
+	// •Ï”XV‚Ì”ÍˆÍ
 	int Ev_UpdateRangeL = 200;
-	int Ev_UpdateRangeH = 249;
+	int Ev_UpdateRangeH = 290;
 
-	int Ev_CallMethod = 250;
-
-	int Ev_UpdateInstance = 260;
 
 	int Ev_For = 300;
 	int Ev_ForEnd = 302;
@@ -516,6 +522,8 @@ public interface tfvisConstants {
 	int Ev_FinallyEnd = 402;
 
 	int Ev_Super = 450;
+	// •W€“ü—Í
+	int Ev_Input = 460;
 	int Ev_Other = 999;
 
 	int ArrayMode = 1;

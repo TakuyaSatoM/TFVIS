@@ -101,8 +101,7 @@ public class Line implements tfvisConstants {
 
 	boolean hasUpdateEvent() {
 		for (int indexID : m_Event) {
-
-			if (indexID >= Ev_UpdateRangeL && indexID <= Ev_UpdateRangeH) {
+			if (Tools.isUpdateEvent(indexID)) {
 				return true;
 			}
 		}
@@ -112,11 +111,8 @@ public class Line implements tfvisConstants {
 
 	boolean hasUpdateEvent_NotArray() {
 		for (int indexID : m_Event) {
-
-			if (indexID >= Ev_UpdateRangeL && indexID <= Ev_UpdateRangeH) {
-				if (indexID % 2 != 0) {
-					return true;
-				}
+			if(!Tools.isPrimitiveUpdateEvent(indexID)) {
+				return true;
 			}
 		}
 

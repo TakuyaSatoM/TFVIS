@@ -4,14 +4,14 @@
 namespace ev{
 
 	bool isArrayUpdate(int id){
-		if(id == UPDATE_INTARRAY || id==UPDATE_DOUBLEARRAY || id==UPDATE_STRINGARRAY){
+		if(UPDATE_INT<=id && id <= UPDATE_INSTANCE && id%2 !=0){
 			return true;
 		}
 		return false;
 	}
 
 	bool isArrayUpdate(string eventName){
-		if(eventName == "int[]" || eventName == "double[]" || eventName == "String[]"){
+		if(getUpdateType(eventName) % 2 !=0){
 			return true;
 		}
 		return false;
@@ -26,7 +26,7 @@ namespace ev{
 
 	bool isPrimitiveUpdate(string eventName){
 
-		if(eventName == "int" || eventName == "double" || eventName == "String"){
+		if(getUpdateType(eventName) % 2 ==0){
 			return true;
 		}
 		return false;
@@ -34,10 +34,7 @@ namespace ev{
 
 	bool isUpdate(int id){
 
-		if(id==UPDATE_INT || id==UPDATE_INTARRAY ||
-			id==UPDATE_DOUBLE || id==UPDATE_DOUBLEARRAY ||
-			id==UPDATE_STRING || id==UPDATE_STRINGARRAY ||
-			id==UPDATE_INSTANCE){return true;}
+		if(UPDATE_INT<=id && id <= UPDATE_INSTANCE){return true;}
 		return false;
 	}
 
@@ -48,6 +45,18 @@ namespace ev{
 		if(id==UPDATE_DOUBLEARRAY){return "double[]";}
 		if(id==UPDATE_STRING){return "String";}
 		if(id==UPDATE_STRINGARRAY){return "String[]";}
+		if(id == UPDATE_SHORT){return "short";}
+		if(id == UPDATE_SHORTARRAY){return "short[]";}
+		if(id == UPDATE_LONG){return "long";}
+		if(id == UPDATE_LONGARRAY){return "long[]";}
+		if(id == UPDATE_STRING){return "byte";}
+		if(id == UPDATE_STRINGARRAY){return "byte[]";}
+		if(id == UPDATE_CHAR){return "char";}
+		if(id == UPDATE_CHARARRAY){return "char[]";}
+		if(id == UPDATE_FLOAT){return "float";}
+		if(id == UPDATE_FLOATARRAY){return "float[]";}
+		if(id == UPDATE_BOOLEAN){return "boolean";}
+		if(id == UPDATE_BOOLEANARRAY){return "boolean[]";}
 
 		return "Object";
 	}
@@ -59,6 +68,18 @@ namespace ev{
 		if(type == "double[]"){return UPDATE_DOUBLEARRAY;}
 		if(type == "String"){return UPDATE_STRING;}
 		if(type == "String[]"){return UPDATE_STRINGARRAY;}
+		if(type == "short"){return UPDATE_SHORT;}
+		if(type == "short[]"){return UPDATE_SHORTARRAY;}
+		if(type == "long"){return UPDATE_LONG;}
+		if(type == "long[]"){return UPDATE_LONGARRAY;}
+		if(type == "byte"){return UPDATE_STRING;}
+		if(type == "byte[]"){return UPDATE_STRINGARRAY;}
+		if(type == "char"){return UPDATE_CHAR;}
+		if(type == "char[]"){return UPDATE_CHARARRAY;}
+		if(type == "float"){return UPDATE_FLOAT;}
+		if(type == "float[]"){return UPDATE_FLOATARRAY;}
+		if(type == "boolean"){return UPDATE_BOOLEAN;}
+		if(type == "boolean[]"){return UPDATE_BOOLEANARRAY;}
 
 		return UPDATE_INSTANCE;
 	}
