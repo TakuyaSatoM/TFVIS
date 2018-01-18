@@ -1,0 +1,12 @@
+100,###  public int getMin(){#
+170,##num,#    if(num<=1){#
+150,###      return 0;#
+172,###    }#
+200,#min,#values[0],#    int min=values[0];#
+300,200,#i,#i,#    for(int i=0;i<num;i++){#
+170,##min,values[i],i,#      if(min>values[i]){#
+200,#min,#values[i],i,#        min=values[i];#
+172,###      }#
+302,###    }#
+150,##min,#    return min;#
+101,###  }#

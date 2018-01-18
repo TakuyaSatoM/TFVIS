@@ -221,7 +221,7 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 
 	//行別イベント名
 	{
-		Exe* indexExe = dt->m_Exe;
+		Exe* indexExe = &instance->fieldExe;
 		for(int i=0; i<instance->fieldNum; i++){
 					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
@@ -243,7 +243,7 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 
 	//データ遷移表上描画
 	{	
-			Exe* indexExe = dt->m_Exe;
+			Exe* indexExe = &instance->fieldExe;
 			for(int i=0; i<instance->fieldNum; i++){
 					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();

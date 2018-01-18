@@ -1,0 +1,8 @@
+100,200,#val,##  public int setValue(int val){#
+170,##num,maxSize,#    if(num>=maxSize){#
+150,###      return 0;#
+172,###    }#
+200,#num,#num,#    num++;#
+200,#values[num],#num,val,#    values[num]=val;#
+150,###    return 1;#
+101,###  }#

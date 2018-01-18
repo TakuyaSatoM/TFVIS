@@ -51,30 +51,7 @@ public:
   }
 };
 
-class UV_Instance:public UpdateVars
-{
-public:
 
-  UV_Instance(){}
-  UV_Instance(string name, int instanceID, string type, int num):UpdateVars(name, instanceID,"", type)
-  {
-	  fieldNum = num;
-  }
-
-  virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
-  virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
-
-
-  int m_TargetInstanceID;
-  int fieldNum;
-
-  virtual string getNewDataText() {
-	  static char text[128];
-	  
-	  sprintf(text,"%s", m_Target.c_str());
-	  return text;
-  }
-};
 
 
 class DTCom;
@@ -106,27 +83,6 @@ class Event
 	Event(){}
 	virtual ~Event(){}
 };
-
-class E_Update:public Event
-{
-	public:
-	UpdateVars m_Updates;
-	C_String  m_Infs;
-	boolean standard_Input;
-	int instanceID;
-
-	E_Update(int id){instanceID=id;}
-
-	void SetPrimitives(char* stock, int type);
-	void SetPrimitivesArray(char* stock, int type);
-	void SetInstance(char* stock, Exe* exe, Exe* top);
-
-	void setInputState(char* Input);
-	bool getInputState();
-
-	static int existRelation(E_Update* base,E_Update* inf);
-};
-
 
 
 class E_LoopStart:public Event
@@ -260,5 +216,50 @@ public:
 
 };
 
+class UV_Instance:public UpdateVars
+{
+public:
+
+  UV_Instance(){}
+  UV_Instance(string name, int instanceID, string type, int num):UpdateVars(name, instanceID,"", type)
+  {
+	  fieldNum = num;
+  }
+
+  virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
+  virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
+
+  Exe fieldExe;
+  int m_TargetInstanceID;
+  int fieldNum;
+
+  virtual string getNewDataText() {
+	  static char text[128];
+	  
+	  sprintf(text,"%s", m_Target.c_str());
+	  return text;
+  }
+};
+
+class E_Update:public Event
+{
+	public:
+	UpdateVars m_Updates;
+	C_String  m_Infs;
+	boolean standard_Input;
+	int instanceID;
+
+	E_Update(int id){instanceID=id;}
+
+	void SetPrimitives(char* stock, int type);
+	void SetPrimitivesArray(char* stock, int type);
+	void SetInstance(char* stock, Exe* exe);
+	void recursiveMakeInstance(string name, int instanceID, Exe* exe, UV_Instance* instance);
+
+	void setInputState(char* Input);
+	bool getInputState();
+
+	static int existRelation(E_Update* base,E_Update* inf);
+};
 
 #endif 

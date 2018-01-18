@@ -125,7 +125,7 @@ void DtDiagram::drawFields(DTCom* dt){
 	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
 	bool shadow=true;
 
-	Exe* indexExe = dt->m_Exe;
+	Exe* indexExe = &instance->fieldExe;
 
 	for(int i=0; i<instance->fieldNum; i++){
 		indexExe = indexExe->CHECK();

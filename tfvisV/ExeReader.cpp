@@ -59,7 +59,7 @@ void ExeReader::read(Exe* top)
 		 index->m_Event=new E_Update(index->m_InstanceID);
 
 		 if(index->m_EventType == ev::UPDATE_INSTANCE){
-			 ((E_Update*)index->m_Event)->SetInstance(StockText, index, top);;
+			 ((E_Update*)index->m_Event)->SetInstance(StockText, index);
 		 }else if(index->m_EventType==ev::UPDATE_INTARRAY || index->m_EventType==ev::UPDATE_DOUBLEARRAY || index->m_EventType==ev::UPDATE_STRINGARRAY){
 			 ((E_Update*)index->m_Event)->SetPrimitivesArray(StockText, index->m_EventType);
 			 if(SeekDel('#')){return;}

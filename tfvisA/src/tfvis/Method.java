@@ -271,8 +271,7 @@ public class Method implements tfvisConstants {
 								+ ", " + target + "," + target2 + "," + use + "," + inputState + ");");
 						insertedProbe = true;
 						inputState = false;
-					}
-					if (Tools.isUpdateEvent(event) && !Tools.isPrimitiveUpdateEvent(event)) {// Primitive型配列更新
+					} else if (Tools.isUpdateEvent(event) && event != Ev_UpdateInstance) {// Primitive型配列更新
 
 						ArrayList<String> targetList = line.getTargetList();
 						String target = targetList.get(0);
