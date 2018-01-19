@@ -1,24 +1,23 @@
 
 public class Main {
-
 	public static void main(String[] args) {
-		Ary ary = new Ary(7);
 
-		ary.setValue(3);
-		ary.setValue(0);
-		ary.setValue(4);
-		ary.setValue(7);
-		ary.setValue(2);
+		StockControler controler = new StockControler();
+		System.out.println("在庫管理システム");
 
-		int min = ary.getMin();
-		System.out.println("最小>>" + min);
+		controler.set("apple", 50, 7500);
+		controler.set("banana", 40, 8000);
+		controler.set("cherry", 30, 90000);
+		controler.set("durian", 10, 10000);
 
-		int max = ary.getMax();
-		System.out.println("最大>>" + max);
+		controler.addStock("banana", 10, 2000);
+		controler.addStock("apple", 20, 3000);
 
-		int ave = ary.getAve();
-		System.out.println("平均>>" + ave);
+		controler.addStockUnderWeight(50, 20);
+
+		controler.calculateUnitPrice();
+
+		System.out.println("在庫管理システム終了");
 
 	}
-
 }

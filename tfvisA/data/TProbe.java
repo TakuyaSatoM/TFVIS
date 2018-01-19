@@ -507,8 +507,8 @@ public class TProbe {
 			Object instance) {
 		String str = "";
 
+		str += name + ",";
 		if (instance != null) {
-			str += name + ",";
 			str += instance.getClass().getName() + ",";
 			str += instance.hashCode() + ",";
 			int fieldCountNum = instance.getClass().getDeclaredFields().length;

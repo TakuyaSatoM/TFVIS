@@ -11,6 +11,7 @@ class  C_Set
  private:
  C_Set *f_Top;
  C_Set *f_Next,*f_Back;
+ C_Set *f_Branch;
  
 
  public:
@@ -25,6 +26,7 @@ class  C_Set
 
  C_Set* BACK(){return f_Back;}
  C_Set* NEXT(){return f_Next;}
+ C_Set* BRANCH(){return f_Branch;}
 
  virtual C_Set* CHECK()
  {
@@ -36,9 +38,15 @@ class  C_Set
 	 if(f_Top==f_Back){return NULL;}
 	 return f_Back;
  }
+ virtual C_Set* CHECK_BRANCH()
+ {
+	 if(f_Top==f_Branch){return NULL;}
+	 return f_Branch;
+ }
  
  int  NUM();
  virtual void Add(C_Set* in);
+ virtual void AddBranch(C_Set* branch);
 
  void CHANGE();
 

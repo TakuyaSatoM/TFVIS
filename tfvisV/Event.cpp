@@ -272,11 +272,12 @@ void E_Update::recursiveMakeInstance(string name, int targetInstanceID, Exe* exe
 			}
 		}
 	}
-	
+	if(indexExe == NULL){return;}
 
 	// イベントグラフにフィールドの更新を追加
 	Exe* updateFieldExe;
-	instance->fieldExe.Add(updateFieldExe = new Exe);
+	
+	exe->AddBranch(updateFieldExe = new Exe);
 	
 	updateFieldExe->m_EventType = indexExe->m_EventType;
 	updateFieldExe->m_Number = exe->m_Number;
@@ -337,6 +338,7 @@ void E_Update::SetInstance(char* stock,Exe* exe)
 
 	for(int i=0;i<fieldNum;i++){
 		TEXT::Seek(stock,',',&seek,get);
+		// フィールドのチェック
 		recursiveMakeInstance(get, targetInstanceID, exe, instance);
 	}
 	return;

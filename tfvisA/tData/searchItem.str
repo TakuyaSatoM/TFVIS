@@ -1,0 +1,15 @@
+100,220,#SearchName,##  public Item searchItem(String SearchName){#
+200,#i,##    int i=0;#
+290,#item,##    Item item=null;#
+220,#name,##    String name="";#
+290,#result,##    Item result=null;#
+350,##i,#    while(i<ItemList.size()){#
+290,#item,#i,#      item=ItemList.get(i);#
+220,110,#name,##      name=item.getName();#
+170,##name,SearchName,#      if(name.equals(SearchName)){#
+290,#result,##        result=item;#
+172,###      }#
+200,#i,#i,#      i++;#
+352,###    }#
+150,###    return result;#
+101,###  }#

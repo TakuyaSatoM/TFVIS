@@ -38,7 +38,8 @@ public:
 
   virtual UpdateVars* next(){return (UpdateVars*)C_Set::CHECK();}
   virtual UpdateVars* back(){return (UpdateVars*)C_Set::CHECK_BACK();}
-
+  virtual UpdateVars* branch(){return (UpdateVars*)C_Set::CHECK_BRANCH();}
+  
   string m_Target;
   int instanceID;
   string m_Value;
@@ -186,6 +187,7 @@ public:
   }
   Exe* CHECK(){return (Exe*)C_Set::CHECK();}
   Exe* back(){return (Exe*)C_Set::CHECK_BACK();}
+  Exe* CHECK_BRANCH(){return (Exe*)C_Set::CHECK();}
 
   INT2 m_DTXY;
 
@@ -228,8 +230,8 @@ public:
 
   virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
   virtual UV_Instance* back(){return (UV_Instance*)C_Set::CHECK_BACK();}
+  virtual UV_Instance* branch(){return (UV_Instance*)C_Set::CHECK_BRANCH();}
 
-  Exe fieldExe;
   int m_TargetInstanceID;
   int fieldNum;
 

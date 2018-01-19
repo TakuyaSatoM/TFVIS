@@ -106,11 +106,11 @@ void DtDiagram::drawTable(DTCom* dt)
 							//インスタンスの更新
 							InstanceUpdate(dt,indexExe,cellArea,po);
 							// フィールド更新の読み飛ばし
-							E_Update* updateEvent = (E_Update*)indexExe->m_Event;
+							/*E_Update* updateEvent = (E_Update*)indexExe->m_Event;
 							UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
 							for(int i=0; i<instance->fieldNum; i++){
 								indexExe = indexExe->CHECK();
-							}
+							}*/
 						}else{
 							variableUpdate(dt,indexExe,cellArea,po);
 						}
@@ -221,7 +221,7 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 
 	//行別イベント名
 	{
-		Exe* indexExe = &instance->fieldExe;
+		Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 		for(int i=0; i<instance->fieldNum; i++){
 					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
@@ -243,7 +243,7 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 
 	//データ遷移表上描画
 	{	
-			Exe* indexExe = &instance->fieldExe;
+			Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 			for(int i=0; i<instance->fieldNum; i++){
 					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
