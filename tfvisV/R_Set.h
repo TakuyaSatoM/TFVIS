@@ -47,8 +47,7 @@ class  C_Set
  int  NUM();
  virtual void Add(C_Set* in);
  virtual void AddBranch(C_Set* branch);
-
- void CHANGE();
+ virtual void AddNotOverwriteTop(C_Set* branch);
 
  void Reset();
 };

@@ -273,11 +273,6 @@ void E_Update::recursiveMakeInstance(string name, int targetInstanceID, Exe* exe
 		}
 	}
 	if(indexExe == NULL){return;}
-
-	// イベントグラフにフィールドの更新を追加
-	Exe* updateFieldExe;
-	
-	exe->AddBranch(updateFieldExe = new Exe);
 	
 	updateFieldExe->m_EventType = indexExe->m_EventType;
 	updateFieldExe->m_Number = exe->m_Number;
@@ -290,19 +285,21 @@ void E_Update::recursiveMakeInstance(string name, int targetInstanceID, Exe* exe
 		
 	if(ev::isPrimitiveUpdate(updateFieldExe->m_EventType)){
 		// プリミティブ型更新イベントの追加
-		((E_Update*)updateFieldExe->m_Event)->m_Updates.Add(new UpdateVars(fieldName,targetInstanceID,updateEvent->m_Updates.next()->m_Value, ev::getUpdateType(updateFieldExe->m_EventType)));
+		((E_Update*)updateFieldExe->m_Event)->m_Updates.AddNotOverwriteTop(new UpdateVars(fieldName,targetInstanceID,updateEvent->m_Updates.next()->m_Value, ev::getUpdateType(updateFieldExe->m_EventType)));
 		if(updateEvent->m_Updates.next()->m_Value != ""){
 			// 参照変数の追加
-			 ((E_Update*)updateFieldExe->m_Event)->m_Infs.Add(new C_String(fieldName, targetInstanceID));
+			 ((E_Update*)updateFieldExe->m_Event)->m_Infs.AddNotOverwriteTop(new C_String(fieldName, targetInstanceID));
 		 }
 	}else if(ev::isArrayUpdate(updateFieldExe->m_EventType)){
 		// 配列更新イベントの追加
 		E_Update* fieldArrayUpdate = (E_Update*)updateFieldExe->m_Event;
 		UpdateVars* index=&updateEvent->m_Updates;
 		while(index = index->next()){
-			fieldArrayUpdate->m_Updates.Add(new UpdateVars(index->m_Target, targetInstanceID, index->m_Value,ev::getUpdateType(updateFieldExe->m_EventType)));
+			fieldArrayUpdate->m_Updates.AddNotOverwriteTop(new UpdateVars(index->m_Target, targetInstanceID, index->m_Value,ev::getUpdateType(updateFieldExe->m_EventType)));
 		}
 	 }else if(updateFieldExe->m_EventType == ev::UPDATE_INSTANCE){
+		 E_Update* fieldArrayUpdate = (E_Update*)updateFieldExe->m_Event;
+		 UV_Instance* index = (UV_Instance*)updateEvent->m_Updates.next();
 		 //((E_Update*)updateFieldExe->m_Event)->recursiveMakeInstance(fieldName,targetInstanceID,fieldType,7,);
 	 }
 	((E_Update*)updateFieldExe->m_Event)->standard_Input = false;
@@ -335,6 +332,10 @@ void E_Update::SetInstance(char* stock,Exe* exe)
 
 	UV_Instance* instance= new UV_Instance(name,instanceID,type,fieldNum);
 	m_Updates.Add(instance);
+
+	// イベントグラフの分岐作成
+	Exe* updateFieldExe;
+	exe->AddBranch(updateFieldExe = new Exe);
 
 	for(int i=0;i<fieldNum;i++){
 		TEXT::Seek(stock,',',&seek,get);

@@ -3,22 +3,7 @@
 //トップ要素 コンストラクタ
 C_Set::C_Set()
 {
-	f_Next=f_Back=f_Branch=f_Top=this;
-}
- 
-void C_Set::CHANGE()
-{
-	C_Set* im=this;
-	C_Set* target=im->f_Next;
-	C_Set* start=this->f_Back;
-	C_Set* end=target->f_Next;
-
-	start->f_Next=target;
-	target->f_Back=start;
-	target->f_Next=im;
-	im->f_Back=target;
-	im->f_Next=end;
-	end->f_Back=im;
+	f_Next=f_Back=f_Top=this;
 }
 
 int C_Set::NUM()
@@ -61,28 +46,31 @@ void C_Set::Add(C_Set* in)
 		return;
 	}
 
-	
    in->f_Top=this;
    in->f_Next=this;
    in->f_Back=this->f_Back;
    this->f_Back->f_Next=in;
    this->f_Back=in;
-   
+
 }
 
 void C_Set::AddBranch(C_Set* in)
 {
-	
+
 	in->f_Top=this->f_Top;
    in->f_Next=this;
-   in->f_Branch=this;
-   in->f_Back=this->f_Back;
-   this->f_Back->f_Branch=in;
-   this->f_Back=in;
+   in->f_Back=this;
    this->f_Branch=in;
 
 }
 
+
+void C_Set::AddNotOverwriteTop(C_Set* in){
+	in->f_Top = this->f_Top;
+	in->f_Next=this;
+	in->f_Back=this;
+	this->f_Next=in;
+}
 void C_Set::Out()
 {
    if(f_Top != this)
