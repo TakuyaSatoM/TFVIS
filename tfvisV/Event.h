@@ -60,6 +60,7 @@ namespace ev{
    string getUpdateType(int id);
    int getUpdateType(string type);
 
+
 }
 
 

@@ -252,12 +252,9 @@ vector<string> split(const string &s, char delim) {
     return elems;
 }
 
-void E_Update::recursiveMakeInstance(string name, int targetInstanceID, Exe* exe, UV_Instance* instance){
+Exe* getLastupdateEvent(string name, int targetInstanceID,Exe* exe){
 
-	// インスタンス更新クラス下に各フィールドの更新イベントクラスを作成
 	Exe* indexExe = exe;
-
-	string fieldName = name;
 	E_Update* updateEvent;
 
 	// 各フィールドの型、更新値を取得
@@ -267,43 +264,62 @@ void E_Update::recursiveMakeInstance(string name, int targetInstanceID, Exe* exe
 			updateEvent = (E_Update*)indexExe->m_Event;
 			// フィールド名とインスタンスIDが一致する変数更新の取得
 			vector<string> m_TargetString = split(updateEvent->m_Updates.next()->m_Target, '[');
-			if(m_TargetString[0] == fieldName && indexExe -> m_InstanceID == targetInstanceID){
+			if(m_TargetString[0] == name && indexExe -> m_InstanceID == targetInstanceID){
 				break;
 			}
 		}
 	}
-	if(indexExe == NULL){return;}
+
+	return indexExe;
+}
+
+void E_Update::recursiveMakeFieldEvent(string fieldName[16], int targetInstanceID, int fieldNum, Exe* exe){
 	
-	updateFieldExe->m_EventType = indexExe->m_EventType;
-	updateFieldExe->m_Number = exe->m_Number;
-	updateFieldExe->m_InstanceID = targetInstanceID;
-	updateFieldExe->m_MethodID = exe->m_MethodID;
-	updateFieldExe->m_MethodExeID = exe->m_MethodExeID;
-	updateFieldExe->m_LineID = exe->m_LineID;
+	for(int i=0;i<fieldNum;i++){
+		Exe* targetUpdateExe = getLastupdateEvent(fieldName[i], targetInstanceID, exe);
+		if(targetUpdateExe == NULL){return;}
+
+		Exe* updateFieldExe;
+		if(i==0){
+			exe->AddBranch(updateFieldExe = new Exe);
+		}else{
+			exe->AddNotOverwriteTop(updateFieldExe = new Exe);
+		}
+
+		// インスタンス更新クラス下に各フィールドの更新イベントクラスを作成
+		updateFieldExe->m_EventType = targetUpdateExe->m_EventType;
+		updateFieldExe->m_Number = exe->m_Number;
+		updateFieldExe->m_InstanceID = ((E_Update*)targetUpdateExe->m_Event)->instanceID;
+		updateFieldExe->m_MethodID = exe->m_MethodID;
+		updateFieldExe->m_MethodExeID = exe->m_MethodExeID;
+		updateFieldExe->m_LineID = exe->m_LineID;
+
 
 	updateFieldExe->m_Event=new E_Update(updateFieldExe->m_InstanceID);
 		
 	if(ev::isPrimitiveUpdate(updateFieldExe->m_EventType)){
 		// プリミティブ型更新イベントの追加
-		((E_Update*)updateFieldExe->m_Event)->m_Updates.AddNotOverwriteTop(new UpdateVars(fieldName,targetInstanceID,updateEvent->m_Updates.next()->m_Value, ev::getUpdateType(updateFieldExe->m_EventType)));
-		if(updateEvent->m_Updates.next()->m_Value != ""){
+		((E_Update*)updateFieldExe->m_Event)->m_Updates.AddNotOverwriteTop(new UpdateVars(fieldName[i],targetInstanceID,((E_Update*)targetUpdateExe->m_Event)->m_Updates.next()->m_Value, ev::getUpdateType(updateFieldExe->m_EventType)));
+		if(((E_Update*)targetUpdateExe->m_Event)->m_Updates.next()->m_Value != ""){
 			// 参照変数の追加
-			 ((E_Update*)updateFieldExe->m_Event)->m_Infs.AddNotOverwriteTop(new C_String(fieldName, targetInstanceID));
+			 ((E_Update*)updateFieldExe->m_Event)->m_Infs.AddNotOverwriteTop(new C_String(fieldName[i], targetInstanceID));
 		 }
 	}else if(ev::isArrayUpdate(updateFieldExe->m_EventType)){
 		// 配列更新イベントの追加
 		E_Update* fieldArrayUpdate = (E_Update*)updateFieldExe->m_Event;
-		UpdateVars* index=&updateEvent->m_Updates;
+		UpdateVars* index=&((E_Update*)targetUpdateExe->m_Event)->m_Updates;
 		while(index = index->next()){
 			fieldArrayUpdate->m_Updates.AddNotOverwriteTop(new UpdateVars(index->m_Target, targetInstanceID, index->m_Value,ev::getUpdateType(updateFieldExe->m_EventType)));
 		}
 	 }else if(updateFieldExe->m_EventType == ev::UPDATE_INSTANCE){
-		 E_Update* fieldArrayUpdate = (E_Update*)updateFieldExe->m_Event;
-		 UV_Instance* index = (UV_Instance*)updateEvent->m_Updates.next();
+		 //E_Update* fieldArrayUpdate = (E_Update*)updateFieldExe->m_Event;
+		 //UV_Instance* index = (UV_Instance*)((E_Update*)targetUpdateExe->m_Event)->m_Updates.next();
 		 //((E_Update*)updateFieldExe->m_Event)->recursiveMakeInstance(fieldName,targetInstanceID,fieldType,7,);
 	 }
 	((E_Update*)updateFieldExe->m_Event)->standard_Input = false;
 
+	exe = updateFieldExe;
+	}
 	return;
 }
 
@@ -312,6 +328,7 @@ void E_Update::SetInstance(char* stock,Exe* exe)
 	int seek=0;
 	char get[256];
 	char tmp[256];
+	string fieldName[16];
 	
 	//変数名
 	TEXT::Seek(stock,',',&seek,get);
@@ -330,18 +347,18 @@ void E_Update::SetInstance(char* stock,Exe* exe)
 	// コンパイル時に自動生成するTP_CLASSIDを除く
 	int fieldNum=atoi(get)-1;
 
+	for(int i=0; i<fieldNum;i++){
+		TEXT::Seek(stock,',',&seek,get);
+		fieldName[i] = get;
+	}
+
 	UV_Instance* instance= new UV_Instance(name,instanceID,type,fieldNum);
 	m_Updates.Add(instance);
 
-	// イベントグラフの分岐作成
-	Exe* updateFieldExe;
-	exe->AddBranch(updateFieldExe = new Exe);
+	recursiveMakeFieldEvent(fieldName, targetInstanceID,fieldNum, exe);
+	
 
-	for(int i=0;i<fieldNum;i++){
-		TEXT::Seek(stock,',',&seek,get);
-		// フィールドのチェック
-		recursiveMakeInstance(get, targetInstanceID, exe, instance);
-	}
+	
 	return;
 
 }

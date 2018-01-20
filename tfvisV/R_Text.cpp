@@ -32,7 +32,7 @@ namespace TEXT
 	{
 		int tmpCount=0;
 		int i;
-		for(i=*seek;;i++)
+		for(i=*seek;;i++) 
 		{
 			if(text[i]==delim)
 			{

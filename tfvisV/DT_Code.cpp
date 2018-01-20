@@ -128,8 +128,6 @@ void DtDiagram::drawFields(DTCom* dt){
 	Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 
 	for(int i=0; i<instance->fieldNum; i++){
-		indexExe = indexExe->CHECK();
-
 		UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 		string targetVariableName = field->m_Target.c_str();
 		string targetVariableType = field->m_Type;
@@ -149,9 +147,7 @@ void DtDiagram::drawFields(DTCom* dt){
 			po->f_Color=D3DXVECTOR4(0,0,0,0.05);
 			po->Set();
 		}
-
-		field = (UpdateVars*)field->next();
-
+		indexExe = indexExe->CHECK();
 	}
 
 

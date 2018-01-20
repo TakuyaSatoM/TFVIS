@@ -187,7 +187,7 @@ public:
   }
   Exe* CHECK(){return (Exe*)C_Set::CHECK();}
   Exe* back(){return (Exe*)C_Set::CHECK_BACK();}
-  Exe* CHECK_BRANCH(){return (Exe*)C_Set::CHECK();}
+  Exe* CHECK_BRANCH(){return (Exe*)C_Set::CHECK_BRANCH();}
 
   INT2 m_DTXY;
 
@@ -256,7 +256,7 @@ class E_Update:public Event
 	void SetPrimitives(char* stock, int type);
 	void SetPrimitivesArray(char* stock, int type);
 	void SetInstance(char* stock, Exe* exe);
-	void recursiveMakeInstance(string name, int instanceID, Exe* exe, UV_Instance* instance);
+	void recursiveMakeFieldEvent(string fieldName[16], int instanceID, int fieldNum,Exe* exe);
 
 	void setInputState(char* Input);
 	bool getInputState();
