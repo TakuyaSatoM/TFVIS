@@ -5,18 +5,16 @@ public class Main {
 		StockControler controler = new StockControler();
 		System.out.println("在庫管理システム");
 
-		controler.set("apple", 50, 7500);
-		controler.set("banana", 40, 8000);
-		controler.set("cherry", 30, 90000);
-		controler.set("durian", 10, 10000);
+		controler.addStock("apple", 50, 7500, 0);
+		controler.addStock("wine", 40, 40000, 20);
+		controler.addStock("cigarette", 30, 30000, 60);
 
-		controler.addStock("banana", 10, 2000);
-		controler.addStock("apple", 20, 3000);
+		controler.addStock("cigarette", 30, 30000, 60);
 
-		controler.addStockUnderWeight(50, 20);
+		controler.changeTax("cigarette", 70);
 
-		controler.calculateUnitPrice();
-
+		int sum = controler.getTotalPrice();
+		System.out.println("合計:" + sum);
 		System.out.println("在庫管理システム終了");
 
 	}

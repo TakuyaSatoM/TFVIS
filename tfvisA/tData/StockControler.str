@@ -1,4 +1,0 @@
-100,###  public StockControler(){#
-290,#ItemList,##    ItemList=new ArrayList <Item >();#
-200,#ItemID,##    ItemID=0;#
-101,###  }#

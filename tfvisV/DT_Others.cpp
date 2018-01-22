@@ -87,7 +87,7 @@ void  DTAItem::drawDTA(RC_2DPorigon* po,DTCom* dt,DTAItem* parent)
 		{
 			if(m_Ad->m_EventType==ev::UPDATE_INTARRAY)
 			{
-					be.x+=-DtDiagram::DTCELLW/4+m_INumber*12+5;
+					be.x+=-DtDiagram::DTCELLW/4+m_INumber*12+10;
 			}		
 		}
 	}
@@ -106,7 +106,6 @@ void  DTAItem::drawDTA(RC_2DPorigon* po,DTCom* dt,DTAItem* parent)
 	//if(m_Child){m_Child->drawDTA(po,dt,this);}
 	if(m_Sibling){m_Sibling->drawDTA(po,dt,parent);}
 }
-
 
 
 void Exe::createDTA(DTAItem* dta)
@@ -138,15 +137,16 @@ void Exe::createDTA(DTAItem* dta)
 			bool existRelation=false;
 			int count=0;
 			UpdateVars* uin=&((E_Update*)index->m_Event)->m_Updates;
-			while(uin=uin->next())
-			{
-				if(uin->m_Target == infIndex->m_Text && uin->instanceID == infIndex->instanceID)
-				{
-						existRelation=true;
+			
+			while(uin=uin->next()){
+				if(uin->m_Target == infIndex->m_Text && uin->instanceID == infIndex->instanceID){
+					existRelation=true;
 						break;
 				}
 				count++;
 			}
+			
+
 
 			if(existRelation)
 			{

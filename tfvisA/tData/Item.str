@@ -1,6 +1,0 @@
-100,200,220,200,200,#id,name,weight,price,##  public Item(int id,String name,int weight,int price){#
-200,#id,#id,#    this.id=id;#
-220,#name,#name,#    this.name=name;#
-200,#totalWeight,#weight,#    this.totalWeight=weight;#
-200,#totalPrice,#price,#    this.totalPrice=price;#
-101,###  }#

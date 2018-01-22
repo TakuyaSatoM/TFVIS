@@ -9,7 +9,7 @@ class C_Reader
 protected:
 
 char m_FileName[256];
-char StockText[256];//一時退避ボックス
+char StockText[512];//一時退避ボックス
 char* Source;//ファイル内容
 DWORD FileSeek;//読み込み地点
 DWORD FileSize;//ファイルサイズ

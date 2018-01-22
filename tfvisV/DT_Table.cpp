@@ -105,12 +105,6 @@ void DtDiagram::drawTable(DTCom* dt)
 						}else if(ev::isInstanceUpdate(indexExe->m_EventType) == true){
 							//インスタンスの更新
 							InstanceUpdate(dt,indexExe,cellArea,po);
-							// フィールド更新の読み飛ばし
-							/*E_Update* updateEvent = (E_Update*)indexExe->m_Event;
-							UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
-							for(int i=0; i<instance->fieldNum; i++){
-								indexExe = indexExe->CHECK();
-							}*/
 						}else{
 							variableUpdate(dt,indexExe,cellArea,po);
 						}
@@ -223,7 +217,6 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	{
 		Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 		for(int i=0; i<instance->fieldNum; i++){
-					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 
 					DWordFormat(DT_CENTER | DT_VCENTER);
@@ -237,6 +230,8 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 					po->Set();
 
 					DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
+
+					indexExe = indexExe->CHECK();
 			}
 	}
 
@@ -245,7 +240,6 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 	{	
 			Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 			for(int i=0; i<instance->fieldNum; i++){
-					indexExe = indexExe->CHECK();
 					UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 
 					C_Box cellArea;
@@ -268,7 +262,8 @@ void DtDiagram::drawFieldsTable(DTCom* dt){
 							
 					}
 
-					field = (UV_Instance*)field->CHECK();
+					indexExe = indexExe->CHECK();
+
 			}
 
 

@@ -1,6 +1,8 @@
 #include "DataTransitions.h"
 #include "Game.h"
 
+vector<string> split(const string &s, char delim);
+
 //小ウィンドウでのコード表示
 void DtDiagram::drawCode(DTCom* dt){
 
@@ -122,19 +124,21 @@ void DtDiagram::drawFields(DTCom* dt){
 
 	int bold=20*2;
 	E_Update* updateEvent = (E_Update*)dt->m_Exe->m_Event;
-	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.CHECK();
+	UV_Instance* instance = (UV_Instance*)updateEvent->m_Updates.next();
 	bool shadow=true;
 
 	Exe* indexExe = dt->m_Exe->CHECK_BRANCH();
 
 	for(int i=0; i<instance->fieldNum; i++){
+
 		UpdateVars* field = (UpdateVars*)((E_Update*)indexExe->m_Event)->m_Updates.next();
 		string targetVariableName = field->m_Target.c_str();
 		string targetVariableType = field->m_Type;
 
 		DWordFormat(DT_NOCLIP);
 		DWordArea_W(10*2,i*bold,0,0);
-		sprintf(DWordBuffer(),"%s %s",targetVariableType.c_str(),targetVariableName.c_str());
+		vector<string> variableName = split(targetVariableName.c_str(), '[');
+		sprintf(DWordBuffer(),"%s %s",targetVariableType.c_str(),variableName[0].c_str());
 		DWordColor(D3DXCOLOR(0,0,0,1));
 		DWordDrawText(G()->m_CommonFont  ,DWordBuffer());	
 

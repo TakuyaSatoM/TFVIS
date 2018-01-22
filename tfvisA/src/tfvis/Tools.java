@@ -37,7 +37,8 @@ public class Tools implements tfvisConstants {
 	}
 
 	static boolean isPrimitiveUpdateEvent(int eventID) {
-		if (Ev_UpdateRangeL <= eventID && eventID <= Ev_UpdateRangeH - 1) {
+		// インスタンス180、190 その他変数更新200~280
+		if (Ev_UpdateRangeL + 20 <= eventID && eventID <= Ev_UpdateRangeH) {
 			if (eventID % 2 == 0) {
 				return true;
 			}

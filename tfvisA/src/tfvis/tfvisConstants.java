@@ -486,6 +486,9 @@ public interface tfvisConstants {
 	int Ev_Route = 170;
 	int Ev_IfEnd = 172;
 
+	int Ev_InstanceGeneration = 180;
+	int Ev_UpdateInstance = 190;
+
 	int Ev_IntUpdate = 200;
 	int Ev_DoubleUpdate = 210;
 	int Ev_StringUpdate = 220;
@@ -495,13 +498,10 @@ public interface tfvisConstants {
 	int Ev_CharUpdate = 260;
 	int Ev_FloatUpdate = 270;
 	int Ev_BooleanUpdate = 280;
-	
-	int Ev_UpdateInstance = 290;
-	
-	// 変数更新の範囲
-	int Ev_UpdateRangeL = 200;
-	int Ev_UpdateRangeH = 290;
 
+	// 変数更新の範囲
+	int Ev_UpdateRangeL = 180;
+	int Ev_UpdateRangeH = 290;
 
 	int Ev_For = 300;
 	int Ev_ForEnd = 302;
@@ -521,6 +521,8 @@ public interface tfvisConstants {
 	int Ev_Finally = 400;
 	int Ev_FinallyEnd = 402;
 
+	int Ev_Continue = 430;
+	int Ev_Break = 440;
 	int Ev_Super = 450;
 	// 標準入力
 	int Ev_Input = 460;

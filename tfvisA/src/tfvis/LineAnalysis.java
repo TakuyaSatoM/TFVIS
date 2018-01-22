@@ -147,11 +147,20 @@ public class LineAnalysis implements tfvisConstants {
 				m_Line.get(m_Line.size() - 1).addEvent(Ev_DoWhileEnd);
 				continue;
 			}
-
 			if (nowID == ExplicitCons + Super) {
 				nowLine.addEvent(Ev_Super);
 			}
-
+			if (nowID == Continue) {
+				m_Line.get(m_Line.size()).addEvent(Ev_Continue);
+			}
+			if (nowID == Break) {
+				// m_Line.get(m_Line.size()).addEvent(Ev_Break);
+			}
+			if (nowID == ObjectExp) {
+				nowLine.addEvent(Ev_InstanceGeneration);
+				pro.setVar(new Vars(state, m_Token.get(k - 2).m_State, true));
+				nowLine.setTarget(m_Token.get(k - 2).m_State);
+			}
 			if (state.equals("readLine")) {
 				nowLine.addEventTop(Ev_Input);
 			}
@@ -193,7 +202,8 @@ public class LineAnalysis implements tfvisConstants {
 							nowLine.deleteUse(varfName);
 							nowLine.addEvent(uID - ArrayMode);
 						}
-					} else if (m_Token.get(k - 1).m_State != "=" && m_Token.get(k + 1).m_State != "=") {
+					} else if (m_Token.get(k - 1).m_State != "=" && m_Token.get(k + 1).m_State != "="
+							&& m_Token.get(k + 1).m_State != "new") {
 						nowLine.setTarget(m_Token.get(k - 1).m_State);
 						nowLine.addEvent(Ev_UpdateInstance);
 					}
@@ -276,7 +286,7 @@ public class LineAnalysis implements tfvisConstants {
 							nowLine.setTarget(m_Token.get(k + 1).m_State);
 							nowLine.addEvent(tID);
 						}
-					} else {
+					} else if (!nowLine.checkHasEvent(Ev_InstanceGeneration)) {
 						int tID = pro.checkVarsUpdate_TFVISID(new VarsQue(m_Token.get(k + 3).m_State));
 						if (tID >= 0) {
 							nowLine.setTarget(m_Token.get(k + 3).m_State);

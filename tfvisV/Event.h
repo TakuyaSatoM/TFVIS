@@ -17,6 +17,8 @@ namespace ev{
 	static const int CASE=162;
 	static const int ROUTE=170;
 
+	static const int GENERATE_INSTANCE=180;
+	static const int UPDATE_INSTANCE=190;
 	static const int UPDATE_INT=200;
 	static const int UPDATE_INTARRAY=201;
 	static const int UPDATE_DOUBLE=210;
@@ -35,7 +37,7 @@ namespace ev{
 	static const int UPDATE_FLOATARRAY = 271;
 	static const int UPDATE_BOOLEAN = 280;
 	static const int UPDATE_BOOLEANARRAY = 281;
-	static const int UPDATE_INSTANCE=290;
+
 
 	static const int LOOP_START=300;
 	static const int LOOP_NEXT=301;

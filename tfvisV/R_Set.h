@@ -40,7 +40,7 @@ class  C_Set
  }
  virtual C_Set* CHECK_BRANCH()
  {
-	 if(f_Top==f_Branch){return NULL;}
+	 if(f_Top==f_Back){return nullptr;}
 	 return f_Branch;
  }
  

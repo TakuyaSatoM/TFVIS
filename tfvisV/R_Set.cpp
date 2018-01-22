@@ -61,13 +61,14 @@ void C_Set::AddBranch(C_Set* in)
    in->f_Next=this;
    in->f_Back=this;
    this->f_Branch=in;
+   
 
 }
 
 
 void C_Set::AddNotOverwriteTop(C_Set* in){
 	in->f_Top = this->f_Top;
-	in->f_Next=this;
+	in->f_Next=this->f_Next;
 	in->f_Back=this;
 	this->f_Next=in;
 }

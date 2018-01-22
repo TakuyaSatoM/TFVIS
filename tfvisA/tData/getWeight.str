@@ -1,3 +1,0 @@
-100,###  public int getWeight(){#
-150,##totalWeight,#    return totalWeight;#
-101,###  }#

@@ -271,7 +271,8 @@ public class Method implements tfvisConstants {
 								+ ", " + target + "," + target2 + "," + use + "," + inputState + ");");
 						insertedProbe = true;
 						inputState = false;
-					} else if (Tools.isUpdateEvent(event) && event != Ev_UpdateInstance) {// Primitive型配列更新
+					} else if (Tools.isUpdateEvent(event) && event != Ev_UpdateInstance
+							&& event != Ev_InstanceGeneration) {// Primitive型配列更新
 
 						ArrayList<String> targetList = line.getTargetList();
 						String target = targetList.get(0);
@@ -336,6 +337,13 @@ public class Method implements tfvisConstants {
 
 				// インスタンス更新プローブ
 				if (event == Ev_UpdateInstance) {
+					fout.println(indent + "TProbe.Update_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
+							+ ",\"" + line.getTarget() + "\"," + line.getTarget() + ");");
+				}
+
+				// インスタンス生成プローブ
+				// 外部ライブラリに対応できなかったため、一時中断して、インスタンス更新と同じ情報を吐きます。
+				if (event == Ev_InstanceGeneration) {
 					fout.println(indent + "TProbe.Update_Instance(TP_INSTANCEID,TP_METHODID,TP_METHODEXE," + lineID
 							+ ",\"" + line.getTarget() + "\"," + line.getTarget() + ");");
 				}

@@ -108,12 +108,22 @@ namespace db{
 				ev->m_Try = beforeExe;
 			}
 
+			
 			if(indexExe->m_EventType == ev::METHOD_END){break;}
+
 
 			beforeExe=indexExe;
 			indexExe=indexExe->CHECK();
 
-			if(indexExe->m_EventType == ev::METHOD_START && indexExe != exe){indexExe=setExe(indexExe);}
+			if(indexExe->m_EventType == ev::METHOD_START && indexExe != exe){
+				indexExe=setExe(indexExe);
+				// メソッド終了イベント直後にメソッド開始イベントが来るとメソッド開始イベントをスキップしてしまうバグのためのif文
+				if(indexExe->back() != NULL){
+					if(indexExe->m_EventType == ev::METHOD_START && indexExe->back()->m_EventType == ev::METHOD_END){
+						indexExe=setExe(indexExe);
+					}
+				}
+			}
 			
 		}
 

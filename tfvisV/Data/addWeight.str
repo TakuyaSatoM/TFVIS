@@ -1,3 +1,0 @@
-100,200,#weight,##  public void addWeight(int weight){#
-200,#totalWeight,#weight,#    this.totalWeight=weight;#
-101,###  }#

@@ -2,14 +2,16 @@
 public class Item {
 	private int id;
 	private String name;
-	private int totalWeight;
-	private int totalPrice;
+	private int weight;
+	private int price;
+	private int tax;
 
-	public Item(int id, String name, int weight, int price) {
+	public Item(int id, String name, int weight, int price, int tax) {
 		this.id = id;
 		this.name = name;
-		this.totalWeight = weight;
-		this.totalPrice = price;
+		this.weight = weight;
+		this.price = price;
+		this.tax = tax;
 	}
 
 	public int getID() {
@@ -21,26 +23,31 @@ public class Item {
 	}
 
 	public int getWeight() {
-		return totalWeight;
+		return weight;
 	}
 
-	public int getTotalPrice() {
-		return totalPrice;
+	public int getTaxPrice() {
+		int total = price + tax / 100;
+		return total;
 	}
 
 	public void addWeight(int weight) {
-		this.totalWeight = weight;
+		this.weight += weight;
 	}
 
 	public void addPrice(int price) {
-		this.totalPrice += price;
+		this.price += price;
+	}
+
+	public void setTax(int tax) {
+		this.tax = tax;
 	}
 
 	public void print() {
 		System.out.println("ID:" + this.id);
 		System.out.println("Name:" + this.name);
-		System.out.println("Stock:" + this.totalWeight);
-		System.out.println("Unit Price:" + this.totalPrice);
+		System.out.println("Stock:" + this.weight);
+		System.out.println("Unit Price:" + this.price);
 
 		return;
 	}

@@ -1,3 +1,0 @@
-100,###  public String getName(){#
-150,##name,#    return name;#
-101,###  }#

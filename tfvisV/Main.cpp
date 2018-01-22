@@ -58,13 +58,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
      
 		if(DXSceneStart()){
-			Sleep(100);
 			clock_t end = clock();     // èIóπéûä‘
 		
 			FILE *fp;
-			fp = fopen("output.txt", "w");
+			fp = fopen("output.txt", "a");
 			fprintf(fp, "%d\n", (int)(end-start));
 			fclose(fp);
+			Sleep(100);
 			
 			continue;
 		}

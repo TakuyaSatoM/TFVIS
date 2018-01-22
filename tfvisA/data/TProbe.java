@@ -19,6 +19,9 @@ public class TProbe {
 
 	static final int ROUTE = 170;
 
+	static final int GENERATE_INSTANCE = 180;
+	static final int UPDATE_INSTANCE = 190;
+
 	static final int UPDATE_INT = 200;
 	static final int UPDATE_INTARRAY = 201;
 
@@ -45,8 +48,6 @@ public class TProbe {
 
 	static final int UPDATE_BOOLEAN = 280;
 	static final int UPDATE_BOOLEANARRAY = 281;
-
-	static final int UPDATE_INSTANCE = 290;
 
 	static final int LOOP = 300;
 	static final int LOOPNEXT = 301;
@@ -322,8 +323,8 @@ public class TProbe {
 			String infs, boolean inputState) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(UPDATE_BYTE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
-					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.println(UPDATE_BYTE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + name
+					+ "," + var + "," + infs + "," + DELIM + inputState + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);
@@ -335,8 +336,8 @@ public class TProbe {
 			String infs, boolean inputState) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(UPDATE_SHORT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
-					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.println(UPDATE_SHORT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + name
+					+ "," + var + "," + infs + "," + DELIM + inputState + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);
@@ -348,8 +349,8 @@ public class TProbe {
 			String infs, boolean inputState) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(UPDATE_LONG + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
-					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.println(UPDATE_LONG + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + name
+					+ "," + var + "," + infs + "," + DELIM + inputState + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);
@@ -361,8 +362,8 @@ public class TProbe {
 			String infs, boolean inputState) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(UPDATE_CHAR + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
-					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.println(UPDATE_CHAR + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + name
+					+ "," + var + "," + infs + "," + DELIM + inputState + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);
@@ -374,8 +375,8 @@ public class TProbe {
 			String infs, boolean inputState) {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
-			pw.println(UPDATE_FLOAT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
-					+ name + "," + var + "," + infs + "," + DELIM + inputState + DELIM);
+			pw.println(UPDATE_FLOAT + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM + name
+					+ "," + var + "," + infs + "," + DELIM + inputState + DELIM);
 			pw.close();
 		} catch (IOException e) {
 			System.out.println(e);
@@ -503,13 +504,12 @@ public class TProbe {
 	}
 
 	// インスタンス更新
-	static public void Update_Instance(int insID, int methodid, int methodexe, int line, String name,
-			Object instance) {
+	static public void Update_Instance(int insID, int methodid, int methodexe, int line, String name, Object instance) {
 		String str = "";
 
 		str += name + ",";
 		if (instance != null) {
-			str += instance.getClass().getName() + ",";
+			str += instance.getClass().getSimpleName() + ",";
 			str += instance.hashCode() + ",";
 			int fieldCountNum = instance.getClass().getDeclaredFields().length;
 			str += fieldCountNum + ",";
@@ -528,4 +528,39 @@ public class TProbe {
 			System.out.println(e);
 		}
 	}
+
+	 //インスタンス更新
+	/*
+	static public void Generate_Instance(int insID, int methodid, int methodexe, int line, String name,
+			Object instance) {
+		String str = "";
+
+		str += name + ",";
+
+		str += instance.getClass().getSimpleName() + ",";
+		str += instance.hashCode() + ",";
+		int fieldCountNum = instance.getClass().getDeclaredFields().length;
+		str += fieldCountNum + ",";
+		for (Field field : instance.getClass().getDeclaredFields()) {
+			try {
+				field.setAccessible(true);
+				str += field.getType() + ",";
+				str += field.getName() + ",";
+				str += field.get(instance) + ",";
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			PrintWriter pw = new PrintWriter(new FileWriter(m_MethodFile, true));
+			pw.println(GENERATE_INSTANCE + DELIM + insID + DELIM + methodid + DELIM + methodexe + DELIM + line + DELIM
+					+ str + DELIM);
+			pw.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+*/
 }

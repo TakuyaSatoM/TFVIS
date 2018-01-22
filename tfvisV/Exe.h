@@ -176,6 +176,10 @@ public:
 	  m_EventType=0;
 	  m_Number=-1;
 	  m_Event=NULL;
+	  m_LineID =0;
+	  m_InstanceID=0;
+	  m_MethodExeID=0;
+	  m_MethodID=0;
 	  m_DTXY=0;
 	  m_InDTA=false;
 	  m_DrawY=0;
@@ -213,6 +217,7 @@ public:
   int GetMethodExeID(int methodID,int number);
 
   void createDTA(DTAItem* dta);
+  bool checkLocalUpdate(UpdateVars* update, C_String* inf);
 
  
 
@@ -223,9 +228,10 @@ class UV_Instance:public UpdateVars
 public:
 
   UV_Instance(){}
-  UV_Instance(string name, int instanceID, string type, int num):UpdateVars(name, instanceID,"", type)
+  UV_Instance(string name, int instanceID, string value,string type, int num,int targetInstanceID):UpdateVars(name, instanceID,value, type)
   {
 	  fieldNum = num;
+	  m_TargetInstanceID = targetInstanceID;
   }
 
   virtual UV_Instance* next(){return (UV_Instance*)C_Set::CHECK();}
@@ -251,12 +257,15 @@ class E_Update:public Event
 	boolean standard_Input;
 	int instanceID;
 
-	E_Update(int id){instanceID=id;}
+	E_Update(int id){
+		instanceID=id;
+	}
 
 	void SetPrimitives(char* stock, int type);
 	void SetPrimitivesArray(char* stock, int type);
 	void SetInstance(char* stock, Exe* exe);
-	void recursiveMakeFieldEvent(string fieldName[16], int instanceID, int fieldNum,Exe* exe);
+	void SetFullInstance(char* stock, Exe* exe);
+	void recursiveMakeFieldEvent(vector<string> fields, int instanceID, int fieldNum,Exe* exe);
 
 	void setInputState(char* Input);
 	bool getInputState();

@@ -1,3 +1,0 @@
-100,###  public int getTotalPrice(){#
-150,##totalPrice,#    return totalPrice;#
-101,###  }#
